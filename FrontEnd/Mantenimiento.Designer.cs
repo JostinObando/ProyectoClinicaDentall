@@ -30,7 +30,7 @@
         {
             comboBoxServicio = new ComboBox();
             dataGridViewServicios = new DataGridView();
-            btnModificar = new Button();
+            btnSalir = new Button();
             btnGuardar = new Button();
             txtPrecioSinIva = new TextBox();
             txtServicio = new TextBox();
@@ -59,18 +59,19 @@
             dataGridViewServicios.Size = new Size(746, 248);
             dataGridViewServicios.TabIndex = 16;
             // 
-            // btnModificar
+            // btnSalir
             // 
-            btnModificar.Location = new Point(480, 365);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(111, 33);
-            btnModificar.TabIndex = 15;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnSalir.Location = new Point(449, 382);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(111, 33);
+            btnSalir.TabIndex = 15;
+            btnSalir.Text = "Modificar";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnModificar_Click;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(121, 382);
+            btnGuardar.Location = new Point(154, 382);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(111, 33);
             btnGuardar.TabIndex = 14;
@@ -120,7 +121,7 @@
             Controls.Add(lblCostoSinIba);
             Controls.Add(lblNombreDeServicio);
             Controls.Add(dataGridViewServicios);
-            Controls.Add(btnModificar);
+            Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
             Controls.Add(comboBoxServicio);
             IsMdiContainer = true;
@@ -135,7 +136,7 @@
 
         private ComboBox comboBoxServicio;
         private DataGridView dataGridViewServicios;
-        private Button btnModificar;
+        private Button btnSalir;
         private Button btnGuardar;
         private TextBox txtPrecioSinIva;
         private TextBox txtServicio;

@@ -89,7 +89,7 @@ namespace FrontEnd
                         string newService = $"{NombreServicio} ¢ {costoSinIva:F2}";
                         comboBoxServicio.Items.Add(newService);
 
-                     
+
                     }
                     // Resto del código para agregar a dataTable o lista de servicios si es necesario
                 }
@@ -120,7 +120,7 @@ namespace FrontEnd
                 {
                     // Agregar el nuevo servicio al ComboBox
                     string newService = $"{NombreServicio} ¢ {costoSinIva:F2}";
-                    comboBoxServicio.Items.Add(newService); 
+                    comboBoxServicio.Items.Add(newService);
                     dataTable.Rows.Add(NombreServicio, costoSinIva);
 
                     // Limpiar campos y ComboBox seleccionado
@@ -145,6 +145,13 @@ namespace FrontEnd
 
         }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+            pantallaPrincipal.Show();
+
+        }
     }
 
 }
