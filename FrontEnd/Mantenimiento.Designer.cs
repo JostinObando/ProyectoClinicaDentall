@@ -65,7 +65,7 @@
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(111, 33);
             btnSalir.TabIndex = 15;
-            btnSalir.Text = "Modificar";
+            btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnModificar_Click;
             // 
