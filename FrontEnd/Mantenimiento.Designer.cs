@@ -61,7 +61,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(449, 382);
+            btnSalir.Location = new Point(449, 384);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(111, 33);
             btnSalir.TabIndex = 15;

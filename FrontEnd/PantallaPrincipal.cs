@@ -31,8 +31,20 @@ namespace FrontEnd
 
         private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Mantenimiento mantenimiento = new Mantenimiento();  
+            Mantenimiento mantenimiento = new Mantenimiento();
             mantenimiento.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void menuStripPrincipal_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //PantallaPrincipal ipantalla = new PantallaPrincipal();
+            //ipantalla.MdiParent = this;
+            //ipantalla.Show();               
         }
     }
 }

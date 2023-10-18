@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            menuStripPrincipal = new MenuStrip();
             datosPadreToolStripMenuItem = new ToolStripMenuItem();
             datosNinioToolStripMenuItem = new ToolStripMenuItem();
             listaServiciosToolStripMenuItem = new ToolStripMenuItem();
@@ -36,18 +36,19 @@
             facturaToolStripMenuItem = new ToolStripMenuItem();
             acercaDeToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            menuStripPrincipal.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripPrincipal
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, acercaDeToolStripMenuItem, salirToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(991, 33);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
+            menuStripPrincipal.ImageScalingSize = new Size(24, 24);
+            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, acercaDeToolStripMenuItem, salirToolStripMenuItem });
+            menuStripPrincipal.Location = new Point(0, 0);
+            menuStripPrincipal.Name = "menuStripPrincipal";
+            menuStripPrincipal.Size = new Size(991, 33);
+            menuStripPrincipal.TabIndex = 1;
+            menuStripPrincipal.Text = "menuStrip1";
+            menuStripPrincipal.ItemClicked += menuStripPrincipal_ItemClicked;
             // 
             // datosPadreToolStripMenuItem
             // 
@@ -72,8 +73,8 @@
             // mantenimientoToolStripMenuItem
             // 
             mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
-            mantenimientoToolStripMenuItem.Size = new Size(148, 29);
-            mantenimientoToolStripMenuItem.Text = "Mantenimiento";
+            mantenimientoToolStripMenuItem.Size = new Size(217, 29);
+            mantenimientoToolStripMenuItem.Text = "MantenimientoServicios";
             mantenimientoToolStripMenuItem.Click += mantenimientoToolStripMenuItem_Click;
             // 
             // facturaToolStripMenuItem
@@ -93,26 +94,27 @@
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(61, 29);
             salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // PantallaPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(991, 450);
-            Controls.Add(menuStrip1);
+            Controls.Add(menuStripPrincipal);
             IsMdiContainer = true;
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = menuStripPrincipal;
             Name = "PantallaPrincipal";
             Text = "PantallaPrincipal";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            menuStripPrincipal.ResumeLayout(false);
+            menuStripPrincipal.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
+        private MenuStrip menuStripPrincipal;
         private ToolStripMenuItem datosPadreToolStripMenuItem;
         private ToolStripMenuItem datosNinioToolStripMenuItem;
         private ToolStripMenuItem listaServiciosToolStripMenuItem;

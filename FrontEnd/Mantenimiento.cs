@@ -26,7 +26,7 @@ namespace FrontEnd
             comboBoxServicio.Items.Add("Extracción de muelas | ¢ 40.000.00");
             comboBoxServicio.Items.Add("Extracción de dientes | ¢ 35.000.00");
             comboBoxServicio.Items.Add("Cirugía de cordales | ¢ 110.000.00 ");
-            comboBoxServicio.Items.Add("Ortodoncia ¢ 650.000.00");
+            comboBoxServicio.Items.Add("Ortodoncia | ¢ 650.000.00");
         }
         private void ConfigurarGridE()
         {
