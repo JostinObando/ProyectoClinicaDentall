@@ -19,6 +19,17 @@ namespace Negocios
         private List<Niño> listaNiño = new List<Niño>();
         Niño niño;
 
+        /// <summary>
+        /// Metodo registro Ninno
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="identificacion"></param>
+        /// <param name="fechaNacimiento"></param>
+        /// <param name="sexo"></param>
+        /// <param name="identificacionPadre"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public string RegistroNinio(string nombre, string apellido, string identificacion, string fechaNacimiento, string sexo, string identificacionPadre)
         {
             if (string.IsNullOrEmpty(sexo))
