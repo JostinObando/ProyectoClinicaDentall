@@ -19,7 +19,7 @@ namespace FrontEnd
 
         private void datosPadreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DatosPadres datosPadres = new DatosPadres();
+            DatosPadres datosPadres = new DatosPadres(this);
             datosPadres.Show();
         }
 

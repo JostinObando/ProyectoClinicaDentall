@@ -16,23 +16,39 @@ namespace FrontEnd
     public partial class DatosPadres : Form
     {
         private List<Padre> listaPadre = new List<Padre>();
-        public DatosPadres()
+        private PantallaPrincipal ventanaPrincipal;
+
+        public DatosPadres(PantallaPrincipal pantallaPrincipal)
         {
             InitializeComponent();
-        }
+            this.ventanaPrincipal = pantallaPrincipal;
+           
+
+    }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             DatosPadre datos = new DatosPadre();
 
 
-
-
             try
             {
+                string nombre = txtNombrePadre.Text;
+                string identificacion = txtIdendificacion.Text;
                 // string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
-                datos.RegistroPadre(txtNombrePadre.Text, txtIdendificacion.Text, txtDireccion.Text, txtCorreoElectronico.Text, txtTelefono.Text);
 
+
+                if (identificacionExistente(identificacion))
+                {
+                    MessageBox.Show("Identificacion existente en el sistema");
+                }
+
+                else
+                {
+                    datos.RegistroPadre(txtNombrePadre.Text, txtIdendificacion.Text, txtDireccion.Text, txtCorreoElectronico.Text, txtTelefono.Text);
+                    MessageBox.Show("Registro Exitoso");
+                }
+                
                 {
                     //  if (identificacionExistente == txtIdendificacion.Text) 
                     //   {
@@ -58,6 +74,11 @@ namespace FrontEnd
 
 
 
+        }
+        private void AbrirFormActual()
+        {
+         //  DatosPadre formActual = new DatosPadre(this); // Pasando la instancia de la ventana principal
+           // formActual.Show();
         }
         private bool identificacionExistente(string identificacion)
         {
@@ -95,9 +116,9 @@ namespace FrontEnd
         private void btnSalir_Click(object sender, EventArgs e)
         {
 
-            this.Close();
-            PantallaPrincipal pantalla = new PantallaPrincipal();
-            pantalla.Show();
+            this.Hide();
+            ventanaPrincipal.Show();
+            
 
         }
     }
