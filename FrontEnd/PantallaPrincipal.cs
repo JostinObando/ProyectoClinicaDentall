@@ -25,13 +25,13 @@ namespace FrontEnd
 
         private void datosNinioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DatosNiño datosNiño = new DatosNiño();
+            DatosNiño datosNiño = new DatosNiño(this);
             datosNiño.Show();
         }
 
         private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Mantenimiento mantenimiento = new Mantenimiento();
+            Mantenimiento mantenimiento = new Mantenimiento(this);
             mantenimiento.Show();
         }
 
@@ -49,7 +49,7 @@ namespace FrontEnd
 
         private void listaServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListaServicios listaServicios = new ListaServicios();   
+            ListaServicios listaServicios = new ListaServicios(this);   
             listaServicios.Show();  
         }
     }

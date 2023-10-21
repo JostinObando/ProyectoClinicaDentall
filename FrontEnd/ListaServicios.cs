@@ -14,16 +14,17 @@ namespace FrontEnd
     {
         //private ListaServicios servicioMan;
         ListaServicio servicioMan = new ListaServicio();
+        private PantallaPrincipal ventanaPrincipal;
 
-        public ListaServicios()
+        public ListaServicios(PantallaPrincipal ventanaPrincipal)
         {
             InitializeComponent();
-            
+            this.ventanaPrincipal = ventanaPrincipal;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+
 
             try
             {
@@ -53,8 +54,8 @@ namespace FrontEnd
             {
                 comboBoxServicios.Items.Add(servicio);
             }
-          //  {
-                //comboBoxServicios.Items.Add(servicio);
+            //  {
+            //comboBoxServicios.Items.Add(servicio);
             //}
 
             // Configurar las columnas del DataGridView
@@ -64,6 +65,13 @@ namespace FrontEnd
 
         private void comboBoxServicios_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ventanaPrincipal.Show();
 
         }
     }

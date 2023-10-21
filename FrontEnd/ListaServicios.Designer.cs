@@ -48,12 +48,13 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(393, 90);
+            btnSalir.Location = new Point(393, 99);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 2;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // comboBoxServicios
             // 

@@ -13,9 +13,11 @@ namespace FrontEnd
 {
     public partial class RegistroNinios : Form
     {
-        public RegistroNinios()
+        private PantallaPrincipal ventana;
+        public RegistroNinios(PantallaPrincipal ventana)
         {
             InitializeComponent();
+            this.ventana = ventana;                                                                   
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -34,7 +36,9 @@ namespace FrontEnd
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-        }
+            this.Hide();
+            ventana.Show();
+        }           
 
         private void lblFecha_Click(object sender, EventArgs e)
         {

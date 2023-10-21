@@ -17,7 +17,9 @@ namespace FrontEnd
         private List<Servicio> listaServicios = new List<Servicio>();
         private Servicio servicioSeleccionado = null;
         DataTable dataTable = new DataTable();
-        public Mantenimiento()
+        private PantallaPrincipal ventana;
+
+        public Mantenimiento(PantallaPrincipal ventana)
         {
             InitializeComponent();
             crearDataTable();
@@ -27,6 +29,7 @@ namespace FrontEnd
             comboBoxServicio.Items.Add("Extracción de dientes | ¢ 35.000.00");
             comboBoxServicio.Items.Add("Cirugía de cordales | ¢ 110.000.00 ");
             comboBoxServicio.Items.Add("Ortodoncia | ¢ 650.000.00");
+            this.ventana = ventana;
         }
         private void ConfigurarGridE()
         {
@@ -147,9 +150,9 @@ namespace FrontEnd
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
+
+            this.Hide();
+            ventana.Show();
 
         }
     }

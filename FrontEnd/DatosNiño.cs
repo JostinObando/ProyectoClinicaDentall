@@ -17,9 +17,13 @@ namespace FrontEnd
 
         private List<Niño> listaNiño = new List<Niño>();
         private List<Padre> listaPadre = new List<Padre>();
-        public DatosNiño()
+        private PantallaPrincipal principal;
+        public DatosNiño(PantallaPrincipal principal)
+
         {
             InitializeComponent();
+            this.principal = principal;
+
         }
 
         private void DatosNiño_Load(object sender, EventArgs e)
@@ -48,43 +52,7 @@ namespace FrontEnd
                 MessageBox.Show("este es el error: " + ex);
             }
 
-            //string nombre = txtNombreNiño.Text;
-            //string apellido = txtApellido.Text;
-            //string identificacion = txtIdendificacionNiño.Text;
-            //DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
-            //string sexo = comboBoxSexoNiño.ToString();
-            //string identificacionPadre = txtIDPadre.Text;
-
-            //if (string.IsNullOrEmpty(sexo))
-            //{
-            //    MessageBox.Show("Por favor seleccione el sexo");
-            //    return;
-
-
-            //}
-
-            //DateTime UnAñoAtras = DateTime.Now.AddYears(-1);
-            //if (fechaNacimiento > UnAñoAtras)
-            //{
-            //    MessageBox.Show("La fecha de nacimiento tiene que ser mayor a un año");
-            //    return;
-
-            //}
-            //if (IdentificacionExistente(identificacion))
-            //{
-            //    MessageBox.Show("Identificacio ya registrada en el sistema");
-
-            //}
-            //else
-            //{
-
-            //  Niño nuevo = new Niño(nombre, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
-            //    listaNiño.Add(nuevo);
-            //    Limpiar();
-            //    MessageBox.Show("Registrado con exito");
-
-            //}
-
+           
 
 
 
@@ -126,10 +94,9 @@ namespace FrontEnd
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            principal.Show();
 
-            this.Close();
-            PantallaPrincipal pantalla = new PantallaPrincipal();
-            pantalla.Show();
 
         }
 
