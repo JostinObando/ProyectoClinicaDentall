@@ -69,6 +69,7 @@
             listaServiciosToolStripMenuItem.Name = "listaServiciosToolStripMenuItem";
             listaServiciosToolStripMenuItem.Size = new Size(137, 29);
             listaServiciosToolStripMenuItem.Text = "Lista Servicios";
+            listaServiciosToolStripMenuItem.Click += listaServiciosToolStripMenuItem_Click;
             // 
             // mantenimientoToolStripMenuItem
             // 

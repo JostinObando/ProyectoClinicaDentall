@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class ListaServicio
+    public class ListaServicioss
     {
         public string Nombre { get; set; }
         public double Costo { get; set; }
-        public ListaServicio(string nombre, double costo) 
+        public ListaServicioss(string nombre, double costo) 
         {
             Nombre = nombre;
             Costo = costo;

@@ -31,10 +31,9 @@
             btnGuardar = new Button();
             btnSalir = new Button();
             comboBoxServicios = new ComboBox();
-            listViewServicios = new ListView();
-            colServicio = new ColumnHeader();
-            colCosto = new ColumnHeader();
             lblCosroTotal = new Label();
+            dataGridViewServicio = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).BeginInit();
             SuspendLayout();
             // 
             // btnGuardar
@@ -63,29 +62,7 @@
             comboBoxServicios.Name = "comboBoxServicios";
             comboBoxServicios.Size = new Size(182, 33);
             comboBoxServicios.TabIndex = 3;
-            // 
-            // listViewServicios
-            // 
-            listViewServicios.BackColor = SystemColors.ActiveCaption;
-            listViewServicios.Columns.AddRange(new ColumnHeader[] { colServicio, colCosto });
-            listViewServicios.Dock = DockStyle.Bottom;
-            listViewServicios.GridLines = true;
-            listViewServicios.Location = new Point(0, 160);
-            listViewServicios.Name = "listViewServicios";
-            listViewServicios.Size = new Size(800, 290);
-            listViewServicios.TabIndex = 4;
-            listViewServicios.UseCompatibleStateImageBehavior = false;
-            listViewServicios.View = View.Details;
-            // 
-            // colServicio
-            // 
-            colServicio.Text = "Servicios";
-            colServicio.Width = 300;
-            // 
-            // colCosto
-            // 
-            colCosto.Text = "Monto";
-            colCosto.Width = 300;
+            comboBoxServicios.SelectedIndexChanged += comboBoxServicios_SelectedIndexChanged;
             // 
             // lblCosroTotal
             // 
@@ -96,13 +73,23 @@
             lblCosroTotal.TabIndex = 6;
             lblCosroTotal.Text = "Costo Total : ";
             // 
+            // dataGridViewServicio
+            // 
+            dataGridViewServicio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewServicio.Location = new Point(12, 190);
+            dataGridViewServicio.Name = "dataGridViewServicio";
+            dataGridViewServicio.RowHeadersWidth = 62;
+            dataGridViewServicio.RowTemplate.Height = 33;
+            dataGridViewServicio.Size = new Size(791, 248);
+            dataGridViewServicio.TabIndex = 8;
+            // 
             // ListaServicios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(dataGridViewServicio);
             Controls.Add(lblCosroTotal);
-            Controls.Add(listViewServicios);
             Controls.Add(comboBoxServicios);
             Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
@@ -111,6 +98,7 @@
             Name = "ListaServicios";
             Text = "ListaServicios";
             Load += ListaServicios_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,9 +108,7 @@
         private Button btnGuardar;
         private Button btnSalir;
         private ComboBox comboBoxServicios;
-        private ListView listViewServicios;
-        private ColumnHeader colServicio;
-        private ColumnHeader colCosto;
         private Label lblCosroTotal;
+        private DataGridView dataGridViewServicio;
     }
 }

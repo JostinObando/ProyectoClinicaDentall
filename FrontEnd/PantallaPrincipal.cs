@@ -46,5 +46,11 @@ namespace FrontEnd
             //ipantalla.MdiParent = this;
             //ipantalla.Show();               
         }
+
+        private void listaServiciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaServicios listaServicios = new ListaServicios();   
+            listaServicios.Show();  
+        }
     }
 }
