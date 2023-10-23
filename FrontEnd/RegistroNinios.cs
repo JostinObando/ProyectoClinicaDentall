@@ -17,15 +17,15 @@ namespace FrontEnd
         public RegistroNinios(PantallaPrincipal ventana)
         {
             InitializeComponent();
-            this.ventana = ventana;                                                                   
+            this.ventana = ventana;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            int idNinio = (int)comboBoxID.SelectedValue;
-            string descripcion = txtDescripcion.Text;
-            DateTime fecha = dateTimePickerFecha.Value;
-            double costo = double.Parse(txtCosto.Text);
+            //   int idNinio = (int)comboBoxID.SelectedValue;
+            //string descripcion = txtDescripcion.Text;
+            //   DateTime fecha = dateTimePickerFecha.Value;
+            // double costo = double.Parse(txtCosto.Text);
             //var ServcioNinio = new ServicioNinios();
             // ServcioNinio.
         }
@@ -38,7 +38,7 @@ namespace FrontEnd
         {
             this.Hide();
             ventana.Show();
-        }           
+        }
 
         private void lblFecha_Click(object sender, EventArgs e)
         {

@@ -8,7 +8,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Datos;
+
 using Negocios;
 
 namespace FrontEnd
@@ -17,14 +17,15 @@ namespace FrontEnd
     {
         private List<Padre> listaPadre = new List<Padre>();
         private PantallaPrincipal ventanaPrincipal;
+        private HashSet<string> identificaciones = new HashSet<string>();
 
         public DatosPadres(PantallaPrincipal pantallaPrincipal)
         {
             InitializeComponent();
             this.ventanaPrincipal = pantallaPrincipal;
-           
 
-    }
+
+        }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
@@ -35,20 +36,22 @@ namespace FrontEnd
             {
                 string nombre = txtNombrePadre.Text;
                 string identificacion = txtIdendificacion.Text;
-                // string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
+                //string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
 
 
-                if (identificacionExistente(identificacion))
+                if (identificaciones.Contains(identificacion))
                 {
                     MessageBox.Show("Identificacion existente en el sistema");
                 }
 
                 else
                 {
-                    datos.RegistroPadre(txtNombrePadre.Text, txtIdendificacion.Text, txtDireccion.Text, txtCorreoElectronico.Text, txtTelefono.Text);
+                    identificaciones.Add(identificacion);
+                    //datos.RegistroPadre(txtNombrePadre.Text, txtIdendificacion.Text, txtDireccion.Text, txtCorreoElectronico.Text, txtTelefono.Text);
                     MessageBox.Show("Registro Exitoso");
+                    LimpiarDatos();
                 }
-                
+
                 {
                     //  if (identificacionExistente == txtIdendificacion.Text) 
                     //   {
@@ -75,10 +78,11 @@ namespace FrontEnd
 
 
         }
+
         private void AbrirFormActual()
         {
-         //  DatosPadre formActual = new DatosPadre(this); // Pasando la instancia de la ventana principal
-           // formActual.Show();
+            //  DatosPadre formActual = new DatosPadre(this); // Pasando la instancia de la ventana principal
+            // formActual.Show();
         }
         private bool identificacionExistente(string identificacion)
         {
@@ -87,9 +91,9 @@ namespace FrontEnd
             {
                 if (padre.Identicacion == identificacion)
                 {
-                    return true;
-                    MessageBox.Show("ID existente");
 
+                    //MessageBox.Show("ID existente");
+                    return true;
 
                 }
 
@@ -112,13 +116,14 @@ namespace FrontEnd
 
 
         }
+        //Aqui se ve si ya la identificacion ya ha sido registrada
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
 
             this.Hide();
             ventanaPrincipal.Show();
-            
+
 
         }
     }

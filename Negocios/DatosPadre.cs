@@ -1,11 +1,14 @@
 ﻿using System.Globalization;
 using System.Windows;
-using Datos;
+
 
 namespace Negocios
 {
     public class DatosPadre
     {
+        private List<Padre> listaPadre = new List<Padre>();
+        private List<Niño> listaNiño = new List<Niño>();
+
         //Se registra los datos brindados por el cliente
         string nombre = "";
         string identificacionPadre = "";

@@ -1,4 +1,4 @@
-﻿using Datos;
+﻿
 using Negocios;
 using System;
 using System.Collections.Generic;
@@ -40,13 +40,27 @@ namespace FrontEnd
 
             try
             {
-                // string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
-                datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, dateTimePickerFechaNacimiento.Value.ToString(), comboBoxSexoNiño.ToString(), txtIDPadre.Text);
+                // Obtener la fecha de nacimiento del niño
+                DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
 
-                Limpiar();
+                // Calcular la edad en años y meses
+                TimeSpan edad = DateTime.Now - fechaNacimiento;
+                int años = edad.Days / 365;
+                int meses = (edad.Days % 365) / 30;
+                //Valida datos ninio
+                if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
+                {
+                    // Registro válido, procede con el registro del niño
+                    datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, fechaNacimiento.ToString(), comboBoxSexoNiño.Text, txtIDPadre.Text);
+                    Limpiar();
 
-
+                }
+                else
+                {
+                    MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show("este es el error: " + ex);

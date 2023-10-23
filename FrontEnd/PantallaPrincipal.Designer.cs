@@ -45,7 +45,7 @@
             menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, acercaDeToolStripMenuItem, salirToolStripMenuItem });
             menuStripPrincipal.Location = new Point(0, 0);
             menuStripPrincipal.Name = "menuStripPrincipal";
-            menuStripPrincipal.Size = new Size(991, 33);
+            menuStripPrincipal.Size = new Size(1093, 33);
             menuStripPrincipal.TabIndex = 1;
             menuStripPrincipal.Text = "menuStrip1";
             menuStripPrincipal.ItemClicked += menuStripPrincipal_ItemClicked;
@@ -81,8 +81,9 @@
             // facturaToolStripMenuItem
             // 
             facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
-            facturaToolStripMenuItem.Size = new Size(84, 29);
-            facturaToolStripMenuItem.Text = "Factura";
+            facturaToolStripMenuItem.Size = new Size(120, 29);
+            facturaToolStripMenuItem.Text = "Funcionario";
+            facturaToolStripMenuItem.Click += facturaToolStripMenuItem_Click;
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -101,12 +102,13 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(991, 450);
+            ClientSize = new Size(1093, 450);
             Controls.Add(menuStripPrincipal);
             IsMdiContainer = true;
             MainMenuStrip = menuStripPrincipal;
             Name = "PantallaPrincipal";
             Text = "PantallaPrincipal";
+            Load += PantallaPrincipal_Load;
             menuStripPrincipal.ResumeLayout(false);
             menuStripPrincipal.PerformLayout();
             ResumeLayout(false);

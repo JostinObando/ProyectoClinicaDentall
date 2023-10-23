@@ -1,6 +1,6 @@
 ﻿namespace FrontEnd
 {
-    partial class RegistroNinios
+    partial class ConsultaCita
     {
         /// <summary>
         /// Required designer variable.
@@ -28,62 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dataGridView1 = new DataGridView();
+            textBox1 = new TextBox();
             btnSalir = new Button();
             btnGuardar = new Button();
             lblidNinio = new Label();
-            textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            btnSalir.Location = new Point(417, 393);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(112, 34);
-            btnSalir.TabIndex = 18;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
-            btnSalir.Click += btnSalir_Click;
-            // 
-            // btnGuardar
-            // 
-            btnGuardar.Location = new Point(176, 393);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(112, 34);
-            btnGuardar.TabIndex = 17;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
-            // 
-            // lblidNinio
-            // 
-            lblidNinio.AutoSize = true;
-            lblidNinio.Location = new Point(221, 57);
-            lblidNinio.Name = "lblidNinio";
-            lblidNinio.Size = new Size(30, 25);
-            lblidNinio.TabIndex = 16;
-            lblidNinio.Text = "ID";
-            lblidNinio.Click += lblidNinio_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(297, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 22;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 142);
+            dataGridView1.Location = new Point(12, 127);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.Size = new Size(776, 225);
-            dataGridView1.TabIndex = 23;
+            dataGridView1.TabIndex = 28;
             // 
-            // RegistroNinios
+            // textBox1
+            // 
+            textBox1.Location = new Point(297, 39);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(150, 31);
+            textBox1.TabIndex = 27;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(417, 378);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(112, 34);
+            btnSalir.TabIndex = 26;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(176, 378);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(112, 34);
+            btnGuardar.TabIndex = 25;
+            btnGuardar.Text = "Consultar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // lblidNinio
+            // 
+            lblidNinio.AutoSize = true;
+            lblidNinio.Location = new Point(171, 42);
+            lblidNinio.Name = "lblidNinio";
+            lblidNinio.Size = new Size(117, 25);
+            lblidNinio.TabIndex = 24;
+            lblidNinio.Text = "Identificacion";
+            // 
+            // ConsultaCita
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -94,18 +91,19 @@
             Controls.Add(btnGuardar);
             Controls.Add(lblidNinio);
             IsMdiContainer = true;
-            Name = "RegistroNinios";
-            Text = "RegistroNinios";
+            Name = "ConsultaCita";
+            Text = "ConsultaCita";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private DataGridView dataGridView1;
+        private TextBox textBox1;
         private Button btnSalir;
         private Button btnGuardar;
         private Label lblidNinio;
-        private TextBox textBox1;
-        private DataGridView dataGridView1;
     }
 }

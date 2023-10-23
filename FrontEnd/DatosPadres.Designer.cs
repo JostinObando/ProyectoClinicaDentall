@@ -124,7 +124,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(186, 351);
+            btnRegistrar.Location = new Point(172, 330);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(112, 34);
             btnRegistrar.TabIndex = 29;
@@ -134,7 +134,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(396, 351);
+            btnSalir.Location = new Point(417, 330);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 30;
