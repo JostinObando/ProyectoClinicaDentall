@@ -8,8 +8,8 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Negocios;
+using System.Xml.Serialization;
 
 namespace FrontEnd
 {
@@ -47,10 +47,25 @@ namespace FrontEnd
                 else
                 {
                     identificaciones.Add(identificacion);
-                    //datos.RegistroPadre(txtNombrePadre.Text, txtIdendificacion.Text, txtDireccion.Text, txtCorreoElectronico.Text, txtTelefono.Text);
-                    MessageBox.Show("Registro Exitoso");
-                    LimpiarDatos();
+                    identificaciones.Add(identificacion);
+                    Padre nuevoPadre = new Padre(
+                        txtNombrePadre.Text,
+                        txtIdendificacion.Text,
+                        txtDireccion.Text,
+                        txtCorreoElectronico.Text,
+                        txtTelefono.Text);
+                    listaPadre.Add(nuevoPadre);
+
+// Guardar la lista de padres en un archivo XML
+                    PadreXML.GuardarDatosEnXml(listaPadre, @"D:\Proyectos GIT\ProyectoClinicaDentall\FrontEnd\padres.xml");
+
+
+
+                    // Serializa y guarda el nuevoPadre en un archivo XML
+
                 }
+
+
 
                 {
                     //  if (identificacionExistente == txtIdendificacion.Text) 
@@ -78,12 +93,27 @@ namespace FrontEnd
 
 
         }
-
-        private void AbrirFormActual()
+        private void CargarDatosDesdeXml()
         {
-            //  DatosPadre formActual = new DatosPadre(this); // Pasando la instancia de la ventana principal
-            // formActual.Show();
+            if (File.Exists("padres.xml"))
+            {
+                try
+                {
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Padre>));
+                    using (FileStream fs = new FileStream("padres.xml", FileMode.Open))
+                    {
+                        // Deserializa la lista de padres desde el archivo XML
+                        listaPadre = (List<Padre>)xmlSerializer.Deserialize(fs);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar datos desde el archivo XML: " + ex.Message);
+                }
+            }
         }
+
+
         private bool identificacionExistente(string identificacion)
         {
             //Validacion de identificaiones existentes
@@ -105,6 +135,7 @@ namespace FrontEnd
 
 
         }
+
         private void LimpiarDatos()
         {
             //Limpia de datos 
@@ -124,6 +155,11 @@ namespace FrontEnd
             this.Hide();
             ventanaPrincipal.Show();
 
+
+        }
+
+        private void dataGridViewServicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

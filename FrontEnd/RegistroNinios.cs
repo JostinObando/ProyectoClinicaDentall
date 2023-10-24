@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,9 @@ namespace FrontEnd
 {
     public partial class RegistroNinios : Form
     {
+        private List<Padre> listapadres = new List<Padre>();
+        private List<DatosPadre> datosPadres = new List<DatosPadre>();
+
         private PantallaPrincipal ventana;
         public RegistroNinios(PantallaPrincipal ventana)
         {
@@ -27,8 +31,26 @@ namespace FrontEnd
             //   DateTime fecha = dateTimePickerFecha.Value;
             // double costo = double.Parse(txtCosto.Text);
             //var ServcioNinio = new ServicioNinios();
+
             // ServcioNinio.
+            
+            //string cedulaPadre =TX.Text;
+
+            // Busca el padre por la cédula
+           /// Padre padres;
+            //Padre padre = listapadres.FirstOrDefault(p => p.Identicacion == cedulaPadre);
+
+            //if (padre != null)
+            //{
+               // dataGridView1.DataSource = padre.Hijos;
+            //}
+            //else
+            //{
+             //   dataGridView1.DataSource = null;
+             //   MessageBox.Show("Padre no encontrado.");
+            //}
         }
+    
 
         private void dateTimePickerFecha_ValueChanged(object sender, EventArgs e)
         {

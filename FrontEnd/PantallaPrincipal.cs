@@ -12,11 +12,13 @@ namespace FrontEnd
 {
     public partial class PantallaPrincipal : Form
     {
-        public string NombreFuncionario { get; set; }
+      
         public PantallaPrincipal()
         {
             InitializeComponent();
+      
         }
+        public string NombreFuncionario { get; set; }
 
         private void datosPadreToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -26,7 +28,8 @@ namespace FrontEnd
 
         private void datosNinioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DatosNiño datosNiño = new DatosNiño(this);
+            Mantenimiento mantenimiento = new Mantenimiento(this);
+            DatosNiño datosNiño = new DatosNiño(this, mantenimiento);
             datosNiño.Show();
         }
 
@@ -62,7 +65,8 @@ namespace FrontEnd
 
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Funcionario funcionario = new Funcionario();
+            funcionario.Show();
         }
     }
 }

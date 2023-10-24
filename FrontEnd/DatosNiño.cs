@@ -18,22 +18,49 @@ namespace FrontEnd
         private List<Niño> listaNiño = new List<Niño>();
         private List<Padre> listaPadre = new List<Padre>();
         private PantallaPrincipal principal;
-        public DatosNiño(PantallaPrincipal principal)
+        private Mantenimiento mantenimiento;
+
+        private List<string> servicios = new List<string>();
+        private Dictionary<string, decimal> precios = new Dictionary<string, decimal>
+    {
+        { "Limpieza Dental", 50000.00m },
+        { "Extracción de muelas", 40000.00m },
+        { "Extracción de dientes", 35000.00m },
+        { "Cirugía de cordales", 110000.00m },
+        { "Ortodoncia", 650000.00m }
+    };
+      
+        public DatosNiño(PantallaPrincipal principal, Mantenimiento mantenimiento)
 
         {
             InitializeComponent();
             this.principal = principal;
-
+            comboBoxServicios.Items.AddRange(precios.Keys.ToArray());
+            this.mantenimiento = mantenimiento;
+            this.mantenimiento.ServicioCambiados += MantenimientoDeDatos;
+        }
+        private void MantenimientoDeDatos(object sender, EventArgs e)
+        {
+            ActualizarDataGridView();
         }
 
         private void DatosNiño_Load(object sender, EventArgs e)
         {
+            // Agrega las columnas al DataGridView
+            dataGridViewServicio.Columns.Add("Servicio", "Servicio");
+            dataGridViewServicio.Columns.Add("Costo", "Costo");
 
+            // Configura el DataGridView para que no genere automáticamente columnas
+            dataGridViewServicio.AutoGenerateColumns = false;
+
+            // Asigna el ancho de las columnas
+            dataGridViewServicio.Columns["Servicio"].Width = 200;
+            dataGridViewServicio.Columns["Costo"].Width = 100;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-           DatosNiños datos = new DatosNiños();
+            DatosNiños datos = new DatosNiños();
 
 
 
@@ -66,7 +93,7 @@ namespace FrontEnd
                 MessageBox.Show("este es el error: " + ex);
             }
 
-           
+
 
 
 
@@ -96,9 +123,9 @@ namespace FrontEnd
 
         }
 
-    
 
-    private void comboBoxSexoNiño_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void comboBoxSexoNiño_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
 
@@ -152,6 +179,32 @@ namespace FrontEnd
 
         private void txtNombreNiño_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (comboBoxServicios.SelectedItem != null)
+            {
+                string servicio = comboBoxServicios.SelectedItem.ToString();
+                servicios.Add(servicio);
+                ActualizarDataGridView();
+            }
+        }
+
+        private void ActualizarDataGridView()
+        {
+            dataGridViewServicio.Rows.Clear();
+            decimal costoTotal = 0.0m;
+
+            foreach (string servicio in servicios)
+            {
+                decimal costo = precios[servicio];
+                costoTotal += costo;
+                dataGridViewServicio.Rows.Add(servicio, costo.ToString("C"));
+            }
+
+            decimal costoTotalConIVA = costoTotal * 1.0013m;
+            lblCosroTotal.Text = costoTotalConIVA.ToString("C");
         }
     }
 }

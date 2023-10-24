@@ -12,9 +12,9 @@ using System.Windows.Forms;
 namespace FrontEnd
 {
     public partial class Funcionario : Form
-        
+
     {
-        private List<RFuncionario>  RFuncionarios = new List<RFuncionario>();
+        private List<RFuncionario> RFuncionarios = new List<RFuncionario>();
         public Funcionario()
         {
             InitializeComponent();
@@ -43,25 +43,30 @@ namespace FrontEnd
             // Crear una instancia de Funcionario y establecer los datos
             RFuncionario rFuncionario = new RFuncionario
             {
-             //   nombre 
-             NombreFuncionario = nombre,
-             ApellidoFuncionario = apellido,
-             IdentificacionFuncionario = identificacion,
-             SexoFuncionario = sexo
+                //   nombre 
+                NombreFuncionario = nombre,
+                ApellidoFuncionario = apellido,
+                IdentificacionFuncionario = identificacion,
+                SexoFuncionario = sexo
             };
 
             // Llamar a métodos de la capa de negocio para guardar el funcionario, por ejemplo:
             // Negocio.GuardarFuncionario(nuevoFuncionario);
 
             // Limpiar los campos del formulario
-           txtNombreFuncionario.Clear();
+            txtNombreFuncionario.Clear();
             txtApellidoFuncionario.Clear();
             txtIdendificacionFuncionario.Clear();
-           
+
 
             MessageBox.Show("Funcionario guardado exitosamente.");
 
 
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

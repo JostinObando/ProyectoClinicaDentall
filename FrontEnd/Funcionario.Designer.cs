@@ -125,6 +125,7 @@
             Cancelar.TabIndex = 10;
             Cancelar.Text = "Cancelar";
             Cancelar.UseVisualStyleBackColor = true;
+            Cancelar.Click += Cancelar_Click;
             // 
             // Funcionario
             // 

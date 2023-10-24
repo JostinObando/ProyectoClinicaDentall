@@ -70,6 +70,7 @@
             btnGuardar.TabIndex = 25;
             btnGuardar.Text = "Consultar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // lblidNinio
             // 

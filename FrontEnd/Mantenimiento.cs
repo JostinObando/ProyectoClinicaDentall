@@ -18,6 +18,7 @@ namespace FrontEnd
         private Servicio servicioSeleccionado = null;
         DataTable dataTable = new DataTable();
         private PantallaPrincipal ventana;
+        public event EventHandler ServicioCambiados;
 
         public Mantenimiento(PantallaPrincipal ventana)
         {
@@ -30,6 +31,19 @@ namespace FrontEnd
             comboBoxServicio.Items.Add("Cirugía de cordales | ¢ 110.000.00 ");
             comboBoxServicio.Items.Add("Ortodoncia | ¢ 650.000.00");
             this.ventana = ventana;
+        }
+        private void CambiarServicio() 
+        {
+
+
+
+            Servicios(EventArgs.Empty);
+        }
+        protected virtual void Servicios(EventArgs e) 
+        {
+        
+        ServicioCambiados?.Invoke( this, e);
+        
         }
         private void ConfigurarGridE()
         {

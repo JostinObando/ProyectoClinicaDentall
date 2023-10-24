@@ -124,7 +124,7 @@
             // 
             // btnRegistrar
             // 
-            btnRegistrar.Location = new Point(172, 330);
+            btnRegistrar.Location = new Point(172, 331);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(112, 34);
             btnRegistrar.TabIndex = 29;
@@ -146,7 +146,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1317, 630);
             Controls.Add(btnSalir);
             Controls.Add(btnRegistrar);
             Controls.Add(txtTelefono);
