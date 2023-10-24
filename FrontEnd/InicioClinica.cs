@@ -14,7 +14,7 @@ namespace FrontEnd
 {
     public partial class InicioClinica : Form
     {
-        public string NombreFuncionario { get; set; }
+
         public InicioClinica()
         {
             InitializeComponent();
@@ -27,15 +27,15 @@ namespace FrontEnd
             string contraIngresada = TxtContra.Text;
 
             try
-            { 
-            
+            {
+
                 // string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
                 iniciarSesion.Registro(txtUsuarioNuevo.Text, TxtContra.Text);
                 if (iniciarSesion.Registro(usuarioIngresado, contraIngresada))
 
                 {
                     PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-                    pantallaPrincipal.NombreFuncionario = "Nombre del funcionario";
+                    // pantallaPrincipal.NombreFuncionario = "Nombre del funcionario";
                     pantallaPrincipal.Show();
                     this.Hide();
 

@@ -35,7 +35,14 @@ namespace Negocios
             }
             else
             {
-                Padre nuevo = new Padre(nombre, identificacionPadre, direccion, correoPadre, tel);
+                Padre nuevo = new Padre();
+
+                nuevo.Nombre = nombre;
+                nuevo.Identicacion = identificacionPadre;
+                nuevo.Direccion = direccion;
+                nuevo.Correo = correoPadre;
+                nuevo.Telefono = tel;
+
                 istaPadre.Add(nuevo);
 
 

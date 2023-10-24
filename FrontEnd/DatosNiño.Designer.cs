@@ -47,6 +47,7 @@
             comboBoxServicios = new ComboBox();
             btnAgregar = new Button();
             lblServicio = new Label();
+            btnServicios = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).BeginInit();
             SuspendLayout();
             // 
@@ -56,7 +57,6 @@
             dateTimePickerFechaNacimiento.Name = "dateTimePickerFechaNacimiento";
             dateTimePickerFechaNacimiento.Size = new Size(300, 31);
             dateTimePickerFechaNacimiento.TabIndex = 54;
-            dateTimePickerFechaNacimiento.ValueChanged += dateTimePickerFechaNacimiento_ValueChanged;
             // 
             // comboBoxSexoNiño
             // 
@@ -106,7 +106,6 @@
             lblApellidoDelNiño.Size = new Size(86, 25);
             lblApellidoDelNiño.TabIndex = 49;
             lblApellidoDelNiño.Text = "Apellidos";
-            lblApellidoDelNiño.Click += lblApellidoDelNiño_Click;
             // 
             // lblFechaNacimiento
             // 
@@ -116,7 +115,6 @@
             lblFechaNacimiento.Size = new Size(177, 25);
             lblFechaNacimiento.TabIndex = 48;
             lblFechaNacimiento.Text = "Fecha de Nacimiento";
-            lblFechaNacimiento.Click += lblFechaNacimiento_Click;
             // 
             // lblIDPadre
             // 
@@ -126,7 +124,6 @@
             lblIDPadre.Size = new Size(197, 25);
             lblIDPadre.TabIndex = 47;
             lblIDPadre.Text = "Identificacion del padre";
-            lblIDPadre.Click += lblIDPadre_Click;
             // 
             // lblIdentificacionPadre
             // 
@@ -136,7 +133,6 @@
             lblIdentificacionPadre.Size = new Size(117, 25);
             lblIdentificacionPadre.TabIndex = 46;
             lblIdentificacionPadre.Text = "Identificacion";
-            lblIdentificacionPadre.Click += lblIdentificacionPadre_Click;
             // 
             // lblNombreNiño
             // 
@@ -146,15 +142,13 @@
             lblNombreNiño.Size = new Size(147, 25);
             lblNombreNiño.TabIndex = 45;
             lblNombreNiño.Text = "Nombre del niño";
-            lblNombreNiño.Click += lblNombreNiño_Click;
             // 
             // txtIDPadre
             // 
-            txtIDPadre.Location = new Point(227, 260);
+            txtIDPadre.Location = new Point(218, 254);
             txtIDPadre.Name = "txtIDPadre";
             txtIDPadre.Size = new Size(166, 31);
             txtIDPadre.TabIndex = 44;
-            txtIDPadre.TextChanged += txtIDPadre_TextChanged;
             // 
             // txtIdendificacionNiño
             // 
@@ -162,7 +156,6 @@
             txtIdendificacionNiño.Name = "txtIdendificacionNiño";
             txtIdendificacionNiño.Size = new Size(166, 31);
             txtIdendificacionNiño.TabIndex = 43;
-            txtIdendificacionNiño.TextChanged += txtIdendificacionNiño_TextChanged;
             // 
             // txtApellido
             // 
@@ -170,7 +163,6 @@
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(166, 31);
             txtApellido.TabIndex = 42;
-            txtApellido.TextChanged += txtApellido_TextChanged;
             // 
             // txtNombreNiño
             // 
@@ -178,7 +170,6 @@
             txtNombreNiño.Name = "txtNombreNiño";
             txtNombreNiño.Size = new Size(166, 31);
             txtNombreNiño.TabIndex = 41;
-            txtNombreNiño.TextChanged += txtNombreNiño_TextChanged;
             // 
             // dataGridViewServicio
             // 
@@ -193,7 +184,7 @@
             // lblCosroTotal
             // 
             lblCosroTotal.AutoSize = true;
-            lblCosroTotal.Location = new Point(990, 368);
+            lblCosroTotal.Location = new Point(1014, 369);
             lblCosroTotal.Name = "lblCosroTotal";
             lblCosroTotal.Size = new Size(115, 25);
             lblCosroTotal.TabIndex = 59;
@@ -202,14 +193,14 @@
             // comboBoxServicios
             // 
             comboBoxServicios.FormattingEnabled = true;
-            comboBoxServicios.Location = new Point(756, 30);
+            comboBoxServicios.Location = new Point(743, 30);
             comboBoxServicios.Name = "comboBoxServicios";
             comboBoxServicios.Size = new Size(231, 33);
             comboBoxServicios.TabIndex = 58;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(627, 368);
+            btnAgregar.Location = new Point(997, 30);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(219, 34);
             btnAgregar.TabIndex = 56;
@@ -226,11 +217,22 @@
             lblServicio.TabIndex = 62;
             lblServicio.Text = "Servicio";
             // 
+            // btnServicios
+            // 
+            btnServicios.Location = new Point(635, 360);
+            btnServicios.Name = "btnServicios";
+            btnServicios.Size = new Size(207, 34);
+            btnServicios.TabIndex = 64;
+            btnServicios.Text = "Registrar Servicio";
+            btnServicios.UseVisualStyleBackColor = true;
+            btnServicios.Click += btnServicios_Click;
+            // 
             // DatosNiño
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1228, 629);
+            Controls.Add(btnServicios);
             Controls.Add(lblServicio);
             Controls.Add(dataGridViewServicio);
             Controls.Add(lblCosroTotal);
@@ -280,5 +282,6 @@
         private ComboBox comboBoxServicios;
         private Button btnAgregar;
         private Label lblServicio;
+        private Button btnServicios;
     }
 }

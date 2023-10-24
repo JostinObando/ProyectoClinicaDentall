@@ -1,4 +1,5 @@
-﻿using Negocios;
+﻿using Datos;
+using Negocios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,14 +16,25 @@ namespace FrontEnd
 {
     public partial class RegistroNinios : Form
     {
-        private List<Padre> listapadres = new List<Padre>();
+       // private List<Padre> listapadres = new List<Padre>();
         private List<DatosPadre> datosPadres = new List<DatosPadre>();
+        public List<DatosNiño> datosNiños = new List<DatosNiño> { };
+        public List<DatosNiños> dat = new List<DatosNiños> { };
+        private List<string> serviciosAgregados = new List<string>();
 
         private PantallaPrincipal ventana;
-        public RegistroNinios(PantallaPrincipal ventana)
+        public RegistroNinios()
         {
             InitializeComponent();
             this.ventana = ventana;
+            // Mostrar la cédula en el formulario
+          //  textBox1.Text = ;
+
+            // Agregar los servicios al DataGridView
+           // foreach (string servicio in servicios)
+            {
+           //     dataGridViewRegistro.Rows.Add(servicio);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -33,24 +46,24 @@ namespace FrontEnd
             //var ServcioNinio = new ServicioNinios();
 
             // ServcioNinio.
-            
+
             //string cedulaPadre =TX.Text;
 
             // Busca el padre por la cédula
-           /// Padre padres;
+            /// Padre padres;
             //Padre padre = listapadres.FirstOrDefault(p => p.Identicacion == cedulaPadre);
 
             //if (padre != null)
             //{
-               // dataGridView1.DataSource = padre.Hijos;
+            // dataGridView1.DataSource = padre.Hijos;
             //}
             //else
             //{
-             //   dataGridView1.DataSource = null;
-             //   MessageBox.Show("Padre no encontrado.");
+            //   dataGridView1.DataSource = null;
+            //   MessageBox.Show("Padre no encontrado.");
             //}
         }
-    
+
 
         private void dateTimePickerFecha_ValueChanged(object sender, EventArgs e)
         {
@@ -88,6 +101,11 @@ namespace FrontEnd
 
         private void comboBoxID_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void RegistroNinios_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

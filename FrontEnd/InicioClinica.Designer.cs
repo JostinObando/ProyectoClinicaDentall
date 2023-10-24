@@ -69,7 +69,7 @@
             // lblContrasenia
             // 
             lblContrasenia.AutoSize = true;
-            lblContrasenia.Location = new Point(167, 124);
+            lblContrasenia.Location = new Point(168, 148);
             lblContrasenia.Name = "lblContrasenia";
             lblContrasenia.Size = new Size(105, 25);
             lblContrasenia.TabIndex = 4;
@@ -82,14 +82,17 @@
             txtUsuarioNuevo.Name = "txtUsuarioNuevo";
             txtUsuarioNuevo.Size = new Size(150, 31);
             txtUsuarioNuevo.TabIndex = 5;
+            txtUsuarioNuevo.Text = "Admin";
             txtUsuarioNuevo.TextChanged += txtUsuarioNuevo_TextChanged;
             // 
             // TxtContra
             // 
             TxtContra.Location = new Point(332, 142);
             TxtContra.Name = "TxtContra";
+            TxtContra.PasswordChar = '*';
             TxtContra.Size = new Size(150, 31);
             TxtContra.TabIndex = 6;
+            TxtContra.Text = "Admin";
             TxtContra.TextChanged += TxtContra_TextChanged;
             // 
             // InicioClinica

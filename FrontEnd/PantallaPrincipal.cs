@@ -18,7 +18,7 @@ namespace FrontEnd
             InitializeComponent();
       
         }
-        public string NombreFuncionario { get; set; }
+     
 
         private void datosPadreToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -9,15 +9,15 @@ namespace Negocios
     public class Servicio
     {
         public string Nombre { get; set; }
-        public double CostonSinIva { get; set; }
+        public string CostonSinIva { get; set; }
 
-        public Servicio(string nombre, double costosSinIva)
-        {
+        //public Servicio(string nombre, double costosSinIva)
+        //{
 
-            Nombre = nombre;
-            CostonSinIva = costosSinIva;
+        //    Nombre = nombre;
+        //    CostonSinIva = costosSinIva;
 
 
-        }
+        //}
     }
 }

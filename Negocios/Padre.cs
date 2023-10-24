@@ -14,14 +14,14 @@ namespace Negocios
         public string Correo { get; set; }
         public string Telefono { get; set; }
 
-        public Padre(string nombre, string identificacion, string direccion, string correo, string telefono)
-        {
-            Nombre = nombre;
-            Identicacion = identificacion;
-            Direccion = direccion;
-            Correo = correo;
-            Telefono = telefono;
+        //public Padre(string nombre, string identificacion, string direccion, string correo, string telefono)
+        ////{
+           //    Nombre = nombre;
+            //Identicacion = identificacion;
+           // Direccion = direccion;
+           // Correo = correo;
+            //Telefono = telefono;
 
-        }
+       // }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
 
 namespace Negocios
 {
@@ -30,7 +31,7 @@ namespace Negocios
         /// <param name="identificacionPadre"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public string RegistroNinio(string nombre, string apellido, string identificacion, string fechaNacimiento, string sexo, string identificacionPadre)
+        public string RegistroNinio(Niño niño)
         {
             if (string.IsNullOrEmpty(sexo))
             {
@@ -48,11 +49,20 @@ namespace Negocios
                 throw new ArgumentException("Identificación ya registrada en el sistema");
             }
 
-            // Si todas las validaciones pasan, continuar con el registro
-            Niño nuevo = new Niño(nombre, apellido, identificacion, Convert.ToDateTime(fechaNacimiento), sexo, identificacionPadre);
-            listaNiño.Add(nuevo);
+
+            StreamWriter MyFile = new StreamWriter(@"D:\ninnno.xml");
+
+
+            XmlSerializer Serializer = new XmlSerializer(typeof(Niño));
+            Serializer.Serialize(MyFile, niño);
+
+
+
+
             return "";
         }
+
+      
 
         private bool IdentificacionExistente(string identificacion)
         {

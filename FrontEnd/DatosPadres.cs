@@ -48,16 +48,18 @@ namespace FrontEnd
                 {
                     identificaciones.Add(identificacion);
                     identificaciones.Add(identificacion);
-                    Padre nuevoPadre = new Padre(
-                        txtNombrePadre.Text,
-                        txtIdendificacion.Text,
-                        txtDireccion.Text,
-                        txtCorreoElectronico.Text,
-                        txtTelefono.Text);
-                    listaPadre.Add(nuevoPadre);
+                    Padre nuevo = new Padre();
+
+                    nuevo.Nombre = txtNombrePadre.Text;
+                    nuevo.Identicacion = txtIdendificacion.Text;
+                    nuevo.Direccion = txtDireccion.Text;
+                    nuevo.Correo = txtCorreoElectronico.Text;
+                    nuevo.Telefono = txtTelefono.Text;
+
+                    listaPadre.Add(nuevo);
 
 // Guardar la lista de padres en un archivo XML
-                    PadreXML.GuardarDatosEnXml(listaPadre, @"D:\Proyectos GIT\ProyectoClinicaDentall\FrontEnd\padres.xml");
+                    
 
 
 
@@ -93,28 +95,38 @@ namespace FrontEnd
 
 
         }
-        private void CargarDatosDesdeXml()
+        private string RegistroPadre(string nombre, string identificacionPadre, string direccion, string correoPadre, string tel)
         {
-            if (File.Exists("padres.xml"))
+            // Verificar si la identificación ya ha sido registrada
+            if (identificaciones.Contains(identificacionPadre))
             {
-                try
-                {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Padre>));
-                    using (FileStream fs = new FileStream("padres.xml", FileMode.Open))
-                    {
-                        // Deserializa la lista de padres desde el archivo XML
-                        listaPadre = (List<Padre>)xmlSerializer.Deserialize(fs);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar datos desde el archivo XML: " + ex.Message);
-                }
+                return "identificacion existente";
+            }
+            else
+            {
+                Padre nuevo = new Padre();
+
+                nuevo.Nombre = nombre;
+                nuevo.Identicacion = identificacionPadre;
+                nuevo.Direccion = direccion;
+                nuevo.Correo = correoPadre;
+                nuevo.Telefono = tel;
+
+                // Agregar el nuevo padre a la lista
+                listaPadre.Add(nuevo);
+
+                // Guardar la lista de padres en un archivo XML
+                PadreXML.GuardarDatosEnXml(listaPadre, @"D:\ninnno.xml");
+
+                // Limpiar los datos después del registro
+                LimpiarDatos();
+
+                return "Registro exitoso";
             }
         }
 
 
-        private bool identificacionExistente(string identificacion)
+            private bool identificacionExistente(string identificacion)
         {
             //Validacion de identificaiones existentes
             foreach (Padre padre in listaPadre)

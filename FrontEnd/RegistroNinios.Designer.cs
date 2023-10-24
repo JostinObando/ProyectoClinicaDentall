@@ -32,8 +32,8 @@
             btnGuardar = new Button();
             lblidNinio = new Label();
             textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dataGridViewRegistro = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRegistro).BeginInit();
             SuspendLayout();
             // 
             // btnSalir
@@ -73,22 +73,22 @@
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 22;
             // 
-            // dataGridView1
+            // dataGridViewRegistro
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 142);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(776, 225);
-            dataGridView1.TabIndex = 23;
+            dataGridViewRegistro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewRegistro.Location = new Point(12, 142);
+            dataGridViewRegistro.Name = "dataGridViewRegistro";
+            dataGridViewRegistro.RowHeadersWidth = 62;
+            dataGridViewRegistro.RowTemplate.Height = 33;
+            dataGridViewRegistro.Size = new Size(776, 225);
+            dataGridViewRegistro.TabIndex = 23;
             // 
             // RegistroNinios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewRegistro);
             Controls.Add(textBox1);
             Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
@@ -96,7 +96,8 @@
             IsMdiContainer = true;
             Name = "RegistroNinios";
             Text = "RegistroNinios";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += RegistroNinios_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRegistro).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,6 +107,6 @@
         private Button btnGuardar;
         private Label lblidNinio;
         private TextBox textBox1;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewRegistro;
     }
 }

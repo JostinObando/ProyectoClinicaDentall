@@ -15,17 +15,21 @@ namespace Negocios
         public DateTime FechaNacimiento { get; set; }
         public string Sexo { get; set; }
         public string IdentificacionPadre { get; set; }
-
-        public Niño(string nombre, string apellido, string identificacion, DateTime fechaNacimiento, string sexo, string identificacionPadre)
-        {
-            Nombre = nombre;
-            Apellido = apellido;
-            Identificacion = identificacion;
-            FechaNacimiento = fechaNacimiento;
-            Sexo = sexo;
-            IdentificacionPadre = identificacionPadre;
+        public string costoTotal { get; set; }
 
 
-        }
+        public List<Servicio> servicios;
+
+        //public Niño(string nombre, string apellido, string identificacion, DateTime fechaNacimiento, string sexo, string identificacionPadre)
+        //{
+        //    Nombre = nombre;
+        //    Apellido = apellido;
+        //    Identificacion = identificacion;
+        //    FechaNacimiento = fechaNacimiento;
+        //    Sexo = sexo;
+        //    IdentificacionPadre = identificacionPadre;
+
+
+        //}
     }
 }
