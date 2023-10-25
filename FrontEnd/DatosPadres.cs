@@ -29,7 +29,50 @@ namespace FrontEnd
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            DatosPadre datos = new DatosPadre();
+
+
+            PadreXML padreXml = new PadreXML();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string subfolder = "XMLFiles";
+            string filename = "PADRE.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+            if (File.Exists(xmlFilePath))
+            {
+                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(PadreXML));
+                    padreXml = (PadreXML)serializer.Deserialize(fileStream);
+                }
+            }
+
+            Padre nuevos = new Padre();
+
+            nuevos.Nombre = txtNombrePadre.Text;
+            nuevos.Identicacion = txtIdendificacion.Text;
+            nuevos.Direccion = txtDireccion.Text;
+            nuevos.Correo = txtCorreoElectronico.Text;
+            nuevos.Telefono = txtTelefono.Text;
+
+
+            DatosNiños bldatos = new DatosNiños();
+            xmlPadre xmlPadre = new xmlPadre();
+
+            DataTable dt = new DataTable();
+            Servicio servicioNinio = new Servicio();
+
+           
+            //xmlPadre.padre = padreXml;
+            //xmlPadre.padre = servicios;
+
+          //  ninnoXML.ninnoxml.Add(xmlNinno);
+
+            //bldatos.RegistroNinio(ninnoXML);
+
+
+        
+
+        DatosPadre datos = new DatosPadre();
 
 
             try

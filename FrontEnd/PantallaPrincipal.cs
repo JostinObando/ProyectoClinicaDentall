@@ -28,7 +28,7 @@ namespace FrontEnd
 
         private void datosNinioToolStripMenuItem_Click(object sender, EventArgs e)
         {            
-            DatosNiño datosNiño = new DatosNiño();
+            DatosNiño datosNiño = new DatosNiño(this);
             datosNiño.Show();
         }
 

@@ -24,4 +24,21 @@ namespace Negocios
 
        // }
     }
+
+
+    public class xmlPadre
+    {
+        public Padre padre;
+        public List<Padre> padreXml;
+    }
+
+    public class XmlPadre
+    {
+        public List<xmlPadre> padrexml;
+
+        public XmlPadre()
+        {
+            padrexml = new List<xmlPadre>();
+        }
+    }
 }
