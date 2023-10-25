@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NinnoXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ninnoxml>
+    <xmlNinno>
+      <ninno>
+        <Nombre>werwer</Nombre>
+        <Apellido>rwer</Apellido>
+        <Identificacion>ewrwer</Identificacion>
+        <FechaNacimiento>2023-10-24T19:09:30</FechaNacimiento>
+        <Sexo>Cirugía de cordales</Sexo>
+        <IdentificacionPadre>ewrwer</IdentificacionPadre>
+        <costoTotal>₡20 800,00</costoTotal>
+      </ninno>
+      <servicios>
+        <Servicio>
+          <servicioNombre>Cirugía de cordales</servicioNombre>
+          <ServicioCostonSinIva>₡110 000,00</ServicioCostonSinIva>
+        </Servicio>
+        <Servicio>
+          <servicioNombre>Cirugía de cordales</servicioNombre>
+          <ServicioCostonSinIva>₡110 000,00</ServicioCostonSinIva>
+        </Servicio>
+      </servicios>
+    </xmlNinno>
+    <xmlNinno>
+      <ninno>
+        <Nombre>ertre</Nombre>
+        <Apellido>ertert</Apellido>
+        <Identificacion>ertertert</Identificacion>
+        <FechaNacimiento>2023-10-24T19:10:54</FechaNacimiento>
+        <Sexo>Extracción de muelas</Sexo>
+        <IdentificacionPadre>ertert</IdentificacionPadre>
+        <costoTotal>₡5 200,00</costoTotal>
+      </ninno>
+      <servicios>
+        <Servicio>
+          <servicioNombre>Extracción de muelas</servicioNombre>
+          <ServicioCostonSinIva>₡40 000,00</ServicioCostonSinIva>
+        </Servicio>
+      </servicios>
+    </xmlNinno>
+    <xmlNinno>
+      <ninno>
+        <Nombre>tyry</Nombre>
+        <Apellido>ytry</Apellido>
+        <Identificacion>tryrty</Identificacion>
+        <FechaNacimiento>2019-07-04T19:13:05</FechaNacimiento>
+        <Sexo>Cirugía de cordales</Sexo>
+        <IdentificacionPadre>trytryrtytryrt</IdentificacionPadre>
+        <costoTotal>₡33 800,00</costoTotal>
+      </ninno>
+      <servicios>
+        <Servicio>
+          <servicioNombre>Cirugía de cordales</servicioNombre>
+          <ServicioCostonSinIva>₡110 000,00</ServicioCostonSinIva>
+        </Servicio>
+        <Servicio>
+          <servicioNombre>Cirugía de cordales</servicioNombre>
+          <ServicioCostonSinIva>₡110 000,00</ServicioCostonSinIva>
+        </Servicio>
+        <Servicio>
+          <servicioNombre>Cirugía de cordales</servicioNombre>
+          <ServicioCostonSinIva>₡110 000,00</ServicioCostonSinIva>
+        </Servicio>
+      </servicios>
+    </xmlNinno>
+    <xmlNinno>
+      <ninno>
+        <Nombre>werwer</Nombre>
+        <Apellido>werwer</Apellido>
+        <Identificacion>werwer</Identificacion>
+        <FechaNacimiento>2023-10-24T19:18:06</FechaNacimiento>
+        <Sexo>Extracción de dientes</Sexo>
+        <IdentificacionPadre>ewrewr</IdentificacionPadre>
+        <costoTotal>₡4 550,00</costoTotal>
+      </ninno>
+      <servicios>
+        <Servicio>
+          <servicioNombre>Extracción de dientes</servicioNombre>
+          <ServicioCostonSinIva>₡35 000,00</ServicioCostonSinIva>
+        </Servicio>
+      </servicios>
+    </xmlNinno>
+    <xmlNinno>
+      <ninno>
+        <Nombre>asda</Nombre>
+        <Apellido>asdsaa</Apellido>
+        <Identificacion>adsa</Identificacion>
+        <FechaNacimiento>2023-10-24T19:24:26</FechaNacimiento>
+        <Sexo>Ortodoncia</Sexo>
+        <IdentificacionPadre>adsa</IdentificacionPadre>
+        <costoTotal>₡89 700,00</costoTotal>
+      </ninno>
+      <servicios>
+        <Servicio>
+          <servicioNombre>Ortodoncia</servicioNombre>
+          <ServicioCostonSinIva>₡650 000,00</ServicioCostonSinIva>
+        </Servicio>
+        <Servicio>
+          <servicioNombre>Ortodoncia</servicioNombre>
+          <ServicioCostonSinIva>₡650 000,00</ServicioCostonSinIva>
+        </Servicio>
+      </servicios>
+    </xmlNinno>
+  </ninnoxml>
+</NinnoXML>

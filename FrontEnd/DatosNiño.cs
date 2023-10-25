@@ -1,62 +1,100 @@
 ﻿
+using AngleSharp.Dom;
 using Negocios;
+using Newtonsoft.Json;
 using System.Data;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace FrontEnd
 {
     public partial class DatosNiño : Form
     {
 
-        private List<Niño> listaNiño = new List<Niño>();
+        private List<Ninno> listaNiño = new List<Ninno>();
         private List<Padre> listaPadre = new List<Padre>();
         private PantallaPrincipal principal;
         private Mantenimiento mantenimiento;
-
+        DataTable dataTable = new DataTable("Servisios");
         private List<string> servicios = new List<string>();
-        private Dictionary<string, decimal> precios = new Dictionary<string, decimal>
-    {
-        { "Limpieza Dental", 50000.00m },
-        { "Extracción de muelas", 40000.00m },
-        { "Extracción de dientes", 35000.00m },
-        { "Cirugía de cordales", 110000.00m },
-        { "Ortodoncia", 650000.00m }
-    };
 
-        public DatosNiño(PantallaPrincipal principal, Mantenimiento mantenimiento)
+        public DatosNiño()
 
         {
             InitializeComponent();
-            this.principal = principal;
-            comboBoxServicios.Items.AddRange(precios.Keys.ToArray());
-            this.mantenimiento = mantenimiento;
-            this.mantenimiento.ServicioCambiados += MantenimientoDeDatos;
-        }
-        private void MantenimientoDeDatos(object sender, EventArgs e)
-        {
-            ActualizarDataGridView();
+            // this.principal = principal;
+            CargarServicios();
+            CrearDataTable();
+            //  this.mantenimiento = mantenimiento;
         }
 
-        private void DatosNiño_Load(object sender, EventArgs e)
+        public void CrearDataTable()
         {
-            // Agrega las columnas al DataGridView
-            dataGridViewServicio.Columns.Add("Servicio", "Servicio");
-            dataGridViewServicio.Columns.Add("Costo", "Costo");
+            dataTable = new DataTable("Servicios");
 
-            // Configura el DataGridView para que no genere automáticamente columnas
-            dataGridViewServicio.AutoGenerateColumns = false;
+            dataTable.Columns.Add("Servicio", typeof(string));
+            dataTable.Columns.Add("Costo", typeof(string));
 
-            // Asigna el ancho de las columnas
-            dataGridViewServicio.Columns["Servicio"].Width = 200;
-            dataGridViewServicio.Columns["Costo"].Width = 100;
+        }
+        public void CargarServicios()
+        {
+            try
+            {
+                ServicioModel servicio = new ServicioModel();
+                ServicioModelList ser = new ServicioModelList();
+
+                servicio.Nombre = "Limpieza Dental";
+                servicio.Precio = 50000.00m;
+
+                ser.listServicioModel.Add(servicio);
+                servicio = new ServicioModel();
+                servicio.Nombre = "Extracción de muelas";
+                servicio.Precio = 40000.00m;
+
+                ser.listServicioModel.Add(servicio);
+
+                servicio = new ServicioModel();
+                servicio.Nombre = "Extracción de dientes";
+                servicio.Precio = 35000.00m;
+
+                ser.listServicioModel.Add(servicio);
+
+                servicio = new ServicioModel();
+                servicio.Nombre = "Cirugía de cordales";
+                servicio.Precio = 110000.00m;
+
+                ser.listServicioModel.Add(servicio);
+
+                servicio = new ServicioModel();
+                servicio.Nombre = "Ortodoncial";
+                servicio.Precio = 650000.00m;
+                ser.listServicioModel.Add(servicio);
+
+                try
+                {
+                    comboBoxServicios.DataSource = ser.listServicioModel;
+                    comboBoxServicios.DisplayMember = "Nombre";
+                    comboBoxServicios.ValueMember = "Precio";
+                }
+                catch (Exception ex)
+                {
+                    string a = ex.Message;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             DatosNiños datos = new DatosNiños();
-
-
-
-
             try
             {
                 // Obtener la fecha de nacimiento del niño
@@ -78,7 +116,7 @@ namespace FrontEnd
                 if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
                 {
                     // Crear un nuevo objeto Niño con los datos ingresados
-                    Niño nuevoNiño = new Niño();
+                    Ninno nuevoNiño = new Ninno();
                     nuevoNiño.Nombre = nombre;
                     nuevoNiño.Apellido = apellido;
                     nuevoNiño.IdentificacionPadre = identificacion;
@@ -114,7 +152,7 @@ namespace FrontEnd
         }
         private bool IdentificacionExistente(string identificacion)
         {
-            foreach (Niño niño in listaNiño)
+            foreach (Ninno niño in listaNiño)
             {
                 if
                     (niño.Identificacion == identificacion)
@@ -134,18 +172,9 @@ namespace FrontEnd
             txtApellido.Clear();
             txtIdendificacionNiño.Clear();
             txtIDPadre.Clear();
-
         }
 
 
-
-        private void comboBoxSexoNiño_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblSexo_Click(object sender, EventArgs e)
-        {
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -154,102 +183,69 @@ namespace FrontEnd
 
 
         }
-
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (comboBoxServicios.SelectedItem != null)
             {
-                string servicio = comboBoxServicios.SelectedItem.ToString();
-                servicios.Add(servicio);
-                ActualizarDataGridView();
+                servicios.Add(comboBoxServicios.Text.ToString());
+                ActualizarDataGridView(comboBoxServicios.Text.ToString(), comboBoxServicios.SelectedValue.ToString());
             }
         }
 
-        private void ActualizarDataGridView()
+        private void ActualizarDataGridView(string nombre, string valor)
         {
-            dataGridViewServicio.Rows.Clear();
+            //dataGridViewServicio.Rows.Clear();
+
+            DataRow fila1 = dataTable.NewRow();
+            fila1["Servicio"] = nombre;
+            fila1["Costo"] = valor;
+
+            // Agregar la fila a la tabla
+            dataTable.Rows.Add(fila1);
             decimal costoTotal = 0.0m;
 
-            foreach (string servicio in servicios)
-            {
-                decimal costo = precios[servicio];
-                costoTotal += costo;
-                dataGridViewServicio.Rows.Add(servicio, costo.ToString("C"));
-            }
+            dataGridViewServicio.DataSource = dataTable;
+            decimal costoTotalConIVA = Convert.ToDecimal(valor) * 0.13m;
+            if (string.IsNullOrEmpty(lblCosroTotal.Text))
+                costoTotal = Convert.ToDecimal(valor);
+            else
+                costoTotal = Convert.ToDecimal(lblCosroTotal.Text) + Convert.ToDecimal(valor);
 
-            decimal costoTotalConIVA = costoTotal * 0.13m;
-            lblCosroTotal.Text = costoTotalConIVA.ToString("C");
+
+            lblCosroTotal.Text = (costoTotal + costoTotalConIVA).ToString();
         }
 
         private void btnServicios_Click(object sender, EventArgs e)
         {
-            //string identificacion = txtIdendificacionNiño.Text; // Obtener la cédula ingresada
 
-            try
+            NinnoXML ninnoXML = new NinnoXML();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string subfolder = "XMLFiles";
+            string filename = "ninnno.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+            if (File.Exists(xmlFilePath))
             {
-                // Obtener la fecha de nacimiento del niño
-                DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
-
-                // Calcular la edad en años y meses
-                TimeSpan edad = DateTime.Now - fechaNacimiento;
-                int años = edad.Days / 365;
-                int meses = (edad.Days % 365) / 30;
-
-                // Obtener los datos ingresados por el usuario
-                string nombre = txtNombreNiño.Text;
-                string apellido = txtApellido.Text;
-                string identificacion = txtIdendificacionNiño.Text;
-                DateTime fechaNacimient = dateTimePickerFechaNacimiento.Value;
-                string sexo = comboBoxSexoNiño.Text;
-                string identificacionPadre = txtIDPadre.Text;
-                //Valida datos ninio
-                if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
+                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
                 {
-                    // Crear un nuevo objeto Niño con los datos ingresados
-                    Niño nuevoNiño = new Niño();
-                    nuevoNiño.Nombre = nombre;
-                    nuevoNiño.Apellido = apellido;
-                    nuevoNiño.IdentificacionPadre = identificacion;
-                    nuevoNiño.FechaNacimiento = Convert.ToDateTime(fechaNacimiento);
-                    nuevoNiño.Sexo = sexo;
-                    nuevoNiño.IdentificacionPadre = identificacionPadre;
-
-                    // Agregar el nuevo niño a la lista en memoria
-                    listaNiño.Add(nuevoNiño);
-
-                    // Limpiar los campos después de guardar la información
-                    Limpiar();
-                    // Registro válido, procede con el registro del niño
-                    //datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, fechaNacimiento.ToString(), comboBoxSexoNiño.Text, txtIDPadre.Text);
-                    Limpiar();
-
-                }
-                else
-                {
-                    MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
+                    ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
                 }
             }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("este es el error: " + ex);
-            }
-            Niño niñoEncontrado = new Niño();
+            Ninno ninnoEncontrado = new Ninno();
 
-            niñoEncontrado.Nombre = txtNombreNiño.Text;
-            niñoEncontrado.Apellido = txtApellido.Text;
-            niñoEncontrado.Identificacion = txtIdendificacionNiño.Text;
-            niñoEncontrado.FechaNacimiento = Convert.ToDateTime(dateTimePickerFechaNacimiento.Text);
-            niñoEncontrado.Sexo = comboBoxServicios.Text;
-            niñoEncontrado.IdentificacionPadre = txtIDPadre.Text;
-            niñoEncontrado.costoTotal = lblCosroTotal.Text;
+            ninnoEncontrado.Nombre = txtNombreNiño.Text;
+            ninnoEncontrado.Apellido = txtApellido.Text;
+            ninnoEncontrado.Identificacion = txtIdendificacionNiño.Text;
+            ninnoEncontrado.FechaNacimiento = Convert.ToDateTime(dateTimePickerFechaNacimiento.Text);
+            ninnoEncontrado.Sexo = comboBoxServicios.Text;
+            ninnoEncontrado.IdentificacionPadre = txtIDPadre.Text;
+            ninnoEncontrado.costoTotal = lblCosroTotal.Text;
             List<Servicio> servicios = new List<Servicio>();
 
-           
-           
-
             DatosNiños bldatos = new DatosNiños();
+            xmlNinno xmlNinno = new xmlNinno();
 
             DataTable dt = new DataTable();
             Servicio servicioNinio = new Servicio();
@@ -258,33 +254,29 @@ namespace FrontEnd
             foreach (DataGridViewRow dgvRow in dataGridViewServicio.Rows)
             {
 
-                while (rowsNumer < dataGridViewServicio.Rows.Count)
+                if (rowsNumer < dataGridViewServicio.Rows.Count)
                 {
                     rowsNumer = rowsNumer + 1;
                     DataRow newRow = dt.NewRow();
 
                     // Asigna los valores de las celdas del DataGridView a las columnas del DataTable
-                    servicioNinio.Nombre = dgvRow.Cells["servicio"].Value.ToString();
-                    servicioNinio.CostonSinIva = dgvRow.Cells["costo"].Value.ToString();
+                    servicioNinio = new Servicio();
+                    servicioNinio.servicioNombre = dgvRow.Cells["servicio"].Value.ToString();
+                    servicioNinio.ServicioCostonSinIva = dgvRow.Cells["costo"].Value.ToString();
                     servicios.Add(servicioNinio);
+
                 }
             }
-            niñoEncontrado.servicios = servicios;
 
-            bldatos.RegistroNinio(niñoEncontrado);
+            xmlNinno.ninno = ninnoEncontrado;
+            xmlNinno.servicios = servicios;
 
-            //if (niñoEncontrado != null)
-            //{
-            //    // El niño fue encontrado, ahora puedes abrir la ventana "RegistrarNiñoForm" y pasar la cédula
-            //    RegistroNinios registrarNiñoForm = new RegistroNinios();
-            //    registrarNiñoForm.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No se encontró ningún niño con la cédula proporcionada.");
-            //}
+            ninnoXML.ninnoxml.Add(xmlNinno);
+
+            bldatos.RegistroNinio(ninnoXML);
+
+
         }
-
 
     }
 }

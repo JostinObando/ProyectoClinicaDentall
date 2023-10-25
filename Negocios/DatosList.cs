@@ -9,7 +9,7 @@ namespace Negocios
     [Serializable]
     public class DatosList
     {
-        public List<Niño> ListaNiño { get; set; }
+        public List<Ninno> ListaNiño { get; set; }
         public List<Padre> ListaPadre { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace Negocios
     public class DatosPadre
     {
         private List<Padre> listaPadre = new List<Padre>();
-        private List<Niño> listaNiño = new List<Niño>();
+        private List<Ninno> listaNiño = new List<Ninno>();
 
         //Se registra los datos brindados por el cliente
         string nombre = "";

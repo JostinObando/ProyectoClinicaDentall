@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+using System.Xml;
+using System.Reflection.Metadata;
 
 namespace Negocios
 {
@@ -17,8 +13,8 @@ namespace Negocios
         DateTime fechaNacimiento;
         string identificacionPadre = "";
         string sexo = "";
-        private List<Niño> listaNiño = new List<Niño>();
-        Niño niño;
+        private List<Ninno> listaNiño = new List<Ninno>();
+        Ninno ninno;
 
         /// <summary>
         /// Metodo registro Ninno
@@ -31,42 +27,46 @@ namespace Negocios
         /// <param name="identificacionPadre"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public string RegistroNinio(Niño niño)
+        public string RegistroNinio(NinnoXML ninno)
         {
-            if (string.IsNullOrEmpty(sexo))
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            // Puedes construir rutas relativas a esta ubicación
+            string subfolder = "XMLFiles";
+            string filename = "ninnno.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+
+            //StreamWriter MyFile = new StreamWriter(xmlFilePath);
+            if (File.Exists(xmlFilePath))
             {
-                throw new ArgumentException("Por favor seleccione el sexo");
+                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open, FileAccess.ReadWrite))
+                using (StreamWriter MyFile = new StreamWriter(fileStream))
+                {
+                    XmlSerializer Serializer = new XmlSerializer(typeof(NinnoXML));
+                    Serializer.Serialize(MyFile, ninno);
+                }
             }
-
-            DateTime unAñoAtras = DateTime.Now.AddYears(-1);
-            DateTime fechaNacimientos;
-
-
-
-
-            if (IdentificacionExistente(identificacion))
+            else
             {
-                throw new ArgumentException("Identificación ya registrada en el sistema");
+                // Crear un objeto XmlSerializer para la clase Persona
+                XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
+                // Crear un flujo de escritura de archivo para guardar el XML
+                using (TextWriter writer = new StreamWriter(xmlFilePath))
+                {
+                    // Serializar la entidad Persona en XML y escribirlo en el archivo
+                    serializer.Serialize(writer, ninno);
+                }
             }
-
-
-            StreamWriter MyFile = new StreamWriter(@"D:\ninnno.xml");
-
-
-            XmlSerializer Serializer = new XmlSerializer(typeof(Niño));
-            Serializer.Serialize(MyFile, niño);
-
-
 
 
             return "";
         }
 
-      
+
 
         private bool IdentificacionExistente(string identificacion)
         {
-            foreach (Niño niño in listaNiño)
+            foreach (Ninno niño in listaNiño)
             {
                 if
                     (niño.Identificacion == identificacion)

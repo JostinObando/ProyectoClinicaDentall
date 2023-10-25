@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Negocios
 {
-    public class Niño
+    public class Ninno
     {
 
         public string Nombre { get; set; }
@@ -18,18 +19,23 @@ namespace Negocios
         public string costoTotal { get; set; }
 
 
+
+
+    }
+
+    public class xmlNinno
+    {
+        public Ninno ninno;
         public List<Servicio> servicios;
+    }
 
-        //public Niño(string nombre, string apellido, string identificacion, DateTime fechaNacimiento, string sexo, string identificacionPadre)
-        //{
-        //    Nombre = nombre;
-        //    Apellido = apellido;
-        //    Identificacion = identificacion;
-        //    FechaNacimiento = fechaNacimiento;
-        //    Sexo = sexo;
-        //    IdentificacionPadre = identificacionPadre;
+    public class NinnoXML
+    {
+        public List<xmlNinno> ninnoxml;
 
-
-        //}
+        public NinnoXML()
+        {
+            ninnoxml = new List<xmlNinno>();
+        }
     }
 }

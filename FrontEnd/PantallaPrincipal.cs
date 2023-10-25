@@ -27,9 +27,8 @@ namespace FrontEnd
         }
 
         private void datosNinioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Mantenimiento mantenimiento = new Mantenimiento(this);
-            DatosNiño datosNiño = new DatosNiño(this, mantenimiento);
+        {            
+            DatosNiño datosNiño = new DatosNiño();
             datosNiño.Show();
         }
 
