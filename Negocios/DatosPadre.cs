@@ -26,12 +26,12 @@ namespace Negocios
         //public bool RegistroPadre(List<Padre> listaPadre)
         //{
         //txtNombrePadre.Text, txtIdendificacion.Text, txtDireccion.Text, txtCorreoElectronico.Text, txtTelefono.Text)
-        public string RegistroPadre(PadreXML padreXML)
+        public string RegistroPadre(xmlPadre padreXML)
         {
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             // Puedes construir rutas relativas a esta ubicación
             string subfolder = "XMLFiles";
-            string filename = "PADRE.xml";
+            string filename = "Padre.xml";
             string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
 
 
@@ -41,19 +41,19 @@ namespace Negocios
                 using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open, FileAccess.ReadWrite))
                 using (StreamWriter MyFile = new StreamWriter(fileStream))
                 {
-                    XmlSerializer Serializer = new XmlSerializer(typeof(PadreXML));
-                    Serializer.Serialize(MyFile, padre);
+                    XmlSerializer Serializer = new XmlSerializer(typeof(xmlPadre));
+                    Serializer.Serialize(MyFile, padreXML);
                 }
             }
             else
             {
                 // Crear un objeto XmlSerializer para la clase Persona
-                XmlSerializer serializer = new XmlSerializer(typeof(PadreXML));
+                XmlSerializer serializer = new XmlSerializer(typeof(xmlPadre));
                 // Crear un flujo de escritura de archivo para guardar el XML
                 using (TextWriter writer = new StreamWriter(xmlFilePath))
                 {
                     // Serializar la entidad Persona en XML y escribirlo en el archivo
-                    serializer.Serialize(writer, padre);
+                    serializer.Serialize(writer, padreXML);
                 }
             }
 

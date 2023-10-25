@@ -75,6 +75,7 @@
             // 
             // dataGridViewRegistro
             // 
+            dataGridViewRegistro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewRegistro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRegistro.Location = new Point(12, 142);
             dataGridViewRegistro.Name = "dataGridViewRegistro";

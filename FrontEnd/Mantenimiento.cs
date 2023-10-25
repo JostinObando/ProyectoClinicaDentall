@@ -32,18 +32,18 @@ namespace FrontEnd
             comboBoxServicio.Items.Add("Ortodoncia | ¢ 650.000.00");
             this.ventana = ventana;
         }
-        private void CambiarServicio() 
+        private void CambiarServicio()
         {
 
 
 
             Servicios(EventArgs.Empty);
         }
-        protected virtual void Servicios(EventArgs e) 
+        protected virtual void Servicios(EventArgs e)
         {
-        
-        ServicioCambiados?.Invoke( this, e);
-        
+
+            ServicioCambiados?.Invoke(this, e);
+
         }
         private void ConfigurarGridE()
         {

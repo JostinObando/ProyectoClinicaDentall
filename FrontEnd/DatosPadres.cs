@@ -30,111 +30,36 @@ namespace FrontEnd
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
 
-
-            PadreXML padreXml = new PadreXML();
+            DatosPadre datosPadre = new DatosPadre();
+            Padre padre = new Padre();
+            xmlPadre xml = new xmlPadre();
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string subfolder = "XMLFiles";
-            string filename = "PADRE.xml";
+            string filename = "Padre.xml";
             string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
 
             if (File.Exists(xmlFilePath))
             {
                 using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(PadreXML));
-                    padreXml = (PadreXML)serializer.Deserialize(fileStream);
+                    XmlSerializer serializer = new XmlSerializer(typeof(xmlPadre));
+                    xml = (xmlPadre)serializer.Deserialize(fileStream);
                 }
             }
-
-            Padre nuevos = new Padre();
-
-            nuevos.Nombre = txtNombrePadre.Text;
-            nuevos.Identicacion = txtIdendificacion.Text;
-            nuevos.Direccion = txtDireccion.Text;
-            nuevos.Correo = txtCorreoElectronico.Text;
-            nuevos.Telefono = txtTelefono.Text;
-
-
-            DatosNiños bldatos = new DatosNiños();
-            xmlPadre xmlPadre = new xmlPadre();
-
-            DataTable dt = new DataTable();
-            Servicio servicioNinio = new Servicio();
 
            
-            //xmlPadre.padre = padreXml;
-            //xmlPadre.padre = servicios;
 
-          //  ninnoXML.ninnoxml.Add(xmlNinno);
+            padre.Nombre = txtNombrePadre.Text;
+            padre.Identicacion = txtIdendificacion.Text;
+            padre.Direccion = txtDireccion.Text;
+            padre.Correo = txtCorreoElectronico.Text;
+            padre.Telefono = txtTelefono.Text;
 
-            //bldatos.RegistroNinio(ninnoXML);
-
-
-        
-
-        DatosPadre datos = new DatosPadre();
+            xml.padreXml.Add(padre);
 
 
-            try
-            {
-                string nombre = txtNombrePadre.Text;
-                string identificacion = txtIdendificacion.Text;
-                //string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
-
-
-                if (identificaciones.Contains(identificacion))
-                {
-                    MessageBox.Show("Identificacion existente en el sistema");
-                }
-
-                else
-                {
-                    identificaciones.Add(identificacion);
-                    identificaciones.Add(identificacion);
-                    Padre nuevo = new Padre();
-
-                    nuevo.Nombre = txtNombrePadre.Text;
-                    nuevo.Identicacion = txtIdendificacion.Text;
-                    nuevo.Direccion = txtDireccion.Text;
-                    nuevo.Correo = txtCorreoElectronico.Text;
-                    nuevo.Telefono = txtTelefono.Text;
-
-                    listaPadre.Add(nuevo);
-
-// Guardar la lista de padres en un archivo XML
-                    
-
-
-
-                    // Serializa y guarda el nuevoPadre en un archivo XML
-
-                }
-
-
-
-                {
-                    //  if (identificacionExistente == txtIdendificacion.Text) 
-                    //   {
-                    //   Me
-
-                    //    }
-
-
-
-
-
-                }
-
-                LimpiarDatos();
-
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("este es el error: " + ex);
-            }
-
+            datosPadre.RegistroPadre(xml);
+           
 
 
         }

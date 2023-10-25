@@ -50,6 +50,7 @@
             // 
             // dataGridViewServicios
             // 
+            dataGridViewServicios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewServicios.Location = new Point(27, 126);
             dataGridViewServicios.Margin = new Padding(4, 5, 4, 5);

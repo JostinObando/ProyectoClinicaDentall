@@ -14,31 +14,18 @@ namespace Negocios
         public string Correo { get; set; }
         public string Telefono { get; set; }
 
-        //public Padre(string nombre, string identificacion, string direccion, string correo, string telefono)
-        ////{
-           //    Nombre = nombre;
-            //Identicacion = identificacion;
-           // Direccion = direccion;
-           // Correo = correo;
-            //Telefono = telefono;
-
-       // }
+       
     }
 
 
     public class xmlPadre
     {
-        public Padre padre;
         public List<Padre> padreXml;
-    }
-
-    public class XmlPadre
-    {
-        public List<xmlPadre> padrexml;
-
-        public XmlPadre()
+        public xmlPadre()
         {
-            padrexml = new List<xmlPadre>();
+            padreXml = new List<Padre>();
         }
     }
+
+    
 }
