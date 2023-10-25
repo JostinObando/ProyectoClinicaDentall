@@ -40,16 +40,6 @@ namespace FrontEnd
             }
 
 
-            // Crear una instancia de Funcionario y establecer los datos
-            RFuncionario rFuncionario = new RFuncionario
-            {
-                //   nombre 
-                NombreFuncionario = nombre,
-                ApellidoFuncionario = apellido,
-                IdentificacionFuncionario = identificacion,
-                SexoFuncionario = sexo
-            };
-
             // Llamar a métodos de la capa de negocio para guardar el funcionario, por ejemplo:
             // Negocio.GuardarFuncionario(nuevoFuncionario);
 
@@ -61,12 +51,46 @@ namespace FrontEnd
 
             MessageBox.Show("Funcionario guardado exitosamente.");
 
+            // Primer formulario
+            string nombreCompleto1 = txtNombreFUncncionario.Text;
+            string codigoUsuario1 = txtCodigo.Text;
+            string estado1 = comboBoxEstado.Text;
+            string contraseña1 = txtContrasenia.Text;
+
+            // Validar los campos del primer formulario
+            if (string.IsNullOrWhiteSpace(nombreCompleto1) || string.IsNullOrWhiteSpace(codigoUsuario1) || string.IsNullOrWhiteSpace(estado1) || string.IsNullOrWhiteSpace(contraseña1))
+            {
+                MessageBox.Show("Por favor, complete todos los campos del primer formulario.");
+                return;
+            }
+
+            // Crear una instancia de Funcionario para el primer formulario
+            RFuncionario rFuncionario1 = new RFuncionario
+            {
+                NombreFuncionario = nombreCompleto1,
+                IdentificacionFuncionario = codigoUsuario1,
+                SexoFuncionario = estado1,
+                Contrasenia = contraseña1
+            };
+
+            // Limpiar los campos del primer formulario
+            txtNombreFUncncionario.Clear();
+            txtCodigo.Clear();
+            comboBoxEstado.SelectedIndex = -1;
+            txtContrasenia.Clear();
+
+
 
         }
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
