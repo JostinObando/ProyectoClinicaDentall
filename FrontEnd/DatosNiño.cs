@@ -187,6 +187,42 @@ namespace FrontEnd
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+           
+
+
+
+            if (comboBoxServicios.SelectedItem != null)
+            {
+                servicios.Add(comboBoxServicios.Text.ToString());
+                ActualizarDataGridView(comboBoxServicios.Text.ToString(), comboBoxServicios.SelectedValue.ToString());
+            }
+        }
+
+        private void ActualizarDataGridView(string nombre, string valor)
+        {
+            //dataGridViewServicio.Rows.Clear();
+
+            DataRow fila1 = dataTable.NewRow();
+            fila1["Servicio"] = nombre;
+            fila1["Costo"] = valor;
+
+            // Agregar la fila a la tabla
+            dataTable.Rows.Add(fila1);
+            decimal costoTotal = 0.0m;
+
+            dataGridViewServicio.DataSource = dataTable;
+            decimal costoTotalConIVA = Convert.ToDecimal(valor) * 0.13m;
+            if (string.IsNullOrEmpty(lblCosroTotal.Text))
+                costoTotal = Convert.ToDecimal(valor);
+            else
+                costoTotal = Convert.ToDecimal(lblCosroTotal.Text) + Convert.ToDecimal(valor);
+
+
+            lblCosroTotal.Text = (costoTotal + costoTotalConIVA).ToString();
+        }
+
+        private void btnServicios_Click(object sender, EventArgs e)
+        {
             try
             {
                 // Obtener la fecha de nacimiento del niño
@@ -236,41 +272,6 @@ namespace FrontEnd
             {
                 MessageBox.Show("este es el error: " + ex);
             }
-
-
-
-            if (comboBoxServicios.SelectedItem != null)
-            {
-                servicios.Add(comboBoxServicios.Text.ToString());
-                ActualizarDataGridView(comboBoxServicios.Text.ToString(), comboBoxServicios.SelectedValue.ToString());
-            }
-        }
-
-        private void ActualizarDataGridView(string nombre, string valor)
-        {
-            //dataGridViewServicio.Rows.Clear();
-
-            DataRow fila1 = dataTable.NewRow();
-            fila1["Servicio"] = nombre;
-            fila1["Costo"] = valor;
-
-            // Agregar la fila a la tabla
-            dataTable.Rows.Add(fila1);
-            decimal costoTotal = 0.0m;
-
-            dataGridViewServicio.DataSource = dataTable;
-            decimal costoTotalConIVA = Convert.ToDecimal(valor) * 0.13m;
-            if (string.IsNullOrEmpty(lblCosroTotal.Text))
-                costoTotal = Convert.ToDecimal(valor);
-            else
-                costoTotal = Convert.ToDecimal(lblCosroTotal.Text) + Convert.ToDecimal(valor);
-
-
-            lblCosroTotal.Text = (costoTotal + costoTotalConIVA).ToString();
-        }
-
-        private void btnServicios_Click(object sender, EventArgs e)
-        {
 
             NinnoXML ninnoXML = new NinnoXML();
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;

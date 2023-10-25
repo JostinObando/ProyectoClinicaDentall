@@ -31,14 +31,14 @@
             btnSalir = new Button();
             btnGuardar = new Button();
             lblidNinio = new Label();
-            textBox1 = new TextBox();
+            txtIdentificacionNinno = new TextBox();
             dataGridViewRegistro = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRegistro).BeginInit();
             SuspendLayout();
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(417, 393);
+            btnSalir.Location = new Point(298, 389);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 18;
@@ -48,30 +48,30 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(176, 393);
+            btnGuardar.Location = new Point(528, 52);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(112, 34);
+            btnGuardar.Size = new Size(67, 34);
             btnGuardar.TabIndex = 17;
-            btnGuardar.Text = "Guardar";
+            btnGuardar.Text = "...";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
             // lblidNinio
             // 
             lblidNinio.AutoSize = true;
-            lblidNinio.Location = new Point(221, 57);
+            lblidNinio.Location = new Point(91, 57);
             lblidNinio.Name = "lblidNinio";
-            lblidNinio.Size = new Size(30, 25);
+            lblidNinio.Size = new Size(160, 25);
             lblidNinio.TabIndex = 16;
-            lblidNinio.Text = "ID";
+            lblidNinio.Text = "Identificacion Niño";
             lblidNinio.Click += lblidNinio_Click;
             // 
-            // textBox1
+            // txtIdentificacionNinno
             // 
-            textBox1.Location = new Point(297, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 22;
+            txtIdentificacionNinno.Location = new Point(257, 54);
+            txtIdentificacionNinno.Name = "txtIdentificacionNinno";
+            txtIdentificacionNinno.Size = new Size(190, 31);
+            txtIdentificacionNinno.TabIndex = 22;
             // 
             // dataGridViewRegistro
             // 
@@ -89,7 +89,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(dataGridViewRegistro);
-            Controls.Add(textBox1);
+            Controls.Add(txtIdentificacionNinno);
             Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
             Controls.Add(lblidNinio);
@@ -106,7 +106,7 @@
         private Button btnSalir;
         private Button btnGuardar;
         private Label lblidNinio;
-        private TextBox textBox1;
+        private TextBox txtIdentificacionNinno;
         private DataGridView dataGridViewRegistro;
     }
 }
