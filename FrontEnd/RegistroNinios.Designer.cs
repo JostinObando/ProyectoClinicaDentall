@@ -68,7 +68,7 @@
             // 
             // txtIdentificacionNinno
             // 
-            txtIdentificacionNinno.Location = new Point(257, 54);
+            txtIdentificacionNinno.Location = new Point(281, 55);
             txtIdentificacionNinno.Name = "txtIdentificacionNinno";
             txtIdentificacionNinno.Size = new Size(190, 31);
             txtIdentificacionNinno.TabIndex = 22;

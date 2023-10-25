@@ -36,13 +36,14 @@
             facturaToolStripMenuItem = new ToolStripMenuItem();
             acercaDeToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
+            facturaToolStripMenuItem1 = new ToolStripMenuItem();
             menuStripPrincipal.SuspendLayout();
             SuspendLayout();
             // 
             // menuStripPrincipal
             // 
             menuStripPrincipal.ImageScalingSize = new Size(24, 24);
-            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, acercaDeToolStripMenuItem, salirToolStripMenuItem });
+            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, acercaDeToolStripMenuItem, salirToolStripMenuItem, facturaToolStripMenuItem1 });
             menuStripPrincipal.Location = new Point(0, 0);
             menuStripPrincipal.Name = "menuStripPrincipal";
             menuStripPrincipal.Size = new Size(1093, 33);
@@ -98,6 +99,13 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
+            // facturaToolStripMenuItem1
+            // 
+            facturaToolStripMenuItem1.Name = "facturaToolStripMenuItem1";
+            facturaToolStripMenuItem1.Size = new Size(84, 29);
+            facturaToolStripMenuItem1.Text = "Factura";
+            facturaToolStripMenuItem1.Click += facturaToolStripMenuItem1_Click;
+            // 
             // PantallaPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -125,5 +133,6 @@
         private ToolStripMenuItem facturaToolStripMenuItem;
         private ToolStripMenuItem acercaDeToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
+        private ToolStripMenuItem facturaToolStripMenuItem1;
     }
 }

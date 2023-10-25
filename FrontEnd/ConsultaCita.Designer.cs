@@ -28,34 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
+            dataGridViewFactura = new DataGridView();
+            txtIdentificacionNinno = new TextBox();
             btnSalir = new Button();
             btnGuardar = new Button();
             lblidNinio = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnPagar = new Button();
+            lblSubtotal = new Label();
+            lblEstadoServicio = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFactura).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewFactura
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 127);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.RowTemplate.Height = 33;
-            dataGridView1.Size = new Size(776, 225);
-            dataGridView1.TabIndex = 28;
+            dataGridViewFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewFactura.Location = new Point(12, 120);
+            dataGridViewFactura.Name = "dataGridViewFactura";
+            dataGridViewFactura.RowHeadersWidth = 62;
+            dataGridViewFactura.RowTemplate.Height = 33;
+            dataGridViewFactura.Size = new Size(776, 225);
+            dataGridViewFactura.TabIndex = 28;
             // 
-            // textBox1
+            // txtIdentificacionNinno
             // 
-            textBox1.Location = new Point(297, 39);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 27;
+            txtIdentificacionNinno.Location = new Point(297, 39);
+            txtIdentificacionNinno.Name = "txtIdentificacionNinno";
+            txtIdentificacionNinno.Size = new Size(150, 31);
+            txtIdentificacionNinno.TabIndex = 27;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(417, 378);
+            btnSalir.Location = new Point(422, 351);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 26;
@@ -64,7 +67,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(176, 378);
+            btnGuardar.Location = new Point(475, 39);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(112, 34);
             btnGuardar.TabIndex = 25;
@@ -81,30 +84,64 @@
             lblidNinio.TabIndex = 24;
             lblidNinio.Text = "Identificacion";
             // 
+            // btnPagar
+            // 
+            btnPagar.Location = new Point(186, 351);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(112, 34);
+            btnPagar.TabIndex = 30;
+            btnPagar.Text = "Pagar";
+            btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.Click += btnPagar_Click;
+            // 
+            // lblSubtotal
+            // 
+            lblSubtotal.AutoSize = true;
+            lblSubtotal.Location = new Point(628, 351);
+            lblSubtotal.Name = "lblSubtotal";
+            lblSubtotal.Size = new Size(79, 25);
+            lblSubtotal.TabIndex = 32;
+            lblSubtotal.Text = "Subtotal";
+            // 
+            // lblEstadoServicio
+            // 
+            lblEstadoServicio.AutoSize = true;
+            lblEstadoServicio.Location = new Point(603, 405);
+            lblEstadoServicio.Name = "lblEstadoServicio";
+            lblEstadoServicio.Size = new Size(132, 25);
+            lblEstadoServicio.TabIndex = 33;
+            lblEstadoServicio.Text = "Estado Servicio";
+            // 
             // ConsultaCita
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(1000, 450);
+            Controls.Add(lblEstadoServicio);
+            Controls.Add(lblSubtotal);
+            Controls.Add(btnPagar);
+            Controls.Add(dataGridViewFactura);
+            Controls.Add(txtIdentificacionNinno);
             Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
             Controls.Add(lblidNinio);
             IsMdiContainer = true;
             Name = "ConsultaCita";
             Text = "ConsultaCita";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFactura).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
+        private DataGridView dataGridViewFactura;
+        private TextBox txtIdentificacionNinno;
         private Button btnSalir;
         private Button btnGuardar;
         private Label lblidNinio;
+        private Button btnPagar;
+        private Label lblSubtotal;
+        private Label lblEstadoServicio;
     }
 }
