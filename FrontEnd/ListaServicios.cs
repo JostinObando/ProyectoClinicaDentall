@@ -22,7 +22,7 @@ namespace FrontEnd
 
         private List<Ninno> listaNiño = new List<Ninno>();
         private PantallaPrincipal principal;
-        
+
 
         private Mantenimiento mantenimiento;
 
@@ -210,6 +210,7 @@ namespace FrontEnd
             Fact.NombreNinio = txtNombre.Text;
             Fact.ApellidoNinio = txtApellido.Text;
             Fact.Identificacion = txtIdentificacion.Text;
+            Fact.costoTotal = lblCostoTotall.Text;
 
             Fact.servicio = comboBoxServicios.Text;
 

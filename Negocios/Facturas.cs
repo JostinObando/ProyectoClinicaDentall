@@ -17,6 +17,7 @@ namespace Negocios
         string ApellidoNinio = "";
         string Identificacion = "";
         string servicio = "";
+        string costoTotal = " ";
         
         
 

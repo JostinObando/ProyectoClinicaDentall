@@ -12,7 +12,9 @@ namespace Negocios
         public string ApellidoNinio { get; set; }
         public string Identificacion { get; set; }
 
-        public string servicio { get; set; }    
+        public string servicio { get; set; }
+
+        public string costoTotal { get; set; }
     }
     public class xmlFactura
     {

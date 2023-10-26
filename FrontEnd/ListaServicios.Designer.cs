@@ -61,7 +61,7 @@
             // 
             dataGridViewServicio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewServicio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewServicio.Location = new Point(25, 240);
+            dataGridViewServicio.Location = new Point(25, 224);
             dataGridViewServicio.Name = "dataGridViewServicio";
             dataGridViewServicio.RowHeadersWidth = 62;
             dataGridViewServicio.RowTemplate.Height = 33;
@@ -89,7 +89,7 @@
             // lblCostoTotall
             // 
             lblCostoTotall.AutoSize = true;
-            lblCostoTotall.Location = new Point(556, 417);
+            lblCostoTotall.Location = new Point(994, 514);
             lblCostoTotall.Name = "lblCostoTotall";
             lblCostoTotall.Size = new Size(0, 25);
             lblCostoTotall.TabIndex = 70;
