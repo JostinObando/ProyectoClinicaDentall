@@ -159,6 +159,7 @@
             dataGridViewServicio.RowTemplate.Height = 33;
             dataGridViewServicio.Size = new Size(749, 248);
             dataGridViewServicio.TabIndex = 60;
+            dataGridViewServicio.CellContentClick += dataGridViewServicio_CellContentClick;
             // 
             // lblCosroTotal
             // 
@@ -175,6 +176,7 @@
             comboBoxServicios.Name = "comboBoxServicios";
             comboBoxServicios.Size = new Size(300, 33);
             comboBoxServicios.TabIndex = 58;
+            comboBoxServicios.SelectedIndexChanged += comboBoxServicios_SelectedIndexChanged;
             // 
             // btnAgregar
             // 
@@ -194,6 +196,7 @@
             lblServicio.Size = new Size(73, 25);
             lblServicio.TabIndex = 62;
             lblServicio.Text = "Servicio";
+            lblServicio.Click += lblServicio_Click;
             // 
             // btnServicios
             // 

@@ -23,6 +23,8 @@ namespace FrontEnd
         public List<DatosNiños> dat = new List<DatosNiños> { };
         private List<string> serviciosAgregados = new List<string>();
 
+
+
         private PantallaPrincipal ventana;
         public RegistroNinios(PantallaPrincipal ventana)
         {
@@ -68,21 +70,19 @@ namespace FrontEnd
 
             // Realizar una consulta SELECT utilizando LINQ
             var resultado = from persona in ninnoXML.ninnoxml
-                            where persona.ninno.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-                            select new { persona.ninno.Identificacion, persona.ninno.Nombre, persona.servicios };
+                            where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
+                            select new { persona.Identificacion, persona.Nombre };
 
             foreach (var persona in resultado)
             {
-                string a = persona.Identificacion.ToString();
-                string b = persona.Nombre.ToString();
-                foreach (var item in persona.servicios)
-                {
-                    DataRow fila1 = dtServicios.NewRow();
-                    fila1["Servicio"] = item.servicioNombre.ToString();
-                    fila1["Costo"] = item.ServicioCostonSinIva.ToString();
-                    dtServicios.Rows.Add(fila1);
+                //string a = persona.Identificacion.ToString();
+                //string b = persona.Nombre.ToString();
+                //foreach (var item in persona.servicios)
+                //{
 
-                }
+              //dtServicios.Rows.Add(fila1);
+
+                //}
             }
 
             dataGridViewRegistro.DataSource = dtServicios;

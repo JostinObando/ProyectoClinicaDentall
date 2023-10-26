@@ -23,19 +23,15 @@ namespace Negocios
 
     }
 
-    public class xmlNinno
-    {
-        public Ninno ninno;
-        public List<Servicio> servicios;
-    }
+   
 
     public class NinnoXML
     {
-        public List<xmlNinno> ninnoxml;
+        public List<Ninno> ninnoxml;
 
         public NinnoXML()
         {
-            ninnoxml = new List<xmlNinno>();
+            ninnoxml = new List<Ninno>();
         }
     }
 }

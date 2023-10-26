@@ -107,6 +107,8 @@ namespace FrontEnd
                 int años = edad.Days / 365;
                 int meses = (edad.Days % 365) / 30;
 
+
+
                 // Obtener los datos ingresados por el usuario
                 string nombre = txtNombreNiño.Text;
                 string apellido = txtApellido.Text;
@@ -187,7 +189,7 @@ namespace FrontEnd
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-           
+
 
 
 
@@ -227,110 +229,114 @@ namespace FrontEnd
             {
                 // Obtener la fecha de nacimiento del niño
                 DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
-
                 // Calcular la edad en años y meses
                 TimeSpan edad = DateTime.Now - fechaNacimiento;
                 int años = edad.Days / 365;
                 int meses = (edad.Days % 365) / 30;
 
-                // Obtener los datos ingresados por el usuario
-                string nombre = txtNombreNiño.Text;
-                string apellido = txtApellido.Text;
-                string identificacion = txtIdendificacionNiño.Text;
-                DateTime fechaNacimient = dateTimePickerFechaNacimiento.Value;
-                string sexo = comboBoxSexoNiño.Text;
-                string identificacionPadre = txtIDPadre.Text;
-                //Valida datos ninio
                 if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
                 {
-                    // Crear un nuevo objeto Niño con los datos ingresados
-                    Ninno nuevoNiño = new Ninno();
-                    nuevoNiño.Nombre = nombre;
-                    nuevoNiño.Apellido = apellido;
-                    nuevoNiño.IdentificacionPadre = identificacion;
-                    nuevoNiño.FechaNacimiento = Convert.ToDateTime(fechaNacimiento);
-                    nuevoNiño.Sexo = sexo;
-                    nuevoNiño.IdentificacionPadre = identificacionPadre;
+                    NinnoXML ninnoXML = new NinnoXML();
+                    string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    string subfolder = "XMLFiles";
+                    string filename = "ninnno.xml";
+                    string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
 
-                    // Agregar el nuevo niño a la lista en memoria
-                    listaNiño.Add(nuevoNiño);
+                    if (File.Exists(xmlFilePath))
+                    {
+                        using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                        {
+                            XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
+                            ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
+                        }
+                    }
 
-                    // Limpiar los campos después de guardar la información
-                    Limpiar();
-                    // Registro válido, procede con el registro del niño
-                    //datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, fechaNacimiento.ToString(), comboBoxSexoNiño.Text, txtIDPadre.Text);
-                    Limpiar();
+                    Ninno ninnoEncontrado = new Ninno();
+
+                    ninnoEncontrado.Nombre = txtNombreNiño.Text;
+                    ninnoEncontrado.Apellido = txtApellido.Text;
+                    ninnoEncontrado.Identificacion = txtIdendificacionNiño.Text;
+                    ninnoEncontrado.FechaNacimiento = Convert.ToDateTime(dateTimePickerFechaNacimiento.Text);
+                    ninnoEncontrado.Sexo = comboBoxServicios.Text;
+                    ninnoEncontrado.IdentificacionPadre = txtIDPadre.Text;
+                    ninnoEncontrado.costoTotal = lblCosroTotal.Text;
+                    List<Servicio> servicios = new List<Servicio>();
+                    ninnoXML.ninnoxml.Add(ninnoEncontrado);
+
+
+                    DatosNiños bldatos = new DatosNiños();
+
+
+                    DataTable dt = new DataTable();
+                    Servicio servicioNinio = new Servicio();
+
+
+
+                    bldatos.RegistroNinio(ninnoXML);
 
                 }
                 else
                 {
                     MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+
+                // Obtener la fecha de nacimiento del niño
+                //    DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
+
+                //    // Calcular la edad en años y meses
+                //    TimeSpan edad = DateTime.Now - fechaNacimiento;
+                //    int años = edad.Days / 365;
+                //    int meses = (edad.Days % 365) / 30;
+
+                //    // Obtener los datos ingresados por el usuario
+                //    string nombre = txtNombreNiño.Text;
+                //    string apellido = txtApellido.Text;
+                //    string identificacion = txtIdendificacionNiño.Text;
+                //    DateTime fechaNacimient = dateTimePickerFechaNacimiento.Value;
+                //    string sexo = comboBoxSexoNiño.Text;
+                //    string identificacionPadre = txtIDPadre.Text;
+                //    //Valida datos ninio
+                //    if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
+                //    {
+                //        // Crear un nuevo objeto Niño con los datos ingresados
+                //        Ninno nuevoNiño = new Ninno();
+                //        nuevoNiño.Nombre = nombre;
+                //        nuevoNiño.Apellido = apellido;
+                //        nuevoNiño.IdentificacionPadre = identificacion;
+                //        nuevoNiño.FechaNacimiento = Convert.ToDateTime(fechaNacimiento);
+                //        nuevoNiño.Sexo = sexo;
+                //        nuevoNiño.IdentificacionPadre = identificacionPadre;
+
+                //        // Agregar el nuevo niño a la lista en memoria
+                //        listaNiño.Add(nuevoNiño);
+
+                //        // Limpiar los campos después de guardar la información
+                //        Limpiar();
+                //        // Registro válido, procede con el registro del niño
+                //        //datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, fechaNacimiento.ToString(), comboBoxSexoNiño.Text, txtIDPadre.Text);
+                //        Limpiar();
+
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show("este es el error: " + ex);
+                //}
+
+
+
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show("este es el error: " + ex);
             }
-
-            NinnoXML ninnoXML = new NinnoXML();
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string subfolder = "XMLFiles";
-            string filename = "ninnno.xml";
-            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
-
-            if (File.Exists(xmlFilePath))
-            {
-                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
-                    ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
-                }
-            }
-
-            Ninno ninnoEncontrado = new Ninno();
-
-            ninnoEncontrado.Nombre = txtNombreNiño.Text;
-            ninnoEncontrado.Apellido = txtApellido.Text;
-            ninnoEncontrado.Identificacion = txtIdendificacionNiño.Text;
-            ninnoEncontrado.FechaNacimiento = Convert.ToDateTime(dateTimePickerFechaNacimiento.Text);
-            ninnoEncontrado.Sexo = comboBoxServicios.Text;
-            ninnoEncontrado.IdentificacionPadre = txtIDPadre.Text;
-            ninnoEncontrado.costoTotal = lblCosroTotal.Text;
-            List<Servicio> servicios = new List<Servicio>();
-
-            DatosNiños bldatos = new DatosNiños();
-            xmlNinno xmlNinno = new xmlNinno();
-
-            DataTable dt = new DataTable();
-            Servicio servicioNinio = new Servicio();
-
-            int rowsNumer = 1;
-            foreach (DataGridViewRow dgvRow in dataGridViewServicio.Rows)
-            {
-
-                if (rowsNumer < dataGridViewServicio.Rows.Count)
-                {
-                    rowsNumer = rowsNumer + 1;
-                    DataRow newRow = dt.NewRow();
-
-                    // Asigna los valores de las celdas del DataGridView a las columnas del DataTable
-                    servicioNinio = new Servicio();
-                    servicioNinio.servicioNombre = dgvRow.Cells["servicio"].Value.ToString();
-                    servicioNinio.ServicioCostonSinIva = dgvRow.Cells["costo"].Value.ToString();
-                    servicios.Add(servicioNinio);
-
-                }
-            }
-
-            xmlNinno.ninno = ninnoEncontrado;
-            xmlNinno.servicios = servicios;
-
-            ninnoXML.ninnoxml.Add(xmlNinno);
-
-            bldatos.RegistroNinio(ninnoXML);
-
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -339,6 +345,19 @@ namespace FrontEnd
             this.Hide();
             ventanaPrincipal.Show();
 
+        }
+
+        private void lblServicio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxServicios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void dataGridViewServicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

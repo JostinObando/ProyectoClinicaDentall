@@ -28,72 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnGuardar = new Button();
-            btnSalir = new Button();
-            comboBoxServicios = new ComboBox();
-            lblCosroTotal = new Label();
+            lblServicio = new Label();
             dataGridViewServicio = new DataGridView();
+            comboBoxServicios = new ComboBox();
+            btnAgregar = new Button();
+            lblCostoTotall = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).BeginInit();
             SuspendLayout();
             // 
-            // btnGuardar
+            // lblServicio
             // 
-            btnGuardar.Location = new Point(393, 31);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(112, 34);
-            btnGuardar.TabIndex = 1;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click;
+            lblServicio.AutoSize = true;
+            lblServicio.Location = new Point(12, 70);
+            lblServicio.Name = "lblServicio";
+            lblServicio.Size = new Size(73, 25);
+            lblServicio.TabIndex = 66;
+            lblServicio.Text = "Servicio";
             // 
-            // btnSalir
+            // dataGridViewServicio
             // 
-            btnSalir.Location = new Point(393, 99);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(112, 34);
-            btnSalir.TabIndex = 2;
-            btnSalir.Text = "Salir";
-            btnSalir.UseVisualStyleBackColor = true;
-            btnSalir.Click += btnSalir_Click;
+            dataGridViewServicio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewServicio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewServicio.Location = new Point(12, 140);
+            dataGridViewServicio.Name = "dataGridViewServicio";
+            dataGridViewServicio.RowHeadersWidth = 62;
+            dataGridViewServicio.RowTemplate.Height = 33;
+            dataGridViewServicio.Size = new Size(749, 248);
+            dataGridViewServicio.TabIndex = 65;
             // 
             // comboBoxServicios
             // 
             comboBoxServicios.FormattingEnabled = true;
-            comboBoxServicios.Location = new Point(98, 62);
+            comboBoxServicios.Location = new Point(188, 61);
             comboBoxServicios.Name = "comboBoxServicios";
-            comboBoxServicios.Size = new Size(182, 33);
-            comboBoxServicios.TabIndex = 3;
-            comboBoxServicios.SelectedIndexChanged += comboBoxServicios_SelectedIndexChanged;
+            comboBoxServicios.Size = new Size(300, 33);
+            comboBoxServicios.TabIndex = 64;
             // 
-            // lblCosroTotal
+            // btnAgregar
             // 
-            lblCosroTotal.AutoSize = true;
-            lblCosroTotal.Location = new Point(563, 50);
-            lblCosroTotal.Name = "lblCosroTotal";
-            lblCosroTotal.Size = new Size(115, 25);
-            lblCosroTotal.TabIndex = 6;
-            lblCosroTotal.Text = "Costo Total : ";
+            btnAgregar.Location = new Point(542, 61);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(219, 45);
+            btnAgregar.TabIndex = 63;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
-            // dataGridViewServicio
+            // lblCostoTotall
             // 
-            dataGridViewServicio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewServicio.Location = new Point(12, 190);
-            dataGridViewServicio.Name = "dataGridViewServicio";
-            dataGridViewServicio.RowHeadersWidth = 62;
-            dataGridViewServicio.RowTemplate.Height = 33;
-            dataGridViewServicio.Size = new Size(791, 248);
-            dataGridViewServicio.TabIndex = 8;
+            lblCostoTotall.AutoSize = true;
+            lblCostoTotall.Location = new Point(556, 402);
+            lblCostoTotall.Name = "lblCostoTotall";
+            lblCostoTotall.Size = new Size(0, 25);
+            lblCostoTotall.TabIndex = 70;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(378, 402);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 25);
+            label1.TabIndex = 72;
+            label1.Text = "CostoTotal : ";
             // 
             // ListaServicios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(lblCostoTotall);
+            Controls.Add(lblServicio);
             Controls.Add(dataGridViewServicio);
-            Controls.Add(lblCosroTotal);
             Controls.Add(comboBoxServicios);
-            Controls.Add(btnSalir);
-            Controls.Add(btnGuardar);
+            Controls.Add(btnAgregar);
             ForeColor = Color.Black;
             IsMdiContainer = true;
             Name = "ListaServicios";
@@ -106,10 +115,11 @@
 
         #endregion
 
-        private Button btnGuardar;
-        private Button btnSalir;
-        private ComboBox comboBoxServicios;
-        private Label lblCosroTotal;
+        private Label lblServicio;
         private DataGridView dataGridViewServicio;
+        private ComboBox comboBoxServicios;
+        private Button btnAgregar;
+        private Label lblCostoTotall;
+        private Label label1;
     }
 }

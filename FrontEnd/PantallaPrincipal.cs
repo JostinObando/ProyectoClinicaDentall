@@ -58,8 +58,7 @@ namespace FrontEnd
 
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
-            Funcionarios funcionario = new Funcionarios();
-            funcionario.Show();
+
         }
 
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,8 +69,20 @@ namespace FrontEnd
 
         private void facturaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ConsultaCita consultaCita = new ConsultaCita(); 
+            ConsultaCita consultaCita = new ConsultaCita();
             consultaCita.Show();
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AcercaDe acercaDe = new AcercaDe(); 
+            acercaDe.Show();
+        }
+
+        private void listaServicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaServicios listaServicios = new ListaServicios(this);
+            listaServicios.Show();
         }
     }
 }

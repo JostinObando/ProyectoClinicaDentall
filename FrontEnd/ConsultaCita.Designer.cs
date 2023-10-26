@@ -46,7 +46,7 @@
             dataGridViewFactura.Name = "dataGridViewFactura";
             dataGridViewFactura.RowHeadersWidth = 62;
             dataGridViewFactura.RowTemplate.Height = 33;
-            dataGridViewFactura.Size = new Size(776, 225);
+            dataGridViewFactura.Size = new Size(711, 225);
             dataGridViewFactura.TabIndex = 28;
             // 
             // txtIdentificacionNinno
@@ -67,7 +67,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(475, 39);
+            btnGuardar.Location = new Point(628, 36);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(112, 34);
             btnGuardar.TabIndex = 25;
@@ -116,7 +116,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 450);
+            ClientSize = new Size(1150, 687);
             Controls.Add(lblEstadoServicio);
             Controls.Add(lblSubtotal);
             Controls.Add(btnPagar);

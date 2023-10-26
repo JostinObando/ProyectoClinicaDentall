@@ -50,21 +50,21 @@ namespace FrontEnd
 
             // Realizar una consulta SELECT utilizando LINQ
             var resultado = from persona in ninnoXML.ninnoxml
-                            where persona.ninno.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-                            select new { persona.ninno.Identificacion, persona.ninno.Nombre, persona.servicios };
+                            where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
+                            select new { persona.Identificacion, persona.Nombre };
 
             foreach (var persona in resultado)
             {
-                foreach (var item in persona.servicios)
-                {
-                    DataRow fila1 = dtServicios.NewRow();
-                    fila1["Servicio"] = item.servicioNombre.ToString();
-                    fila1["Costo"] = item.ServicioCostonSinIva.ToString();
-                    fila1["Niño"] = persona.Nombre.ToString(); 
-                    dtServicios.Rows.Add(fila1);
+                //    foreach (var item in persona).
+                //    {
+                DataRow fila1 = dtServicios.NewRow();
+                //fila1["Servicio"] = item.servicioNombre.ToString();
+                //fila1["Costo"] = item.ServicioCostonSinIva.ToString();
+                fila1["Niño"] = persona.Nombre.ToString();
+                dtServicios.Rows.Add(fila1);
 
-                }
             }
+            //}
 
             dataGridViewFactura.DataSource = dtServicios;
         }
