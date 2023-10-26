@@ -75,7 +75,7 @@ namespace FrontEnd
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AcercaDe acercaDe = new AcercaDe(); 
+            AcercaDe acercaDe = new AcercaDe();
             acercaDe.Show();
         }
 

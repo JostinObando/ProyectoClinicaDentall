@@ -94,5 +94,14 @@ namespace FrontEnd
             lblEstadoServicio.Text = "Estado del Servicio: Cancelado";
 
         }
+
+        private void txtIdentificacionNinno_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblidNinio_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

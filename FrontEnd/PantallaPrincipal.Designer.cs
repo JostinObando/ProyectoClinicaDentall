@@ -44,7 +44,7 @@
             // menuStripPrincipal
             // 
             menuStripPrincipal.ImageScalingSize = new Size(24, 24);
-            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, facturaToolStripMenuItem1, acercaDeToolStripMenuItem, salirToolStripMenuItem, listaServicioToolStripMenuItem });
+            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, listaServicioToolStripMenuItem, facturaToolStripMenuItem1, acercaDeToolStripMenuItem, salirToolStripMenuItem });
             menuStripPrincipal.Location = new Point(0, 0);
             menuStripPrincipal.Name = "menuStripPrincipal";
             menuStripPrincipal.Size = new Size(1189, 33);

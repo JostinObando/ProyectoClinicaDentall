@@ -55,6 +55,7 @@
             txtIdentificacionNinno.Name = "txtIdentificacionNinno";
             txtIdentificacionNinno.Size = new Size(150, 31);
             txtIdentificacionNinno.TabIndex = 27;
+            txtIdentificacionNinno.TextChanged += txtIdentificacionNinno_TextChanged;
             // 
             // btnSalir
             // 
@@ -83,6 +84,7 @@
             lblidNinio.Size = new Size(117, 25);
             lblidNinio.TabIndex = 24;
             lblidNinio.Text = "Identificacion";
+            lblidNinio.Click += lblidNinio_Click;
             // 
             // btnPagar
             // 

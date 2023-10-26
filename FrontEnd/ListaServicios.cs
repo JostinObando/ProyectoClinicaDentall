@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using Datos;
 using Negocios;
 namespace FrontEnd
@@ -21,6 +22,7 @@ namespace FrontEnd
 
         private List<Ninno> listaNiño = new List<Ninno>();
         private PantallaPrincipal principal;
+        
 
         private Mantenimiento mantenimiento;
 
@@ -154,8 +156,73 @@ namespace FrontEnd
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
 
 
+
+            DataTable dtServicios = new DataTable();
+            dtServicios.Columns.Add("Servicio", typeof(string));
+            dtServicios.Columns.Add("Costo", typeof(string));
+            // Puedes poner este código en un manejador de eventos del botón "Pagar" en tu formulario.
+
+            // Calcular el monto total con IVA (0.013)
+            double montoSinIva = 0;
+            foreach (DataRow fila in dtServicios.Rows)
+            {
+                double costo = Convert.ToDouble(fila["Costo"]);
+                montoSinIva += costo;
+            }
+            double iva = montoSinIva * 0.013;
+            double montoConIva = montoSinIva + iva;
+
+            // Mostrar un mensaje de servicio cancelado
+            MessageBox.Show("Servicio Cancelado");
+
+            // Actualizar las etiquetas para mostrar el monto con IVA y el estado
+            lblSubtotal.Text = "Monto con IVA: " + montoConIva.ToString("C"); // Formatea el monto como moneda
+            lblEstadoServicio.Text = "Estado del Servicio: Cancelado";
+
+            Facturas Facturasninio = new Facturas();
+            Factura Fact = new Factura();
+            xmlFactura xml = new xmlFactura();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string subfolder = "XMLFiles";
+            string filename = "Factura.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+            if (File.Exists(xmlFilePath))
+            {
+                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(xmlFactura));
+                    xml = (xmlFactura)serializer.Deserialize(fileStream);
+                }
+            }
+
+
+
+            Fact.NombreNinio = txtNombre.Text;
+            Fact.ApellidoNinio = txtApellido.Text;
+            Fact.Identificacion = txtIdentificacion.Text;
+
+            Fact.servicio = comboBoxServicios.Text;
+
+            xml.Facturaxml.Add(Fact);
+
+
+            Facturasninio.RegistroFactura(xml);
+
+
+
+
+
+        }
     }
 
 }

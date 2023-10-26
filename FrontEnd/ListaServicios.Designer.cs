@@ -34,13 +34,24 @@
             btnAgregar = new Button();
             lblCostoTotall = new Label();
             label1 = new Label();
+            lblEstadoServicio = new Label();
+            lblSubtotal = new Label();
+            btnPagar = new Button();
+            btnSalir = new Button();
+            txtNombre = new TextBox();
+            lblNombreNinio = new Label();
+            btnGuardar = new Button();
+            txtApellido = new TextBox();
+            label2 = new Label();
+            txtIdentificacion = new TextBox();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).BeginInit();
             SuspendLayout();
             // 
             // lblServicio
             // 
             lblServicio.AutoSize = true;
-            lblServicio.Location = new Point(12, 70);
+            lblServicio.Location = new Point(25, 176);
             lblServicio.Name = "lblServicio";
             lblServicio.Size = new Size(73, 25);
             lblServicio.TabIndex = 66;
@@ -50,7 +61,7 @@
             // 
             dataGridViewServicio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewServicio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewServicio.Location = new Point(12, 140);
+            dataGridViewServicio.Location = new Point(25, 240);
             dataGridViewServicio.Name = "dataGridViewServicio";
             dataGridViewServicio.RowHeadersWidth = 62;
             dataGridViewServicio.RowTemplate.Height = 33;
@@ -60,14 +71,14 @@
             // comboBoxServicios
             // 
             comboBoxServicios.FormattingEnabled = true;
-            comboBoxServicios.Location = new Point(188, 61);
+            comboBoxServicios.Location = new Point(182, 173);
             comboBoxServicios.Name = "comboBoxServicios";
             comboBoxServicios.Size = new Size(300, 33);
             comboBoxServicios.TabIndex = 64;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(542, 61);
+            btnAgregar.Location = new Point(556, 173);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(219, 45);
             btnAgregar.TabIndex = 63;
@@ -78,7 +89,7 @@
             // lblCostoTotall
             // 
             lblCostoTotall.AutoSize = true;
-            lblCostoTotall.Location = new Point(556, 402);
+            lblCostoTotall.Location = new Point(556, 417);
             lblCostoTotall.Name = "lblCostoTotall";
             lblCostoTotall.Size = new Size(0, 25);
             lblCostoTotall.TabIndex = 70;
@@ -86,17 +97,123 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(378, 402);
+            label1.Location = new Point(878, 510);
             label1.Name = "label1";
             label1.Size = new Size(110, 25);
             label1.TabIndex = 72;
             label1.Text = "CostoTotal : ";
             // 
+            // lblEstadoServicio
+            // 
+            lblEstadoServicio.AutoSize = true;
+            lblEstadoServicio.Location = new Point(542, 595);
+            lblEstadoServicio.Name = "lblEstadoServicio";
+            lblEstadoServicio.Size = new Size(132, 25);
+            lblEstadoServicio.TabIndex = 77;
+            lblEstadoServicio.Text = "Estado Servicio";
+            // 
+            // lblSubtotal
+            // 
+            lblSubtotal.AutoSize = true;
+            lblSubtotal.Location = new Point(569, 510);
+            lblSubtotal.Name = "lblSubtotal";
+            lblSubtotal.Size = new Size(79, 25);
+            lblSubtotal.TabIndex = 76;
+            lblSubtotal.Text = "Subtotal";
+            // 
+            // btnPagar
+            // 
+            btnPagar.Location = new Point(111, 505);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(112, 34);
+            btnPagar.TabIndex = 75;
+            btnPagar.Text = "Pagar";
+            btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.Click += btnPagar_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(345, 505);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(112, 34);
+            btnSalir.TabIndex = 74;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(252, 12);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(150, 31);
+            txtNombre.TabIndex = 81;
+            // 
+            // lblNombreNinio
+            // 
+            lblNombreNinio.AutoSize = true;
+            lblNombreNinio.Location = new Point(26, 18);
+            lblNombreNinio.Name = "lblNombreNinio";
+            lblNombreNinio.Size = new Size(118, 25);
+            lblNombreNinio.TabIndex = 79;
+            lblNombreNinio.Text = "Nombre niño";
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Location = new Point(589, 30);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(112, 34);
+            btnGuardar.TabIndex = 80;
+            btnGuardar.Text = "Consultar";
+            btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(252, 66);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(150, 31);
+            txtApellido.TabIndex = 84;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(25, 66);
+            label2.Name = "label2";
+            label2.Size = new Size(118, 25);
+            label2.TabIndex = 83;
+            label2.Text = "Apellido niño";
+            label2.Click += label2_Click;
+            // 
+            // txtIdentificacion
+            // 
+            txtIdentificacion.Location = new Point(252, 119);
+            txtIdentificacion.Name = "txtIdentificacion";
+            txtIdentificacion.Size = new Size(150, 31);
+            txtIdentificacion.TabIndex = 86;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(26, 119);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 25);
+            label3.TabIndex = 85;
+            label3.Text = "Identificacion";
+            // 
             // ListaServicios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1380, 671);
+            Controls.Add(txtIdentificacion);
+            Controls.Add(label3);
+            Controls.Add(txtApellido);
+            Controls.Add(label2);
+            Controls.Add(txtNombre);
+            Controls.Add(btnGuardar);
+            Controls.Add(lblNombreNinio);
+            Controls.Add(lblEstadoServicio);
+            Controls.Add(lblSubtotal);
+            Controls.Add(btnPagar);
+            Controls.Add(btnSalir);
             Controls.Add(label1);
             Controls.Add(lblCostoTotall);
             Controls.Add(lblServicio);
@@ -121,5 +238,16 @@
         private Button btnAgregar;
         private Label lblCostoTotall;
         private Label label1;
+        private Label lblEstadoServicio;
+        private Label lblSubtotal;
+        private Button btnPagar;
+        private Button btnSalir;
+        private TextBox txtNombre;
+        private Label lblNombreNinio;
+        private Button btnGuardar;
+        private TextBox txtApellido;
+        private Label label2;
+        private TextBox txtIdentificacion;
+        private Label label3;
     }
 }
