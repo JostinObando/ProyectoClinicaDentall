@@ -24,7 +24,7 @@ namespace FrontEnd
         private List<string> serviciosAgregados = new List<string>();
 
         private PantallaPrincipal ventana;
-        public RegistroNinios()
+        public RegistroNinios(PantallaPrincipal ventana)
         {
             InitializeComponent();
             this.ventana = ventana;

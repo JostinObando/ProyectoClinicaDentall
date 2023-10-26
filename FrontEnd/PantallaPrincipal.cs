@@ -52,19 +52,19 @@ namespace FrontEnd
 
         private void listaServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RegistroNinios registroNinios = new RegistroNinios();
+            RegistroNinios registroNinios = new RegistroNinios(this);
             registroNinios.Show();
         }
 
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
+            Funcionarios funcionario = new Funcionarios();
             funcionario.Show();
         }
 
         private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Funcionario funcionario = new Funcionario();
+            Funcionarios funcionario = new Funcionarios();
             funcionario.Show();
         }
 

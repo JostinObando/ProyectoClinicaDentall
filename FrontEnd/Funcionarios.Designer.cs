@@ -1,6 +1,6 @@
 ﻿namespace FrontEnd
 {
-    partial class Funcionario
+    partial class Funcionarios
     {
         /// <summary>
         /// Required designer variable.

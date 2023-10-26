@@ -45,7 +45,7 @@ namespace FrontEnd
             DataTable dtServicios = new DataTable();
             dtServicios.Columns.Add("Servicio", typeof(string));
             dtServicios.Columns.Add("Costo", typeof(string));
-
+            dtServicios.Columns.Add("Niño", typeof(string));
 
 
             // Realizar una consulta SELECT utilizando LINQ
@@ -55,13 +55,12 @@ namespace FrontEnd
 
             foreach (var persona in resultado)
             {
-                string a = persona.Identificacion.ToString();
-                string b = persona.Nombre.ToString();
                 foreach (var item in persona.servicios)
                 {
                     DataRow fila1 = dtServicios.NewRow();
                     fila1["Servicio"] = item.servicioNombre.ToString();
                     fila1["Costo"] = item.ServicioCostonSinIva.ToString();
+                    fila1["Niño"] = persona.Nombre.ToString(); 
                     dtServicios.Rows.Add(fila1);
 
                 }

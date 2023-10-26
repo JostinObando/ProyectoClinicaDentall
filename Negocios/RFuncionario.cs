@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Negocios
 {
     public  class RFuncionario
@@ -14,7 +15,28 @@ namespace Negocios
         public string IdentificacionFuncionario { get; set; }
         public string SexoFuncionario { get; set; }
         
+        public string nombreCompleto { get; set; }
+        public string codigoUsuario { get; set; }
+        public string estado { get; set; }
         public string Contrasenia { get; set; }
+        
+
+       
+
+
+
+
 
     }
+
+    public class xmlFuncionario
+    {
+        public List<RFuncionario> funcionarioxml;
+        public xmlFuncionario()
+        {
+            funcionarioxml = new List<RFuncionario>();
+        }
+    }
+
+
 }

@@ -47,7 +47,7 @@ namespace FrontEnd
                 }
             }
 
-           
+
 
             padre.Nombre = txtNombrePadre.Text;
             padre.Identicacion = txtIdendificacion.Text;
@@ -59,7 +59,7 @@ namespace FrontEnd
 
 
             datosPadre.RegistroPadre(xml);
-           
+
 
 
         }
@@ -94,7 +94,7 @@ namespace FrontEnd
         }
 
 
-            private bool identificacionExistente(string identificacion)
+        private bool identificacionExistente(string identificacion)
         {
             //Validacion de identificaiones existentes
             foreach (Padre padre in listaPadre)
