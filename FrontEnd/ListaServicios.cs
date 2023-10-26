@@ -207,10 +207,10 @@ namespace FrontEnd
 
 
 
-            Fact.NombreNinio = txtNombre.Text;
-            Fact.ApellidoNinio = txtApellido.Text;
-            Fact.Identificacion = txtIdentificacion.Text;
-            Fact.costoTotal = lblCostoTotall.Text;
+            // Fact.NombreNinio = txtNombre.Text;
+            // Fact.ApellidoNinio = txtApellido.Text;
+            //Fact.Identificacion = txtIdentificacion.Text;
+            Fact.costoTotal = btnConsultar.Text;
 
             Fact.servicio = comboBoxServicios.Text;
 
@@ -218,6 +218,32 @@ namespace FrontEnd
 
 
             Facturasninio.RegistroFactura(xml);
+
+
+
+
+
+        }
+
+        private void btnConsultar_Click_1(object sender, EventArgs e)
+        {
+            NinnoXML ninnoXML = new NinnoXML();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string subfolder = "XMLFiles";
+            string filename = "ninnno.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+
+
+            if (File.Exists(xmlFilePath))
+            {
+                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
+                    ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
+                }
+            }
+
 
 
 

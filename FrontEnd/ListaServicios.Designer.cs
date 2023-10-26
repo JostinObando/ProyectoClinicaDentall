@@ -40,7 +40,7 @@
             btnSalir = new Button();
             txtNombre = new TextBox();
             lblNombreNinio = new Label();
-            btnGuardar = new Button();
+            btnConsultar = new Button();
             txtApellido = new TextBox();
             label2 = new Label();
             txtIdentificacion = new TextBox();
@@ -156,14 +156,15 @@
             lblNombreNinio.TabIndex = 79;
             lblNombreNinio.Text = "Nombre niño";
             // 
-            // btnGuardar
+            // btnConsultar
             // 
-            btnGuardar.Location = new Point(589, 30);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(112, 34);
-            btnGuardar.TabIndex = 80;
-            btnGuardar.Text = "Consultar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnConsultar.Location = new Point(589, 30);
+            btnConsultar.Name = "btnConsultar";
+            btnConsultar.Size = new Size(112, 34);
+            btnConsultar.TabIndex = 80;
+            btnConsultar.Text = "Consultar";
+            btnConsultar.UseVisualStyleBackColor = true;
+           
             // 
             // txtApellido
             // 
@@ -208,7 +209,7 @@
             Controls.Add(txtApellido);
             Controls.Add(label2);
             Controls.Add(txtNombre);
-            Controls.Add(btnGuardar);
+            Controls.Add(btnConsultar);
             Controls.Add(lblNombreNinio);
             Controls.Add(lblEstadoServicio);
             Controls.Add(lblSubtotal);
@@ -244,7 +245,7 @@
         private Button btnSalir;
         private TextBox txtNombre;
         private Label lblNombreNinio;
-        private Button btnGuardar;
+        private Button btnConsultar;
         private TextBox txtApellido;
         private Label label2;
         private TextBox txtIdentificacion;
