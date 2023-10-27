@@ -169,6 +169,7 @@ namespace FrontEnd
             DataTable dtServicios = new DataTable();
             dtServicios.Columns.Add("Servicio", typeof(string));
             dtServicios.Columns.Add("Costo", typeof(string));
+            //dtServicios.Columns.Add("FechaFactura", typeof(string));
             // Puedes poner este código en un manejador de eventos del botón "Pagar" en tu formulario.
 
             // Calcular el monto total con IVA (0.013)
@@ -211,6 +212,7 @@ namespace FrontEnd
             Fact.ApellidoNinio = txtApellido.Text;
             Fact.Identificacion = txtIdentificacion.Text;
             Fact.costoTotal = lblCostoTotall.Text;
+            Fact.FechaFactura = DateTime.Now;
 
             Fact.servicio = comboBoxServicios.Text;
 
@@ -274,7 +276,7 @@ namespace FrontEnd
             dtServicios.Columns.Add("Servicio", typeof(string));
             dtServicios.Columns.Add("Costo", typeof(string));
             dtServicios.Columns.Add("Niño", typeof(string));
-
+          //  dtServicios.Columns.Add("FechaFactura", typeof(DateTime));
             var resultado = from persona in ninnoXML.ninnoxml
                             where persona.Identificacion.ToString() == txtIdentificacion.Text.ToString()
                             select new { persona.Identificacion, persona.Nombre, persona.Apellido };
@@ -282,6 +284,7 @@ namespace FrontEnd
             {
                 txtNombre.Text = persona.Nombre;
                 txtApellido.Text = persona.Apellido;
+               // DateTime.    
 
 
             }

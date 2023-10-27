@@ -18,8 +18,9 @@ namespace Negocios
         string Identificacion = "";
         string servicio = "";
         string costoTotal = " ";
-        
-        
+        DateTime fechaFactura;
+
+
 
 
         public string RegistroFactura(xmlFactura Facturaxml)

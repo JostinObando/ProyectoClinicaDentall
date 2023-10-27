@@ -17,6 +17,8 @@ namespace FrontEnd
 
         private PantallaPrincipal principal;
         private PantallaPrincipal ventanaPrincipal;
+        private List<string> servicioss = new List<string>();
+        private List<Factura> facturas = new List<Factura>();
         DataTable dtServicios;
         public ConsultaCita(PantallaPrincipal pantalla)
         {
@@ -24,12 +26,15 @@ namespace FrontEnd
 
         }
         List<Servicio> servicios = new List<Servicio>();
+        List<Facturas> fact = new List<Facturas>();
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            ListaServicio listaServi = new ListaServicio();
             xmlFactura factuxml = new xmlFactura();
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string subfolder = "XMLFiles";
-            string filename = "Fuctura.xml";
+            string filename = "Factura.xml";
             string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
 
 
@@ -43,71 +48,81 @@ namespace FrontEnd
                 }
             }
             DataTable dtServicios = new DataTable();
-            dtServicios.Columns.Add("Servicio", typeof(string));
-            dtServicios.Columns.Add("Costo", typeof(string));
-            dtServicios.Columns.Add("Niño", typeof(string));
+            dtServicios.Columns.Add("Identificacion", typeof(string));
+            dtServicios.Columns.Add("NombreNinio", typeof(string));
+            dtServicios.Columns.Add("FechaFactura", typeof(string));
+
 
             var resultado = from persona in factuxml.Facturaxml
                             where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-                            select new { persona.Identificacion }; //persona.Nombre, persona.Apellido };
+                            select new { persona.Identificacion, persona.NombreNinio, persona.FechaFactura };// persona.Nombre, persona.Apellido };
+
+
             foreach (var persona in resultado)
             {
-                //txtNombre.Text = persona.Nombre;
-               // txtApellido.Text = persona.Apellido;
 
+                DataRow fila1 = dtServicios.NewRow();
+                fila1["Identificacion"] = persona.Identificacion.ToString();
+                fila1["NombreNinio"] = persona.NombreNinio.ToString();
+                fila1["FechaFactura"] = persona.FechaFactura.ToString();
+                dtServicios.Rows.Add(fila1);
 
             }
 
-        
 
-        //NinnoXML ninnoXML = new NinnoXML();
-        //string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        //string subfolder = "XMLFiles";
-        //string filename = "ninnno.xml";
-        //string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+            dataGridViewFactura.DataSource = dtServicios;
 
 
 
-        //if (File.Exists(xmlFilePath))
-        //{
-        //    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
-        //    {
-        //        XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
-        //        ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
-        //    }
-        //}
+            //NinnoXML ninnoXML = new NinnoXML();
+            //string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            //string subfolder = "XMLFiles";
+            //string filename = "ninnno.xml";
+            //string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+
+
+            //if (File.Exists(xmlFilePath))
+            //{
+            //    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+            //    {
+            //        XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
+            //        ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
+            //    }
+            //}
 
 
 
 
-        //DataTable dtServicios = new DataTable();
-        //dtServicios.Columns.Add("Servicio", typeof(string));
-        //dtServicios.Columns.Add("Costo", typeof(string));
-        //dtServicios.Columns.Add("Niño", typeof(string));
+            //DataTable dtServicios = new DataTable();
+            //dtServicios.Columns.Add("Servicio", typeof(string));
+            //dtServicios.Columns.Add("Costo", typeof(string));
+            //dtServicios.Columns.Add("Niño", typeof(string));
 
 
-        //// Realizar una consulta SELECT utilizando LINQ
-        //var resultado = from persona in ninnoXML.ninnoxml
-        //                where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-        //                select new { persona.Identificacion, persona.Nombre };
+            //// Realizar una consulta SELECT utilizando LINQ
+            //var resultado = from persona in ninnoXML.ninnoxml
+            //                where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
+            //                select new { persona.Identificacion, persona.Nombre };
 
-        //// foreach (var persona in resultado)
-        ////{
-        //foreach (var persona in resultado)
-        //{
-        //    DataRow fila1 = dtServicios.NewRow();
-        //    //fila1["Servicio"] = persona.servicioNombre.ToString();
-        //    //fila1["Costo"] = persona.ServicioCostonSinIva.ToString();
-        //    fila1["Niño"] = persona.Nombre.ToString();
-        //    dtServicios.Rows.Add(fila1);
+            //// foreach (var persona in resultado)
+            ////{
+            //foreach (var persona in resultado)
+            //{
+            //    DataRow fila1 = dtServicios.NewRow();
+            //    //fila1["Servicio"] = persona.servicioNombre.ToString();
+            //    //fila1["Costo"] = persona.ServicioCostonSinIva.ToString();
+            //    fila1["Niño"] = persona.Nombre.ToString();
+            //    dtServicios.Rows.Add(fila1);
 
-        //    //}
-        //}
+            //    //}
+            //}
 
-        //dataGridViewFactura.DataSource = dtServicios;
-    }
+            //dataGridViewFactura.DataSource = dtServicios;
+        }
 
-    private void btnPagar_Click(object sender, EventArgs e)
+        private void btnPagar_Click(object sender, EventArgs e)
         {
             DataTable dtServicios = new DataTable();
             dtServicios.Columns.Add("Servicio", typeof(string));
@@ -128,10 +143,11 @@ namespace FrontEnd
             MessageBox.Show("Servicio Cancelado");
 
             // Actualizar las etiquetas para mostrar el monto con IVA y el estado
-           // lblSubtotal.Text = "Monto con IVA: " + montoConIva.ToString("C"); // Formatea el monto como moneda
+            // lblSubtotal.Text = "Monto con IVA: " + montoConIva.ToString("C"); // Formatea el monto como moneda
             //lblEstadoServicio.Text = "Estado del Servicio: Cancelado";
 
         }
+
 
         private void txtIdentificacionNinno_TextChanged(object sender, EventArgs e)
         {
@@ -145,6 +161,11 @@ namespace FrontEnd
         private void btnSalir_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewFactura_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("prueba");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Negocios
         public string Identificacion { get; set; }
 
         public string servicio { get; set; }
-
+        public DateTime FechaFactura { get; set; }
         public string costoTotal { get; set; }
     }
     public class xmlFactura

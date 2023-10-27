@@ -40,12 +40,13 @@
             // dataGridViewFactura
             // 
             dataGridViewFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewFactura.Location = new Point(12, 120);
+            dataGridViewFactura.Location = new Point(29, 134);
             dataGridViewFactura.Name = "dataGridViewFactura";
             dataGridViewFactura.RowHeadersWidth = 62;
             dataGridViewFactura.RowTemplate.Height = 33;
             dataGridViewFactura.Size = new Size(711, 225);
             dataGridViewFactura.TabIndex = 28;
+            dataGridViewFactura.CellClick += dataGridViewFactura_CellClick;
             // 
             // txtIdentificacionNinno
             // 
@@ -57,7 +58,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(422, 351);
+            btnSalir.Location = new Point(404, 401);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 26;
@@ -87,7 +88,7 @@
             // 
             // btnPagar
             // 
-            btnPagar.Location = new Point(186, 351);
+            btnPagar.Location = new Point(186, 401);
             btnPagar.Name = "btnPagar";
             btnPagar.Size = new Size(112, 34);
             btnPagar.TabIndex = 30;
