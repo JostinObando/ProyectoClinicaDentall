@@ -12,14 +12,21 @@ namespace FrontEnd
 {
     public partial class AcercaDe : Form
     {
+        private PantallaPrincipal principal;
+        private PantallaPrincipal ventanaPrincipal;
 
-        public AcercaDe()
+        public AcercaDe(PantallaPrincipal ventanaPrincipla)
         {
             InitializeComponent();
+            this.ventanaPrincipal = ventanaPrincipal;
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            ventanaPrincipal.Show();
+
 
         }
     }

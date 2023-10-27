@@ -69,13 +69,13 @@ namespace FrontEnd
 
         private void facturaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ConsultaCita consultaCita = new ConsultaCita();
+            ConsultaCita consultaCita = new ConsultaCita(this);
             consultaCita.Show();
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AcercaDe acercaDe = new AcercaDe();
+            AcercaDe acercaDe = new AcercaDe(this);
             acercaDe.Show();
         }
 

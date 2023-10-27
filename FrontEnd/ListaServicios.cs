@@ -210,7 +210,7 @@ namespace FrontEnd
             Fact.NombreNinio = txtNombre.Text;
             Fact.ApellidoNinio = txtApellido.Text;
             Fact.Identificacion = txtIdentificacion.Text;
-            Fact.costoTotal = btnConsultar.Text;
+            Fact.costoTotal = lblCostoTotall.Text;
 
             Fact.servicio = comboBoxServicios.Text;
 
@@ -270,15 +270,26 @@ namespace FrontEnd
                     ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
                 }
             }
+            DataTable dtServicios = new DataTable();
+            dtServicios.Columns.Add("Servicio", typeof(string));
+            dtServicios.Columns.Add("Costo", typeof(string));
+            dtServicios.Columns.Add("Niño", typeof(string));
+
             var resultado = from persona in ninnoXML.ninnoxml
                             where persona.Identificacion.ToString() == txtIdentificacion.Text.ToString()
                             select new { persona.Identificacion, persona.Nombre, persona.Apellido };
             foreach (var persona in resultado)
             {
-               txtNombre.Text = persona.Nombre;
+                txtNombre.Text = persona.Nombre;
                 txtApellido.Text = persona.Apellido;
 
+
             }
+
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

@@ -34,8 +34,6 @@
             btnGuardar = new Button();
             lblidNinio = new Label();
             btnPagar = new Button();
-            lblSubtotal = new Label();
-            lblEstadoServicio = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFactura).BeginInit();
             SuspendLayout();
             // 
@@ -65,6 +63,7 @@
             btnSalir.TabIndex = 26;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnGuardar
             // 
@@ -96,31 +95,11 @@
             btnPagar.UseVisualStyleBackColor = true;
             btnPagar.Click += btnPagar_Click;
             // 
-            // lblSubtotal
-            // 
-            lblSubtotal.AutoSize = true;
-            lblSubtotal.Location = new Point(628, 351);
-            lblSubtotal.Name = "lblSubtotal";
-            lblSubtotal.Size = new Size(79, 25);
-            lblSubtotal.TabIndex = 32;
-            lblSubtotal.Text = "Subtotal";
-            // 
-            // lblEstadoServicio
-            // 
-            lblEstadoServicio.AutoSize = true;
-            lblEstadoServicio.Location = new Point(603, 405);
-            lblEstadoServicio.Name = "lblEstadoServicio";
-            lblEstadoServicio.Size = new Size(132, 25);
-            lblEstadoServicio.TabIndex = 33;
-            lblEstadoServicio.Text = "Estado Servicio";
-            // 
             // ConsultaCita
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1150, 687);
-            Controls.Add(lblEstadoServicio);
-            Controls.Add(lblSubtotal);
             Controls.Add(btnPagar);
             Controls.Add(dataGridViewFactura);
             Controls.Add(txtIdentificacionNinno);
@@ -143,7 +122,5 @@
         private Button btnGuardar;
         private Label lblidNinio;
         private Button btnPagar;
-        private Label lblSubtotal;
-        private Label lblEstadoServicio;
     }
 }

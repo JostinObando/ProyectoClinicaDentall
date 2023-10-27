@@ -139,6 +139,7 @@
             btnSalir.TabIndex = 74;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click_1;
             // 
             // txtNombre
             // 
@@ -224,7 +225,7 @@
             ForeColor = Color.Black;
             IsMdiContainer = true;
             Name = "ListaServicios";
-            Text = "ListaServicios";
+            Text = "Factura";
             Load += ListaServicios_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewServicio).EndInit();
             ResumeLayout(false);

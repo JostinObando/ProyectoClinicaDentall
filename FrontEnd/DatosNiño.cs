@@ -281,56 +281,6 @@ namespace FrontEnd
                 }
 
 
-                // Obtener la fecha de nacimiento del niño
-                //    DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
-
-                //    // Calcular la edad en años y meses
-                //    TimeSpan edad = DateTime.Now - fechaNacimiento;
-                //    int años = edad.Days / 365;
-                //    int meses = (edad.Days % 365) / 30;
-
-                //    // Obtener los datos ingresados por el usuario
-                //    string nombre = txtNombreNiño.Text;
-                //    string apellido = txtApellido.Text;
-                //    string identificacion = txtIdendificacionNiño.Text;
-                //    DateTime fechaNacimient = dateTimePickerFechaNacimiento.Value;
-                //    string sexo = comboBoxSexoNiño.Text;
-                //    string identificacionPadre = txtIDPadre.Text;
-                //    //Valida datos ninio
-                //    if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
-                //    {
-                //        // Crear un nuevo objeto Niño con los datos ingresados
-                //        Ninno nuevoNiño = new Ninno();
-                //        nuevoNiño.Nombre = nombre;
-                //        nuevoNiño.Apellido = apellido;
-                //        nuevoNiño.IdentificacionPadre = identificacion;
-                //        nuevoNiño.FechaNacimiento = Convert.ToDateTime(fechaNacimiento);
-                //        nuevoNiño.Sexo = sexo;
-                //        nuevoNiño.IdentificacionPadre = identificacionPadre;
-
-                //        // Agregar el nuevo niño a la lista en memoria
-                //        listaNiño.Add(nuevoNiño);
-
-                //        // Limpiar los campos después de guardar la información
-                //        Limpiar();
-                //        // Registro válido, procede con el registro del niño
-                //        //datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, fechaNacimiento.ToString(), comboBoxSexoNiño.Text, txtIDPadre.Text);
-                //        Limpiar();
-
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //}
-
-                //catch (Exception ex)
-                //{
-                //    MessageBox.Show("este es el error: " + ex);
-                //}
-
-
-
             }
 
             catch (Exception ex)
@@ -359,5 +309,5 @@ namespace FrontEnd
         private void dataGridViewServicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
-    }
-}
+    }//fin del  main
+}//fin de la clase
