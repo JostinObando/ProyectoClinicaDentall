@@ -164,7 +164,7 @@
             btnConsultar.TabIndex = 80;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
-           
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // txtApellido
             // 

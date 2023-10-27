@@ -210,14 +210,14 @@ namespace FrontEnd
 
             // Agregar la fila a la tabla
             dataTable.Rows.Add(fila1);
-            decimal costoTotal = 0.0m;
+            double costoTotal = 0.0;
 
             dataGridViewServicio.DataSource = dataTable;
-            decimal costoTotalConIVA = Convert.ToDecimal(valor) * 0.13m;
+            double costoTotalConIVA = Convert.ToDouble(valor) * 0.13;
             if (string.IsNullOrEmpty(lblCosroTotal.Text))
-                costoTotal = Convert.ToDecimal(valor);
+                costoTotal = Convert.ToDouble(valor);
             else
-                costoTotal = Convert.ToDecimal(lblCosroTotal.Text) + Convert.ToDecimal(valor);
+                costoTotal = Convert.ToDouble(lblCosroTotal.Text) + Convert.ToDouble(valor);
 
 
             lblCosroTotal.Text = (costoTotal + costoTotalConIVA).ToString();

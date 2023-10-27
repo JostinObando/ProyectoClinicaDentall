@@ -207,9 +207,9 @@ namespace FrontEnd
 
 
 
-            // Fact.NombreNinio = txtNombre.Text;
-            // Fact.ApellidoNinio = txtApellido.Text;
-            //Fact.Identificacion = txtIdentificacion.Text;
+            Fact.NombreNinio = txtNombre.Text;
+            Fact.ApellidoNinio = txtApellido.Text;
+            Fact.Identificacion = txtIdentificacion.Text;
             Fact.costoTotal = btnConsultar.Text;
 
             Fact.servicio = comboBoxServicios.Text;
@@ -248,6 +248,37 @@ namespace FrontEnd
 
 
 
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+
+            NinnoXML ninnoXML = new NinnoXML();
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string subfolder = "XMLFiles";
+            string filename = "ninnno.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+
+
+            if (File.Exists(xmlFilePath))
+            {
+                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
+                    ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
+                }
+            }
+            var resultado = from persona in ninnoXML.ninnoxml
+                            where persona.Identificacion.ToString() == txtIdentificacion.Text.ToString()
+                            select new { persona.Identificacion, persona.Nombre, persona.Apellido };
+            foreach (var persona in resultado)
+            {
+               txtNombre.Text = persona.Nombre;
+                txtApellido.Text = persona.Apellido;
+
+            }
 
         }
     }
