@@ -46,12 +46,14 @@
             lblContrasenia = new Label();
             lblCodigo = new Label();
             lblNombre = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lblNombreFuncionario
             // 
             lblNombreFuncionario.AutoSize = true;
-            lblNombreFuncionario.Location = new Point(57, 9);
+            lblNombreFuncionario.Location = new Point(23, 10);
             lblNombreFuncionario.Name = "lblNombreFuncionario";
             lblNombreFuncionario.Size = new Size(204, 25);
             lblNombreFuncionario.TabIndex = 1;
@@ -60,7 +62,7 @@
             // lblApellidoDelFuncionario
             // 
             lblApellidoDelFuncionario.AutoSize = true;
-            lblApellidoDelFuncionario.Location = new Point(122, 70);
+            lblApellidoDelFuncionario.Location = new Point(88, 71);
             lblApellidoDelFuncionario.Name = "lblApellidoDelFuncionario";
             lblApellidoDelFuncionario.Size = new Size(86, 25);
             lblApellidoDelFuncionario.TabIndex = 2;
@@ -69,7 +71,7 @@
             // lblIdentificacionFuncionario
             // 
             lblIdentificacionFuncionario.AutoSize = true;
-            lblIdentificacionFuncionario.Location = new Point(112, 136);
+            lblIdentificacionFuncionario.Location = new Point(78, 137);
             lblIdentificacionFuncionario.Name = "lblIdentificacionFuncionario";
             lblIdentificacionFuncionario.Size = new Size(117, 25);
             lblIdentificacionFuncionario.TabIndex = 3;
@@ -78,7 +80,7 @@
             // lblSexo
             // 
             lblSexo.AutoSize = true;
-            lblSexo.Location = new Point(149, 199);
+            lblSexo.Location = new Point(115, 200);
             lblSexo.Name = "lblSexo";
             lblSexo.Size = new Size(50, 25);
             lblSexo.TabIndex = 4;
@@ -86,21 +88,21 @@
             // 
             // txtIdendificacionFuncionario
             // 
-            txtIdendificacionFuncionario.Location = new Point(275, 136);
+            txtIdendificacionFuncionario.Location = new Point(241, 137);
             txtIdendificacionFuncionario.Name = "txtIdendificacionFuncionario";
             txtIdendificacionFuncionario.Size = new Size(150, 31);
             txtIdendificacionFuncionario.TabIndex = 5;
             // 
             // txtApellidoFuncionario
             // 
-            txtApellidoFuncionario.Location = new Point(275, 70);
+            txtApellidoFuncionario.Location = new Point(241, 71);
             txtApellidoFuncionario.Name = "txtApellidoFuncionario";
             txtApellidoFuncionario.Size = new Size(150, 31);
             txtApellidoFuncionario.TabIndex = 6;
             // 
             // txtNombreFuncionario
             // 
-            txtNombreFuncionario.Location = new Point(275, 6);
+            txtNombreFuncionario.Location = new Point(241, 7);
             txtNombreFuncionario.Name = "txtNombreFuncionario";
             txtNombreFuncionario.Size = new Size(150, 31);
             txtNombreFuncionario.TabIndex = 7;
@@ -110,7 +112,7 @@
             // 
             comboBoxSexoFuncioario.FormattingEnabled = true;
             comboBoxSexoFuncioario.Items.AddRange(new object[] { "Masculino", "Femenino" });
-            comboBoxSexoFuncioario.Location = new Point(275, 199);
+            comboBoxSexoFuncioario.Location = new Point(241, 200);
             comboBoxSexoFuncioario.Name = "comboBoxSexoFuncioario";
             comboBoxSexoFuncioario.Size = new Size(182, 33);
             comboBoxSexoFuncioario.TabIndex = 8;
@@ -202,11 +204,22 @@
             lblNombre.TabIndex = 12;
             lblNombre.Text = "Nombre del Funcionario";
             // 
-            // Funcionario
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(509, 31);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.RowTemplate.Height = 33;
+            dataGridView1.Size = new Size(872, 225);
+            dataGridView1.TabIndex = 21;
+            // 
+            // Funcionarios
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1114, 705);
+            ClientSize = new Size(1426, 705);
+            Controls.Add(dataGridView1);
             Controls.Add(comboBoxEstado);
             Controls.Add(txtNombreFUncncionario);
             Controls.Add(txtCodigo);
@@ -226,8 +239,9 @@
             Controls.Add(lblApellidoDelFuncionario);
             Controls.Add(lblNombreFuncionario);
             IsMdiContainer = true;
-            Name = "Funcionario";
+            Name = "Funcionarios";
             Text = "Funcionario";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -252,5 +266,6 @@
         private Label lblContrasenia;
         private Label lblCodigo;
         private Label lblNombre;
+        private DataGridView dataGridView1;
     }
 }

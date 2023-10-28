@@ -15,6 +15,7 @@ namespace FrontEnd
 {
     public partial class DatosPadres : Form
     {
+        //Listas
         private List<Padre> listaPadre = new List<Padre>();
         private PantallaPrincipal ventanaPrincipal;
         private HashSet<string> identificaciones = new HashSet<string>();
@@ -30,7 +31,10 @@ namespace FrontEnd
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             try
+
             {
+                
+                //Se carga xml
                 DatosPadre datosPadre = new DatosPadre();
                 Padre padre = new Padre();
                 xmlPadre xml = new xmlPadre();
@@ -48,7 +52,7 @@ namespace FrontEnd
                     }
                 }
 
-
+                //se pasa la info al xml
 
                 padre.Nombre = txtNombrePadre.Text;
                 padre.Identicacion = txtIdendificacion.Text;
@@ -63,38 +67,28 @@ namespace FrontEnd
                 LimpiarDatos();
 
             }
-            catch (Exception) { }
+            catch (Exception)
+            { 
+
+            }//fin try
+
+
+
+
+
 
         }
-        private string RegistroPadre(string nombre, string identificacionPadre, string direccion, string correoPadre, string tel)
-        {
-            // Verificar si la identificación ya ha sido registrada
-            if (identificaciones.Contains(identificacionPadre))
-            {
-                return "identificacion existente";
-            }
-            else
-            {
-                Padre nuevo = new Padre();
+        //private string RegistroPadre(string nombre, string identificacionPadre, string direccion, string correoPadre, string tel)
+        //{
+        //    // Verificar si la identificación ya ha sido registrada
+        //    if (identificaciones.Contains(identificacionPadre))
+        //    {
+        //        return "identificacion existente";
+        //    }
+            
+       
 
-                nuevo.Nombre = nombre;
-                nuevo.Identicacion = identificacionPadre;
-                nuevo.Direccion = direccion;
-                nuevo.Correo = correoPadre;
-                nuevo.Telefono = tel;
-
-                // Agregar el nuevo padre a la lista
-                listaPadre.Add(nuevo);
-
-                // Guardar la lista de padres en un archivo XML
-                PadreXML.GuardarDatosEnXml(listaPadre, @"D:\ninnno.xml");
-
-                // Limpiar los datos después del registro
-                LimpiarDatos();
-
-                return "Registro exitoso";
-            }
-        }
+        //}
 
 
         private bool identificacionExistente(string identificacion)
@@ -130,11 +124,11 @@ namespace FrontEnd
 
 
         }
-        //Aqui se ve si ya la identificacion ya ha sido registrada
+        //
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-
+            //Salir
             this.Hide();
             ventanaPrincipal.Show();
 

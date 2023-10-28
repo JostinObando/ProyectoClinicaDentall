@@ -31,11 +31,10 @@
             menuStripPrincipal = new MenuStrip();
             datosPadreToolStripMenuItem = new ToolStripMenuItem();
             datosNinioToolStripMenuItem = new ToolStripMenuItem();
-            listaServiciosToolStripMenuItem = new ToolStripMenuItem();
             mantenimientoToolStripMenuItem = new ToolStripMenuItem();
             facturaToolStripMenuItem = new ToolStripMenuItem();
-            facturaToolStripMenuItem1 = new ToolStripMenuItem();
             listaServicioToolStripMenuItem = new ToolStripMenuItem();
+            facturaToolStripMenuItem1 = new ToolStripMenuItem();
             acercaDeToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             menuStripPrincipal.SuspendLayout();
@@ -44,7 +43,7 @@
             // menuStripPrincipal
             // 
             menuStripPrincipal.ImageScalingSize = new Size(24, 24);
-            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, listaServicioToolStripMenuItem, facturaToolStripMenuItem1, acercaDeToolStripMenuItem, salirToolStripMenuItem });
+            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, listaServicioToolStripMenuItem, facturaToolStripMenuItem1, acercaDeToolStripMenuItem, salirToolStripMenuItem });
             menuStripPrincipal.Location = new Point(0, 0);
             menuStripPrincipal.Name = "menuStripPrincipal";
             menuStripPrincipal.Size = new Size(1189, 33);
@@ -66,13 +65,6 @@
             datosNinioToolStripMenuItem.Text = "Datos niño";
             datosNinioToolStripMenuItem.Click += datosNinioToolStripMenuItem_Click;
             // 
-            // listaServiciosToolStripMenuItem
-            // 
-            listaServiciosToolStripMenuItem.Name = "listaServiciosToolStripMenuItem";
-            listaServiciosToolStripMenuItem.Size = new Size(133, 29);
-            listaServiciosToolStripMenuItem.Text = "Registro niño";
-            listaServiciosToolStripMenuItem.Click += listaServiciosToolStripMenuItem_Click;
-            // 
             // mantenimientoToolStripMenuItem
             // 
             mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
@@ -87,19 +79,19 @@
             facturaToolStripMenuItem.Text = "Funcionario";
             facturaToolStripMenuItem.Click += facturaToolStripMenuItem_Click;
             // 
-            // facturaToolStripMenuItem1
-            // 
-            facturaToolStripMenuItem1.Name = "facturaToolStripMenuItem1";
-            facturaToolStripMenuItem1.Size = new Size(138, 29);
-            facturaToolStripMenuItem1.Text = "Consultar Cita";
-            facturaToolStripMenuItem1.Click += facturaToolStripMenuItem1_Click;
-            // 
             // listaServicioToolStripMenuItem
             // 
             listaServicioToolStripMenuItem.Name = "listaServicioToolStripMenuItem";
             listaServicioToolStripMenuItem.Size = new Size(84, 29);
             listaServicioToolStripMenuItem.Text = "Factura";
             listaServicioToolStripMenuItem.Click += listaServicioToolStripMenuItem_Click;
+            // 
+            // facturaToolStripMenuItem1
+            // 
+            facturaToolStripMenuItem1.Name = "facturaToolStripMenuItem1";
+            facturaToolStripMenuItem1.Size = new Size(138, 29);
+            facturaToolStripMenuItem1.Text = "Consultar Cita";
+            facturaToolStripMenuItem1.Click += facturaToolStripMenuItem1_Click;
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -137,7 +129,6 @@
         private MenuStrip menuStripPrincipal;
         private ToolStripMenuItem datosPadreToolStripMenuItem;
         private ToolStripMenuItem datosNinioToolStripMenuItem;
-        private ToolStripMenuItem listaServiciosToolStripMenuItem;
         private ToolStripMenuItem mantenimientoToolStripMenuItem;
         private ToolStripMenuItem facturaToolStripMenuItem;
         private ToolStripMenuItem acercaDeToolStripMenuItem;

@@ -28,7 +28,7 @@ namespace FrontEnd
         private PantallaPrincipal ventana;
         public RegistroNinios(PantallaPrincipal ventana)
         {
-            InitializeComponent();
+            //InitializeComponent();
             this.ventana = ventana;
             // Mostrar la cédula en el formulario
             //  textBox1.Text = ;
@@ -85,7 +85,7 @@ namespace FrontEnd
                 //}
             }
 
-            dataGridViewRegistro.DataSource = dtServicios;
+            //dataGridViewRegistro.DataSource = dtServicios;
             //string cargar = txtDireccionamiento.Text;
 
             //if (!string.IsNullOrEmpty(cargar) && System.IO.File.Exists(cargar))

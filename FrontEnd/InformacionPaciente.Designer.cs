@@ -62,7 +62,7 @@
             // 
             // txtIdentificacion
             // 
-            txtIdentificacion.Location = new Point(255, 121);
+            txtIdentificacion.Location = new Point(206, 20);
             txtIdentificacion.Name = "txtIdentificacion";
             txtIdentificacion.Size = new Size(150, 31);
             txtIdentificacion.TabIndex = 93;
@@ -70,7 +70,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 121);
+            label3.Location = new Point(33, 20);
             label3.Name = "label3";
             label3.Size = new Size(117, 25);
             label3.TabIndex = 92;
@@ -78,7 +78,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(255, 68);
+            txtApellido.Location = new Point(206, 127);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(150, 31);
             txtApellido.TabIndex = 91;
@@ -86,7 +86,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 68);
+            label2.Location = new Point(33, 127);
             label2.Name = "label2";
             label2.Size = new Size(118, 25);
             label2.TabIndex = 90;
@@ -94,7 +94,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(255, 14);
+            txtNombre.Location = new Point(206, 68);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(150, 31);
             txtNombre.TabIndex = 89;
@@ -102,7 +102,7 @@
             // lblNombreNinio
             // 
             lblNombreNinio.AutoSize = true;
-            lblNombreNinio.Location = new Point(29, 20);
+            lblNombreNinio.Location = new Point(33, 74);
             lblNombreNinio.Name = "lblNombreNinio";
             lblNombreNinio.Size = new Size(118, 25);
             lblNombreNinio.TabIndex = 87;
@@ -124,6 +124,7 @@
             IsMdiContainer = true;
             Name = "InformacionPaciente";
             Text = "InformacionPaciente";
+            Load += InformacionPaciente_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewInfoPanciente).EndInit();
             ResumeLayout(false);
             PerformLayout();

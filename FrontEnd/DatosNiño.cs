@@ -11,7 +11,7 @@ namespace FrontEnd
 {
     public partial class DatosNiño : Form
     {
-
+        //Inicio de listas
         private List<Ninno> listaNiño = new List<Ninno>();
         private List<Padre> listaPadre = new List<Padre>();
         private PantallaPrincipal principal;
@@ -24,15 +24,16 @@ namespace FrontEnd
 
         {
             InitializeComponent();
-            // this.principal = principal;
+           
             CargarServicios();
             CrearDataTable();
             this.ventanaPrincipal = ventanaPrincipal;
-            //  this.mantenimiento = mantenimiento;
+             this.mantenimiento = mantenimiento;
         }
 
         public void CrearDataTable()
         {
+            //Crea da
             dataTable = new DataTable("Servicios");
 
             dataTable.Columns.Add("Servicio", typeof(string));
@@ -41,113 +42,13 @@ namespace FrontEnd
         }
         public void CargarServicios()
         {
-            try
-            {
-                ServicioModel servicio = new ServicioModel();
-                ServicioModelList ser = new ServicioModelList();
-
-                servicio.Nombre = "Limpieza Dental";
-                servicio.Precio = 50000.00m;
-
-                ser.listServicioModel.Add(servicio);
-                servicio = new ServicioModel();
-                servicio.Nombre = "Extracción de muelas";
-                servicio.Precio = 40000.00m;
-
-                ser.listServicioModel.Add(servicio);
-
-                servicio = new ServicioModel();
-                servicio.Nombre = "Extracción de dientes";
-                servicio.Precio = 35000.00m;
-
-                ser.listServicioModel.Add(servicio);
-
-                servicio = new ServicioModel();
-                servicio.Nombre = "Cirugía de cordales";
-                servicio.Precio = 110000.00m;
-
-                ser.listServicioModel.Add(servicio);
-
-                servicio = new ServicioModel();
-                servicio.Nombre = "Ortodoncial";
-                servicio.Precio = 650000.00m;
-                ser.listServicioModel.Add(servicio);
-
-                try
-                {
-                    comboBoxServicios.DataSource = ser.listServicioModel;
-                    comboBoxServicios.DisplayMember = "Nombre";
-                    comboBoxServicios.ValueMember = "Precio";
-                }
-                catch (Exception ex)
-                {
-                    string a = ex.Message;
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
+            
 
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            DatosNiños datos = new DatosNiños();
-            try
-            {
-                // Obtener la fecha de nacimiento del niño
-                DateTime fechaNacimiento = dateTimePickerFechaNacimiento.Value;
 
-                // Calcular la edad en años y meses
-                TimeSpan edad = DateTime.Now - fechaNacimiento;
-                int años = edad.Days / 365;
-                int meses = (edad.Days % 365) / 30;
-
-
-
-                // Obtener los datos ingresados por el usuario
-                string nombre = txtNombreNiño.Text;
-                string apellido = txtApellido.Text;
-                string identificacion = txtIdendificacionNiño.Text;
-                DateTime fechaNacimient = dateTimePickerFechaNacimiento.Value;
-                string sexo = comboBoxSexoNiño.Text;
-                string identificacionPadre = txtIDPadre.Text;
-                //Valida datos ninio
-                if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
-                {
-                    // Crear un nuevo objeto Niño con los datos ingresados
-                    Ninno nuevoNiño = new Ninno();
-                    nuevoNiño.Nombre = nombre;
-                    nuevoNiño.Apellido = apellido;
-                    nuevoNiño.IdentificacionPadre = identificacion;
-                    nuevoNiño.FechaNacimiento = Convert.ToDateTime(fechaNacimiento);
-                    nuevoNiño.Sexo = sexo;
-                    nuevoNiño.IdentificacionPadre = identificacionPadre;
-
-                    // Agregar el nuevo niño a la lista en memoria
-                    listaNiño.Add(nuevoNiño);
-
-                    // Limpiar los campos después de guardar la información
-                    Limpiar();
-                    // Registro válido, procede con el registro del niño
-                    //datos.RegistroNinio(txtNombreNiño.Text, txtApellido.Text, txtIdendificacionNiño.Text, fechaNacimiento.ToString(), comboBoxSexoNiño.Text, txtIDPadre.Text);
-                    Limpiar();
-
-                }
-                else
-                {
-                    MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("este es el error: " + ex);
-            }
 
 
 
@@ -172,6 +73,7 @@ namespace FrontEnd
         }
         private void Limpiar()
         {
+            //Limpiar
             txtNombreNiño.Clear();
             txtApellido.Clear();
             txtIdendificacionNiño.Clear();
@@ -189,38 +91,11 @@ namespace FrontEnd
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
-
-
-
-            if (comboBoxServicios.SelectedItem != null)
-            {
-                servicios.Add(comboBoxServicios.Text.ToString());
-                ActualizarDataGridView(comboBoxServicios.Text.ToString(), comboBoxServicios.SelectedValue.ToString());
-            }
         }
 
         private void ActualizarDataGridView(string nombre, string valor)
         {
-            //dataGridViewServicio.Rows.Clear();
-
-            DataRow fila1 = dataTable.NewRow();
-            fila1["Servicio"] = nombre;
-            fila1["Costo"] = valor;
-
-            // Agregar la fila a la tabla
-            dataTable.Rows.Add(fila1);
-            double costoTotal = 0.0;
-
-            dataGridViewServicio.DataSource = dataTable;
-            double costoTotalConIVA = Convert.ToDouble(valor) * 0.13;
-            if (string.IsNullOrEmpty(lblCosroTotal.Text))
-                costoTotal = Convert.ToDouble(valor);
-            else
-                costoTotal = Convert.ToDouble(lblCosroTotal.Text) + Convert.ToDouble(valor);
-
-
-            lblCosroTotal.Text = (costoTotal + costoTotalConIVA).ToString();
+            
         }
 
         private void btnServicios_Click(object sender, EventArgs e)
@@ -236,6 +111,7 @@ namespace FrontEnd
 
                 if (años >= 1 && (años < 14 || (años == 14 && meses == 0)))
                 {
+                    //Inicio xml
                     NinnoXML ninnoXML = new NinnoXML();
                     string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     string subfolder = "XMLFiles";
@@ -253,13 +129,14 @@ namespace FrontEnd
 
                     Ninno ninnoEncontrado = new Ninno();
 
+                    //Se carga toda la informacion
                     ninnoEncontrado.Nombre = txtNombreNiño.Text;
                     ninnoEncontrado.Apellido = txtApellido.Text;
                     ninnoEncontrado.Identificacion = txtIdendificacionNiño.Text;
                     ninnoEncontrado.FechaNacimiento = Convert.ToDateTime(dateTimePickerFechaNacimiento.Text);
-                    ninnoEncontrado.Sexo = comboBoxServicios.Text;
+                   
                     ninnoEncontrado.IdentificacionPadre = txtIDPadre.Text;
-                    ninnoEncontrado.costoTotal = lblCosroTotal.Text;
+                
                     List<Servicio> servicios = new List<Servicio>();
                     ninnoXML.ninnoxml.Add(ninnoEncontrado);
 
@@ -273,10 +150,12 @@ namespace FrontEnd
 
 
                     bldatos.RegistroNinio(ninnoXML);
+                    Limpiar();
 
                 }
                 else
                 {
+                    //Validacion de edad
                     MessageBox.Show("El niño debe tener más de 6 meses y menos de 14 años para ser registrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -286,7 +165,7 @@ namespace FrontEnd
             catch (Exception ex)
             {
                 MessageBox.Show("este es el error: " + ex);
-            }
+            }//fin del try
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

@@ -52,8 +52,8 @@ namespace FrontEnd
 
         private void listaServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RegistroNinios registroNinios = new RegistroNinios(this);
-            registroNinios.Show();
+            //RegistroNinios registroNinios = new RegistroNinios(this);
+            //registroNinios.Show();
         }
 
         private void PantallaPrincipal_Load(object sender, EventArgs e)

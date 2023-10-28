@@ -26,6 +26,7 @@ namespace FrontEnd
             InitializeComponent();
             crearDataTable();
             ConfigurarGridE();
+            //ComboBox con servicio
             comboBoxServicio.Items.Add("Limpieza Dental | ¢ 50.000.00");
             comboBoxServicio.Items.Add("Extracción de muelas | ¢ 40.000.00");
             comboBoxServicio.Items.Add("Extracción de dientes | ¢ 35.000.00");
@@ -47,6 +48,7 @@ namespace FrontEnd
 
         }
         private void ConfigurarGridE()
+            //Configuracion del datagridviw
         {
             this.dataGridViewServicios.DataSource = null;
             this.dataGridViewServicios.AutoGenerateColumns = true;
@@ -55,13 +57,15 @@ namespace FrontEnd
         }
         private void ActualizarDataGridView()
         {
-            dataGridViewServicios.DataSource = null; // Desasociar cualquier origen de datos existente
-            dataGridViewServicios.DataSource = dataTable; // Asociar la lista de servicios al DataGridView
+            //Actualizacion
+            dataGridViewServicios.DataSource = null; 
+            dataGridViewServicios.DataSource = dataTable; 
         }
 
 
         public void crearDataTable()
         {
+            //Creacion del datatable
             dataTable = new DataTable();
             dataTable.Columns.Add("NombreServicio", typeof(string));
             dataTable.Columns.Add("PrecioSinIVA", typeof(double));
@@ -95,6 +99,7 @@ namespace FrontEnd
                 string NombreServicio = txtServicio.Text;
                 if (string.IsNullOrWhiteSpace(NombreServicio))
                 {
+                    //Validacion necesaria
                     MessageBox.Show("Por favor ingrese el servicio que desea, debe estar en la lista de servicios de la clínica happy teeth");
                     return;
                 }
@@ -109,17 +114,18 @@ namespace FrontEnd
 
 
                     }
-                    // Resto del código para agregar a dataTable o lista de servicios si es necesario
+                 
                 }
                 else
                 {
+                    //Validacion del if
                     MessageBox.Show("El costo debe estar entre los valores decimales válidos");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo una excepción: " + ex.Message);
-                // Puedes agregar más lógica de manejo de excepciones aquí si es necesario.
+            
             }
         }
 
@@ -128,6 +134,7 @@ namespace FrontEnd
             string NombreServicio = txtServicio.Text;
             if (string.IsNullOrWhiteSpace(NombreServicio))
             {
+                //Validacion necesaria
                 MessageBox.Show("Por favor ingrese el servicio que desea, debe estar en la lista de servicios de la clínica happy teeth");
                 return;
             }
@@ -141,10 +148,9 @@ namespace FrontEnd
                     comboBoxServicio.Items.Add(newService);
                     dataTable.Rows.Add(NombreServicio, costoSinIva);
 
-                    // Limpiar campos y ComboBox seleccionado
-                    // limpiar();
+                 
                 }
-                // Resto del código para agregar a dataTable o lista de servicios si es necesario
+                
             }
             else
             {
@@ -172,4 +178,4 @@ namespace FrontEnd
         }
     }
 
-}
+}//fin de la class

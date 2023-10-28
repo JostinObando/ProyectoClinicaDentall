@@ -14,7 +14,7 @@ namespace FrontEnd
 {
     public partial class ConsultaCita : Form
     {
-
+        //Inicio listas
         private PantallaPrincipal principal;
         private PantallaPrincipal ventanaPrincipal;
         private List<string> servicioss = new List<string>();
@@ -31,65 +31,69 @@ namespace FrontEnd
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            ListaServicio listaServi = new ListaServicio();
-            xmlFactura factuxml = new xmlFactura();
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string subfolder = "XMLFiles";
-            string filename = "Factura.xml";
-            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
-
-
-
-            if (File.Exists(xmlFilePath))
+            try
             {
-                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                //XML
+                ListaServicio listaServi = new ListaServicio();
+                XmlFactura factuxml = new XmlFactura();
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string subfolder = "XMLFiles";
+                string filename = "Factura.xml";
+                string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+
+
+                if (File.Exists(xmlFilePath))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(xmlFactura));
-                    factuxml = (xmlFactura)serializer.Deserialize(fileStream);
+                    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                    {
+                        XmlSerializer serializer = new XmlSerializer(typeof(XmlFactura));
+                        factuxml = (XmlFactura)serializer.Deserialize(fileStream);
+                    }
                 }
+                DataTable dtServicios = new DataTable();
+                //Columnas
+                dtServicios.Columns.Add("Identificacion", typeof(string));
+                dtServicios.Columns.Add("NombreNinio", typeof(string));
+                dtServicios.Columns.Add("FechaFactura", typeof(string));
+                dtServicios.Columns.Add("NumeroFactura", typeof(string));
+
+                foreach (var item in factuxml.Facturaxml)
+                {
+                    if (item.Facturaxml.Identificacion == txtIdentificacionNinno.Text)
+                    {
+                        DataRow fila1 = dtServicios.NewRow();
+                        fila1["Identificacion"] = item.Facturaxml.Identificacion.ToString();
+                        fila1["NombreNinio"] = item.Facturaxml.NombreNinio.ToString();
+                        fila1["FechaFactura"] = item.Facturaxml.FechaFactura.ToString();
+                        fila1["NumeroFactura"] = item.Facturaxml.NumeroFactura.ToString();
+                        dtServicios.Rows.Add(fila1);
+                    }
+
+                }
+
+                dataGridViewFactura.DataSource = dtServicios;
+
             }
-            DataTable dtServicios = new DataTable();
-
-            dtServicios.Columns.Add("Identificacion", typeof(string));
-            dtServicios.Columns.Add("NombreNinio", typeof(string));
-            dtServicios.Columns.Add("FechaFactura", typeof(string));
-            dtServicios.Columns.Add("NumeroFactura", typeof(string));
-
-            var resultado = from persona in factuxml.Facturaxml
-                            where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-                            select new { persona.Identificacion, persona.NombreNinio, persona.FechaFactura, persona.NumeroFactura };// persona.Nombre, persona.Apellido };
-
-
-            foreach (var persona in resultado)
+            catch (Exception ex)
             {
-
-                DataRow fila1 = dtServicios.NewRow();
-                fila1["Identificacion"] = persona.Identificacion.ToString();
-                fila1["NombreNinio"] = persona.NombreNinio.ToString();
-                fila1["FechaFactura"] = persona.FechaFactura.ToString();
-                fila1["NumeroFactura"] = persona.NumeroFactura.ToString();
-                dtServicios.Rows.Add(fila1);
-
+                
             }
-
-
-
-            dataGridViewFactura.DataSource = dtServicios;
-
-
 
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
+            //DataTable
             DataTable dtServicios = new DataTable();
             dtServicios.Columns.Add("Servicio", typeof(string));
             dtServicios.Columns.Add("Costo", typeof(string));
-            // Puedes poner este código en un manejador de eventos del botón "Pagar" en tu formulario.
+           
 
             // Calcular el monto total con IVA (0.013)
             double montoSinIva = 0;
             foreach (DataRow fila in dtServicios.Rows)
+
             {
                 double costo = Convert.ToDouble(fila["Costo"]);
                 montoSinIva += costo;
@@ -100,9 +104,7 @@ namespace FrontEnd
             // Mostrar un mensaje de servicio cancelado
             MessageBox.Show("Servicio Cancelado");
 
-            // Actualizar las etiquetas para mostrar el monto con IVA y el estado
-            // lblSubtotal.Text = "Monto con IVA: " + montoConIva.ToString("C"); // Formatea el monto como moneda
-            //lblEstadoServicio.Text = "Estado del Servicio: Cancelado";
+          
 
         }
 
@@ -118,6 +120,7 @@ namespace FrontEnd
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            //Salir 
             this.Hide();
             ventanaPrincipal.Show();
 
@@ -125,11 +128,11 @@ namespace FrontEnd
 
         private void dataGridViewFactura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
+         
+            //Evento de la informacion de Paciente
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                // Asegúrate de que el clic se haya realizado en una celda válida (no en encabezados).
+             
 
                 DataGridViewCell celdaSeleccionada = dataGridViewFactura.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
@@ -138,12 +141,12 @@ namespace FrontEnd
                     string valorCelda = celdaSeleccionada.Value.ToString();
                     InformacionPaciente informacionPaciente = new InformacionPaciente(Convert.ToInt32(valorCelda));
                     informacionPaciente.Show();
-                    MessageBox.Show("El valor de la celda seleccionada es: " + valorCelda);
+                    MessageBox.Show(" " + valorCelda);
                 }
                 else
                 {
-                    MessageBox.Show("La celda seleccionada está vacía.");
-                }
+                    MessageBox.Show(" ");
+                }//fin if
             }
         }
     }
