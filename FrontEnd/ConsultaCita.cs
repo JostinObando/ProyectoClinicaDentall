@@ -165,7 +165,25 @@ namespace FrontEnd
 
         private void dataGridViewFactura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            InformacionPaciente informacionPaciente = new InformacionPaciente();
+            informacionPaciente.Show();
             MessageBox.Show("prueba");
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Asegúrate de que el clic se haya realizado en una celda válida (no en encabezados).
+
+                DataGridViewCell celdaSeleccionada = dataGridViewFactura.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                if (celdaSeleccionada.Value != null)
+                {
+                    string valorCelda = celdaSeleccionada.Value.ToString();
+                    MessageBox.Show("El valor de la celda seleccionada es: " + valorCelda);
+                }
+                else
+                {
+                    MessageBox.Show("La celda seleccionada está vacía.");
+                }
+            }
         }
     }
 }
