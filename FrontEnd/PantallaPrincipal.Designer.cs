@@ -34,8 +34,8 @@
             listaServiciosToolStripMenuItem = new ToolStripMenuItem();
             mantenimientoToolStripMenuItem = new ToolStripMenuItem();
             facturaToolStripMenuItem = new ToolStripMenuItem();
-            listaServicioToolStripMenuItem = new ToolStripMenuItem();
             facturaToolStripMenuItem1 = new ToolStripMenuItem();
+            listaServicioToolStripMenuItem = new ToolStripMenuItem();
             acercaDeToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             menuStripPrincipal.SuspendLayout();
@@ -44,7 +44,7 @@
             // menuStripPrincipal
             // 
             menuStripPrincipal.ImageScalingSize = new Size(24, 24);
-            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, facturaToolStripMenuItem1, listaServicioToolStripMenuItem, acercaDeToolStripMenuItem, salirToolStripMenuItem });
+            menuStripPrincipal.Items.AddRange(new ToolStripItem[] { datosPadreToolStripMenuItem, datosNinioToolStripMenuItem, listaServiciosToolStripMenuItem, mantenimientoToolStripMenuItem, facturaToolStripMenuItem, listaServicioToolStripMenuItem, facturaToolStripMenuItem1, acercaDeToolStripMenuItem, salirToolStripMenuItem });
             menuStripPrincipal.Location = new Point(0, 0);
             menuStripPrincipal.Name = "menuStripPrincipal";
             menuStripPrincipal.Size = new Size(1189, 33);
@@ -87,19 +87,19 @@
             facturaToolStripMenuItem.Text = "Funcionario";
             facturaToolStripMenuItem.Click += facturaToolStripMenuItem_Click;
             // 
-            // listaServicioToolStripMenuItem
-            // 
-            listaServicioToolStripMenuItem.Name = "listaServicioToolStripMenuItem";
-            listaServicioToolStripMenuItem.Size = new Size(84, 29);
-            listaServicioToolStripMenuItem.Text = "Factura";
-            listaServicioToolStripMenuItem.Click += listaServicioToolStripMenuItem_Click;
-            // 
             // facturaToolStripMenuItem1
             // 
             facturaToolStripMenuItem1.Name = "facturaToolStripMenuItem1";
             facturaToolStripMenuItem1.Size = new Size(138, 29);
             facturaToolStripMenuItem1.Text = "Consultar Cita";
             facturaToolStripMenuItem1.Click += facturaToolStripMenuItem1_Click;
+            // 
+            // listaServicioToolStripMenuItem
+            // 
+            listaServicioToolStripMenuItem.Name = "listaServicioToolStripMenuItem";
+            listaServicioToolStripMenuItem.Size = new Size(84, 29);
+            listaServicioToolStripMenuItem.Text = "Factura";
+            listaServicioToolStripMenuItem.Click += listaServicioToolStripMenuItem_Click;
             // 
             // acercaDeToolStripMenuItem
             // 

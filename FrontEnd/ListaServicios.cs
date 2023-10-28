@@ -116,7 +116,7 @@ namespace FrontEnd
             decimal costoTotal = 0.0m;
 
             dataGridViewServicio.DataSource = dataTable;
-            decimal costoTotalConIVA = Convert.ToDecimal(valor) * 0.13m;
+            decimal costoTotalConIVA = Convert.ToDecimal(valor) * 0.13m; // 2% iva
 
             if (string.IsNullOrEmpty(lblCostoTotall.Text))
                 costoTotal = Convert.ToDecimal(valor);

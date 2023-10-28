@@ -29,38 +29,41 @@ namespace FrontEnd
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-
-            DatosPadre datosPadre = new DatosPadre();
-            Padre padre = new Padre();
-            xmlPadre xml = new xmlPadre();
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string subfolder = "XMLFiles";
-            string filename = "Padre.xml";
-            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
-
-            if (File.Exists(xmlFilePath))
+            try
             {
-                using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                DatosPadre datosPadre = new DatosPadre();
+                Padre padre = new Padre();
+                xmlPadre xml = new xmlPadre();
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string subfolder = "XMLFiles";
+                string filename = "Padre.xml";
+                string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
+                if (File.Exists(xmlFilePath))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(xmlPadre));
-                    xml = (xmlPadre)serializer.Deserialize(fileStream);
+                    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
+                    {
+                        XmlSerializer serializer = new XmlSerializer(typeof(xmlPadre));
+                        xml = (xmlPadre)serializer.Deserialize(fileStream);
+                    }
                 }
+
+
+
+                padre.Nombre = txtNombrePadre.Text;
+                padre.Identicacion = txtIdendificacion.Text;
+                padre.Direccion = txtDireccion.Text;
+                padre.Correo = txtCorreoElectronico.Text;
+                padre.Telefono = txtTelefono.Text;
+
+                xml.padreXml.Add(padre);
+
+
+                datosPadre.RegistroPadre(xml);
+                LimpiarDatos();
+
             }
-
-
-
-            padre.Nombre = txtNombrePadre.Text;
-            padre.Identicacion = txtIdendificacion.Text;
-            padre.Direccion = txtDireccion.Text;
-            padre.Correo = txtCorreoElectronico.Text;
-            padre.Telefono = txtTelefono.Text;
-
-            xml.padreXml.Add(padre);
-
-
-            datosPadre.RegistroPadre(xml);
-
-
+            catch (Exception) { }
 
         }
         private string RegistroPadre(string nombre, string identificacionPadre, string direccion, string correoPadre, string tel)
