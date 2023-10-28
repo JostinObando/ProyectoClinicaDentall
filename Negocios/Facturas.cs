@@ -24,7 +24,7 @@ namespace Negocios
 
 
 
-        public string RegistroFactura(xmlFactura Facturaxml)
+        public string RegistroFactura(XmlFactura Facturaxml)
         {
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             // Puedes construir rutas relativas a esta ubicación
@@ -39,14 +39,14 @@ namespace Negocios
                 using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open, FileAccess.ReadWrite))
                 using (StreamWriter MyFile = new StreamWriter(fileStream))
                 {
-                    XmlSerializer Serializer = new XmlSerializer(typeof(xmlFactura));
+                    XmlSerializer Serializer = new XmlSerializer(typeof(XmlFactura));
                     Serializer.Serialize(MyFile, Facturaxml);
                 }
             }
             else
             {
                 // Crear un objeto XmlSerializer para la clase Persona
-                XmlSerializer serializer = new XmlSerializer(typeof(xmlFactura));
+                XmlSerializer serializer = new XmlSerializer(typeof(XmlFactura));
                 // Crear un flujo de escritura de archivo para guardar el XML
                 using (TextWriter writer = new StreamWriter(xmlFilePath))
                 {

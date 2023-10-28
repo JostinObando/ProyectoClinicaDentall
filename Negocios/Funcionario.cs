@@ -46,6 +46,7 @@ namespace Negocios
                     serializer.Serialize(writer, funcionarioXml);
                 }
             }
+            
 
 
             return "";

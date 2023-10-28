@@ -6,7 +6,8 @@ namespace FrontEnd
 {
     public partial class ListaServicios : Form
     {
-        //private ListaServicios servicioMan;
+        //Listas
+
         ListaServicio servicioMan = new ListaServicio();
         private PantallaPrincipal ventanaPrincipal;
         DataTable dataTable = new DataTable("Servisios");
@@ -31,6 +32,7 @@ namespace FrontEnd
 
         }
         public void CrearDataTable()
+            //crear Datatable
         {
             dataTable = new DataTable("Servicios");
 
@@ -39,6 +41,7 @@ namespace FrontEnd
 
         }
         public void CargarServicios()
+            //Cargar servicio
         {
             try
             {
@@ -105,7 +108,6 @@ namespace FrontEnd
         }
         private void ActualizarDataGridView(string nombre, string valor)
         {
-            //dataGridViewServicio.Rows.Clear();
 
 
             DataRow fila1 = dataTable.NewRow();
@@ -192,7 +194,7 @@ namespace FrontEnd
                 DataTable dtServicios = new DataTable();
                 dtServicios.Columns.Add("Servicio", typeof(string));
                 dtServicios.Columns.Add("Costo", typeof(string));
-               
+
 
                 // Calcular el monto total con IVA (0.013)
                 double montoSinIva = 0;
@@ -204,7 +206,7 @@ namespace FrontEnd
                 double iva = montoSinIva * 0.013;
                 double montoConIva = montoSinIva + iva;
 
-             
+
                 // Actualizar las etiquetas para mostrar el monto con IVA y el estado
                 lblSubtotal.Text = "Monto con IVA: " + montoConIva.ToString("C"); // Logra dar el monto como moneda
                 lblEstadoServicio.Text = "Estado del Servicio: Cancelado";
@@ -255,10 +257,10 @@ namespace FrontEnd
 
 
             }
-              catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Se produjo una excepción: " + ex.Message);
-                
+
             }
 
         }
@@ -314,7 +316,7 @@ namespace FrontEnd
             dtServicios.Columns.Add("Servicio", typeof(string));
             dtServicios.Columns.Add("Costo", typeof(string));
             dtServicios.Columns.Add("Niño", typeof(string));
-           
+
             var resultado = from persona in ninnoXML.ninnoxml
                             where persona.Identificacion.ToString() == txtIdentificacion.Text.ToString()
                             select new { persona.Identificacion, persona.Nombre, persona.Apellido };
