@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Negocios;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Xml.Serialization;
-using Datos;
-using Negocios;
 namespace FrontEnd
 {
     public partial class ListaServicios : Form
@@ -163,6 +154,35 @@ namespace FrontEnd
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string subfolder = "XMLFiles";
+            string filename = "Factura.xml";
+            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+            string rutaArchivo = Path.Combine(baseDirectory, subfolder, "Consecutivo.txt");
+            int NumeroFactura = 0;
+            // Verifica si el archivo existe
+            if (File.Exists(rutaArchivo))
+            {
+                // Abre un StreamReader para leer el archivo
+                using (StreamReader sr = new StreamReader(rutaArchivo))
+                {
+                    string contenido = sr.ReadToEnd();
+                    contenido = contenido.Replace(Environment.NewLine, "").Replace(" ", "");
+                    NumeroFactura = Convert.ToInt32(contenido);
+                   
+                }
+                using (StreamWriter wr = new StreamWriter(rutaArchivo, false))
+                {
+                    string factura = (NumeroFactura + 1).ToString();
+                    wr.WriteLine((""));
+                    wr.WriteLine((factura));
+                }
+            }
+            else
+            {
+                Console.WriteLine("El archivo no existe.");
+
+            }
 
 
 
@@ -192,10 +212,7 @@ namespace FrontEnd
             Facturas Facturasninio = new Facturas();
             Factura Fact = new Factura();
             xmlFactura xml = new xmlFactura();
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string subfolder = "XMLFiles";
-            string filename = "Factura.xml";
-            string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
+
 
             if (File.Exists(xmlFilePath))
             {
@@ -212,6 +229,7 @@ namespace FrontEnd
             Fact.ApellidoNinio = txtApellido.Text;
             Fact.Identificacion = txtIdentificacion.Text;
             Fact.costoTotal = lblCostoTotall.Text;
+            Fact.NumeroFactura = NumeroFactura.ToString();
             Fact.FechaFactura = DateTime.Now;
 
             Fact.servicio = comboBoxServicios.Text;
@@ -276,7 +294,7 @@ namespace FrontEnd
             dtServicios.Columns.Add("Servicio", typeof(string));
             dtServicios.Columns.Add("Costo", typeof(string));
             dtServicios.Columns.Add("Niño", typeof(string));
-          //  dtServicios.Columns.Add("FechaFactura", typeof(DateTime));
+            //  dtServicios.Columns.Add("FechaFactura", typeof(DateTime));
             var resultado = from persona in ninnoXML.ninnoxml
                             where persona.Identificacion.ToString() == txtIdentificacion.Text.ToString()
                             select new { persona.Identificacion, persona.Nombre, persona.Apellido };
@@ -284,7 +302,7 @@ namespace FrontEnd
             {
                 txtNombre.Text = persona.Nombre;
                 txtApellido.Text = persona.Apellido;
-               // DateTime.    
+                // DateTime.    
 
 
             }

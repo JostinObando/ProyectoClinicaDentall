@@ -28,83 +28,116 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewRegistro = new DataGridView();
-            txtIdentificacionNinno = new TextBox();
+            dataGridViewInfoPanciente = new DataGridView();
             btnSalir = new Button();
-            btnGuardar = new Button();
-            lblidNinio = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewRegistro).BeginInit();
+            txtIdentificacion = new TextBox();
+            label3 = new Label();
+            txtApellido = new TextBox();
+            label2 = new Label();
+            txtNombre = new TextBox();
+            lblNombreNinio = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInfoPanciente).BeginInit();
             SuspendLayout();
             // 
-            // dataGridViewRegistro
+            // dataGridViewInfoPanciente
             // 
-            dataGridViewRegistro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewRegistro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewRegistro.Location = new Point(12, 130);
-            dataGridViewRegistro.Name = "dataGridViewRegistro";
-            dataGridViewRegistro.RowHeadersWidth = 62;
-            dataGridViewRegistro.RowTemplate.Height = 33;
-            dataGridViewRegistro.Size = new Size(776, 225);
-            dataGridViewRegistro.TabIndex = 28;
-            // 
-            // txtIdentificacionNinno
-            // 
-            txtIdentificacionNinno.Location = new Point(281, 43);
-            txtIdentificacionNinno.Name = "txtIdentificacionNinno";
-            txtIdentificacionNinno.Size = new Size(190, 31);
-            txtIdentificacionNinno.TabIndex = 27;
+            dataGridViewInfoPanciente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewInfoPanciente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInfoPanciente.Location = new Point(12, 207);
+            dataGridViewInfoPanciente.Name = "dataGridViewInfoPanciente";
+            dataGridViewInfoPanciente.RowHeadersWidth = 62;
+            dataGridViewInfoPanciente.RowTemplate.Height = 33;
+            dataGridViewInfoPanciente.Size = new Size(776, 225);
+            dataGridViewInfoPanciente.TabIndex = 28;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(298, 377);
+            btnSalir.Location = new Point(660, 463);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 26;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
-            // btnGuardar
+            // txtIdentificacion
             // 
-            btnGuardar.Location = new Point(528, 40);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(67, 34);
-            btnGuardar.TabIndex = 25;
-            btnGuardar.Text = "...";
-            btnGuardar.UseVisualStyleBackColor = true;
+            txtIdentificacion.Location = new Point(255, 121);
+            txtIdentificacion.Name = "txtIdentificacion";
+            txtIdentificacion.Size = new Size(150, 31);
+            txtIdentificacion.TabIndex = 93;
             // 
-            // lblidNinio
+            // label3
             // 
-            lblidNinio.AutoSize = true;
-            lblidNinio.Location = new Point(91, 45);
-            lblidNinio.Name = "lblidNinio";
-            lblidNinio.Size = new Size(160, 25);
-            lblidNinio.TabIndex = 24;
-            lblidNinio.Text = "Identificacion Niño";
+            label3.AutoSize = true;
+            label3.Location = new Point(29, 121);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 25);
+            label3.TabIndex = 92;
+            label3.Text = "Identificacion";
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(255, 68);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(150, 31);
+            txtApellido.TabIndex = 91;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(28, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(118, 25);
+            label2.TabIndex = 90;
+            label2.Text = "Apellido niño";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(255, 14);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(150, 31);
+            txtNombre.TabIndex = 89;
+            // 
+            // lblNombreNinio
+            // 
+            lblNombreNinio.AutoSize = true;
+            lblNombreNinio.Location = new Point(29, 20);
+            lblNombreNinio.Name = "lblNombreNinio";
+            lblNombreNinio.Size = new Size(118, 25);
+            lblNombreNinio.TabIndex = 87;
+            lblNombreNinio.Text = "Nombre niño";
             // 
             // InformacionPaciente
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridViewRegistro);
-            Controls.Add(txtIdentificacionNinno);
+            ClientSize = new Size(800, 542);
+            Controls.Add(txtIdentificacion);
+            Controls.Add(label3);
+            Controls.Add(txtApellido);
+            Controls.Add(label2);
+            Controls.Add(txtNombre);
+            Controls.Add(lblNombreNinio);
+            Controls.Add(dataGridViewInfoPanciente);
             Controls.Add(btnSalir);
-            Controls.Add(btnGuardar);
-            Controls.Add(lblidNinio);
             IsMdiContainer = true;
             Name = "InformacionPaciente";
             Text = "InformacionPaciente";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewRegistro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInfoPanciente).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridViewRegistro;
-        private TextBox txtIdentificacionNinno;
+        private DataGridView dataGridViewInfoPanciente;
         private Button btnSalir;
-        private Button btnGuardar;
-        private Label lblidNinio;
+        private TextBox txtIdentificacion;
+        private Label label3;
+        private TextBox txtApellido;
+        private Label label2;
+        private TextBox txtNombre;
+        private Label lblNombreNinio;
     }
 }

@@ -15,7 +15,7 @@ namespace FrontEnd
         private PantallaPrincipal principal;
         private PantallaPrincipal ventanaPrincipal;
 
-        public AcercaDe(PantallaPrincipal ventanaPrincipla)
+        public AcercaDe(PantallaPrincipal ventanaPrincipal)
         {
             InitializeComponent();
             this.ventanaPrincipal = ventanaPrincipal;

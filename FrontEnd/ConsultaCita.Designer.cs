@@ -33,7 +33,6 @@
             btnSalir = new Button();
             btnGuardar = new Button();
             lblidNinio = new Label();
-            btnPagar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFactura).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +57,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(404, 401);
+            btnSalir.Location = new Point(272, 383);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(112, 34);
             btnSalir.TabIndex = 26;
@@ -86,22 +85,11 @@
             lblidNinio.Text = "Identificacion";
             lblidNinio.Click += lblidNinio_Click;
             // 
-            // btnPagar
-            // 
-            btnPagar.Location = new Point(186, 401);
-            btnPagar.Name = "btnPagar";
-            btnPagar.Size = new Size(112, 34);
-            btnPagar.TabIndex = 30;
-            btnPagar.Text = "Pagar";
-            btnPagar.UseVisualStyleBackColor = true;
-            btnPagar.Click += btnPagar_Click;
-            // 
             // ConsultaCita
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1150, 687);
-            Controls.Add(btnPagar);
             Controls.Add(dataGridViewFactura);
             Controls.Add(txtIdentificacionNinno);
             Controls.Add(btnSalir);
@@ -122,6 +110,5 @@
         private Button btnSalir;
         private Button btnGuardar;
         private Label lblidNinio;
-        private Button btnPagar;
     }
 }

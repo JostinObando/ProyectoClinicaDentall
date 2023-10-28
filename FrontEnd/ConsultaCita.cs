@@ -20,9 +20,10 @@ namespace FrontEnd
         private List<string> servicioss = new List<string>();
         private List<Factura> facturas = new List<Factura>();
         DataTable dtServicios;
-        public ConsultaCita(PantallaPrincipal pantalla)
+        public ConsultaCita(PantallaPrincipal ventanaPrincipal)
         {
             InitializeComponent();
+            this.ventanaPrincipal = ventanaPrincipal;
 
         }
         List<Servicio> servicios = new List<Servicio>();
@@ -48,14 +49,15 @@ namespace FrontEnd
                 }
             }
             DataTable dtServicios = new DataTable();
+
             dtServicios.Columns.Add("Identificacion", typeof(string));
             dtServicios.Columns.Add("NombreNinio", typeof(string));
             dtServicios.Columns.Add("FechaFactura", typeof(string));
-
+            dtServicios.Columns.Add("NumeroFactura", typeof(string));
 
             var resultado = from persona in factuxml.Facturaxml
                             where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-                            select new { persona.Identificacion, persona.NombreNinio, persona.FechaFactura };// persona.Nombre, persona.Apellido };
+                            select new { persona.Identificacion, persona.NombreNinio, persona.FechaFactura, persona.NumeroFactura };// persona.Nombre, persona.Apellido };
 
 
             foreach (var persona in resultado)
@@ -65,6 +67,7 @@ namespace FrontEnd
                 fila1["Identificacion"] = persona.Identificacion.ToString();
                 fila1["NombreNinio"] = persona.NombreNinio.ToString();
                 fila1["FechaFactura"] = persona.FechaFactura.ToString();
+                fila1["NumeroFactura"] = persona.NumeroFactura.ToString();
                 dtServicios.Rows.Add(fila1);
 
             }
@@ -75,51 +78,6 @@ namespace FrontEnd
 
 
 
-            //NinnoXML ninnoXML = new NinnoXML();
-            //string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            //string subfolder = "XMLFiles";
-            //string filename = "ninnno.xml";
-            //string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
-
-
-
-            //if (File.Exists(xmlFilePath))
-            //{
-            //    using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open))
-            //    {
-            //        XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
-            //        ninnoXML = (NinnoXML)serializer.Deserialize(fileStream);
-            //    }
-            //}
-
-
-
-
-            //DataTable dtServicios = new DataTable();
-            //dtServicios.Columns.Add("Servicio", typeof(string));
-            //dtServicios.Columns.Add("Costo", typeof(string));
-            //dtServicios.Columns.Add("Niño", typeof(string));
-
-
-            //// Realizar una consulta SELECT utilizando LINQ
-            //var resultado = from persona in ninnoXML.ninnoxml
-            //                where persona.Identificacion.ToString() == txtIdentificacionNinno.Text.ToString()
-            //                select new { persona.Identificacion, persona.Nombre };
-
-            //// foreach (var persona in resultado)
-            ////{
-            //foreach (var persona in resultado)
-            //{
-            //    DataRow fila1 = dtServicios.NewRow();
-            //    //fila1["Servicio"] = persona.servicioNombre.ToString();
-            //    //fila1["Costo"] = persona.ServicioCostonSinIva.ToString();
-            //    fila1["Niño"] = persona.Nombre.ToString();
-            //    dtServicios.Rows.Add(fila1);
-
-            //    //}
-            //}
-
-            //dataGridViewFactura.DataSource = dtServicios;
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
@@ -160,14 +118,15 @@ namespace FrontEnd
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            ventanaPrincipal.Show();
 
         }
 
         private void dataGridViewFactura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            InformacionPaciente informacionPaciente = new InformacionPaciente();
-            informacionPaciente.Show();
-            MessageBox.Show("prueba");
+
+
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Asegúrate de que el clic se haya realizado en una celda válida (no en encabezados).
@@ -177,6 +136,8 @@ namespace FrontEnd
                 if (celdaSeleccionada.Value != null)
                 {
                     string valorCelda = celdaSeleccionada.Value.ToString();
+                    InformacionPaciente informacionPaciente = new InformacionPaciente(Convert.ToInt32(valorCelda));
+                    informacionPaciente.Show();
                     MessageBox.Show("El valor de la celda seleccionada es: " + valorCelda);
                 }
                 else
