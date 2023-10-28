@@ -15,6 +15,8 @@ namespace Negocios
         public string servicio { get; set; }
         public DateTime FechaFactura { get; set; }
         public string costoTotal { get; set; }
+        
+        public string NumeroFactura { get; set; }
     }
     public class xmlFactura
     {
