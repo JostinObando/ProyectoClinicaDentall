@@ -82,7 +82,6 @@
             txtUsuarioNuevo.Name = "txtUsuarioNuevo";
             txtUsuarioNuevo.Size = new Size(150, 31);
             txtUsuarioNuevo.TabIndex = 5;
-            txtUsuarioNuevo.Text = "Admin";
             txtUsuarioNuevo.TextChanged += txtUsuarioNuevo_TextChanged;
             // 
             // TxtContra
@@ -92,7 +91,6 @@
             TxtContra.PasswordChar = '*';
             TxtContra.Size = new Size(150, 31);
             TxtContra.TabIndex = 6;
-            TxtContra.Text = "Admin";
             TxtContra.TextChanged += TxtContra_TextChanged;
             // 
             // InicioClinica

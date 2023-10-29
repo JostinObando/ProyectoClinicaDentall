@@ -213,6 +213,7 @@
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.Size = new Size(872, 225);
             dataGridView1.TabIndex = 21;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Funcionarios
             // 
