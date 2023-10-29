@@ -9,7 +9,7 @@ namespace Negocios
 {
     public class Ninno
     {
-
+        //Get y set Ninno
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Identificacion { get; set; }
@@ -25,6 +25,7 @@ namespace Negocios
 
    
 
+    //Xml Nino
     public class NinnoXML
     {
         public List<Ninno> ninnoxml;

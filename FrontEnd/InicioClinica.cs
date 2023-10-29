@@ -21,21 +21,21 @@ namespace FrontEnd
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
-        {
+        {//Inicio 
             IniciarSesion iniciarSesion = new IniciarSesion();
             string usuarioIngresado = txtUsuarioNuevo.Text;
             string contraIngresada = TxtContra.Text;
 
             try
             {
-
-                // string resultado = datos.RegistroNinio(, apellido, identificacion, fechaNacimiento, sexo, identificacionPadre);
+                //Inicio sesion
+               
                 iniciarSesion.Registro(txtUsuarioNuevo.Text, TxtContra.Text);
                 if (iniciarSesion.Registro(usuarioIngresado, contraIngresada))
 
                 {
                     PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-                    // pantallaPrincipal.NombreFuncionario = "Nombre del funcionario";
+                  
                     pantallaPrincipal.Show();
                     this.Hide();
 
@@ -43,7 +43,7 @@ namespace FrontEnd
                 }
                 else
                 {
-
+                    //Usuario y contraseña
                     MessageBox.Show("Usuario y contraseña incorrectos");
 
                 }

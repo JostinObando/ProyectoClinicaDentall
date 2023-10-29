@@ -7,6 +7,7 @@ namespace Negocios
     public class DatosNiños
 
     {
+        // //Se registra los datos brindados por el cliente
         string nombre = "";
         string apellido = "";
         string identificacion = "";
@@ -30,13 +31,13 @@ namespace Negocios
         public string RegistroNinio(NinnoXML ninno)
         {
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            // Puedes construir rutas relativas a esta ubicación
+            // Se va a la ubicacion XMLFiles
             string subfolder = "XMLFiles";
             string filename = "ninnno.xml";
             string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
 
 
-            //StreamWriter MyFile = new StreamWriter(xmlFilePath);
+            
             if (File.Exists(xmlFilePath))
             {
                 using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open, FileAccess.ReadWrite))
@@ -50,7 +51,7 @@ namespace Negocios
             {
                 // Crear un objeto XmlSerializer para la clase Persona
                 XmlSerializer serializer = new XmlSerializer(typeof(NinnoXML));
-                // Crear un flujo de escritura de archivo para guardar el XML
+                // Aqui se de escritura de archivo para guardar el XML
                 using (TextWriter writer = new StreamWriter(xmlFilePath))
                 {
                     // Serializar la entidad Persona en XML y escribirlo en el archivo
@@ -63,7 +64,7 @@ namespace Negocios
         }
 
 
-
+        //Validacion
         private bool IdentificacionExistente(string identificacion)
         {
             foreach (Ninno niño in listaNiño)

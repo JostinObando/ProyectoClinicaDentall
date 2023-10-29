@@ -10,6 +10,7 @@ namespace Negocios
 {
     public  class RFuncionario
     {
+        //Get y Set RFuncionario
         public string NombreFuncionario { get; set; }
         public string ApellidoFuncionario { get; set; }
         public string IdentificacionFuncionario { get; set; }

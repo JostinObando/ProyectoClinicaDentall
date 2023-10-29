@@ -8,6 +8,7 @@ namespace Negocios
 {
     public class Factura
     {
+        //get y set de Factura
         public string NombreNinio { get; set; }
         public string ApellidoNinio { get; set; }
         public string Identificacion { get; set; }
@@ -15,6 +16,7 @@ namespace Negocios
         public string costoTotal { get; set; }
         public string NumeroFactura { get; set; }
     }
+    //Inicio xml Factura
     public class xmlFacturaNueva
     {
         public Factura Facturaxml;

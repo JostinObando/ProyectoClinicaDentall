@@ -11,6 +11,7 @@ namespace Negocios
     {
         private List<ServicioNinio> servicioNinios = new List<ServicioNinio>();
 
+        //Servicio Ninio construtor 
         public ServicioNinios(int idNinio, string descripcion, DateTime fecha, double costo) 
         {
             int nuevoId = ObtenerUltimoID();

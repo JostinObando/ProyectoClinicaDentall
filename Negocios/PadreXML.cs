@@ -9,12 +9,15 @@ namespace Negocios
 {
     public class PadreXML
     {
+        //Lista padre
         public static List<Padre> CargarDatosDesdeXml(string archivo)
         {
             List<Padre> datos = new List<Padre>();
+            
 
             if (File.Exists(archivo))
             {
+                //XML
                 try
                 {
                     XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Padre>));
@@ -34,6 +37,7 @@ namespace Negocios
 
         public static void GuardarDatosEnXml(List<Padre> datos, string archivo)
         {
+            //Inicio del try del GuardarDatos
             try
             {
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Padre>));

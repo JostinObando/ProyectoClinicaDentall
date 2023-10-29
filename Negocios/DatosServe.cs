@@ -8,7 +8,7 @@ namespace Negocios
 {
     public class DatosServe
     {
-
+        //Get y set
         public string Nombre { get; set; }
         public double Costo { get; set; }
         public DatosServe(string nombre, double costo)

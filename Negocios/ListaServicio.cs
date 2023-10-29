@@ -9,11 +9,13 @@ namespace Negocios
 {
     public class ListaServicio
     {
+        //Lista de servicios
         private Dictionary<string, double> serviciosDisponibles = new Dictionary<string, double>();
         private List<ListaServicioss> serviciosSeleccionados = new List<ListaServicioss>();
 
         public ListaServicio()
         {
+            //Datos de la clinica 
             serviciosDisponibles.Add("Limpieza Dental", 50000.0);
             serviciosDisponibles.Add("Extracción de muelas", 40000.0);
             serviciosDisponibles.Add("Extracción de dientes", 35000.0);
@@ -21,6 +23,7 @@ namespace Negocios
             serviciosDisponibles.Add("Ortodoncia", 650000.0);
         }
 
+        //GetServicios
         public List<string> GetServiciosDisponibles()
         {
             return new List<string>(serviciosDisponibles.Keys);
@@ -28,6 +31,7 @@ namespace Negocios
 
         public void AgregarServicio(string nombre)
         {
+            //inicio del agregar
             if (serviciosDisponibles.ContainsKey(nombre))
             {
                 double costo = serviciosDisponibles[nombre];
@@ -35,10 +39,11 @@ namespace Negocios
             }
             else
             {
+                //Mensaje que muestra que el servicio no esta disponible
                 throw new ArgumentException("El servicio seleccionado no existe en los servicios disponibles.");
             }
         }
-
+        //Inicio de CalcularCostoTotal
         public double CalcularCostoTotal()
         {
             double costoTotal = 0;

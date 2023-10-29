@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocios
 {
+    //  ServicioModel get y set
     public class ServicioModel
     {
         public string Nombre { get; set; }

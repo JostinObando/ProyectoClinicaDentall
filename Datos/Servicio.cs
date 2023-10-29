@@ -8,6 +8,7 @@ namespace Datos
 {      
     public class Servicio
     {
+        //get y set
         public string Nombre { get; set; }
         public double CostonSinIva { get; set; }
 

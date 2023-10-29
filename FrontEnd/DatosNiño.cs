@@ -133,6 +133,7 @@ namespace FrontEnd
                     ninnoEncontrado.Nombre = txtNombreNiño.Text;
                     ninnoEncontrado.Apellido = txtApellido.Text;
                     ninnoEncontrado.Identificacion = txtIdendificacionNiño.Text;
+                    ninnoEncontrado.Sexo = comboBoxSexoNiño.Text;
                     ninnoEncontrado.FechaNacimiento = Convert.ToDateTime(dateTimePickerFechaNacimiento.Text);
                    
                     ninnoEncontrado.IdentificacionPadre = txtIDPadre.Text;

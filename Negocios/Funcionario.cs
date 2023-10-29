@@ -6,7 +6,9 @@ namespace Negocios
     public class Funcionario
     {
 
+        //Listas 
         private List<RFuncionario> funcionariosss = new List<RFuncionario>();
+        //Primer formulario
         string nombre = "";
         string apellido = "";
         string identificacion = "";
@@ -19,13 +21,13 @@ namespace Negocios
         public string RegistroFuncionario(xmlFuncionario funcionarioXml)
         {
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            // Puedes construir rutas relativas a esta ubicación
+            // Aqui se puede pasar las  rutas a la direccion Funcionario
             string subfolder = "XMLFiles";
             string filename = "Funcionario.xml";
             string xmlFilePath = Path.Combine(baseDirectory, subfolder, filename);
 
 
-            //StreamWriter MyFile = new StreamWriter(xmlFilePath);
+           
             if (File.Exists(xmlFilePath))
             {
                 using (FileStream fileStream = new FileStream(xmlFilePath, FileMode.Open, FileAccess.ReadWrite))
@@ -37,7 +39,7 @@ namespace Negocios
             }
             else
             {
-                // Crear un objeto XmlSerializer para la clase Persona
+                // Aqui cree un objeto XmlSerializer para la clase Persona
                 XmlSerializer serializer = new XmlSerializer(typeof(xmlFuncionario));
                 // Crear un flujo de escritura de archivo para guardar el XML
                 using (TextWriter writer = new StreamWriter(xmlFilePath))
@@ -54,7 +56,6 @@ namespace Negocios
 
 
 
-        // Realizar validaciones
 
     }
 }

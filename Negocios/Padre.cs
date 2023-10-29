@@ -8,6 +8,7 @@ namespace Negocios
 {
     public class Padre
     {
+        //Get y set Padre
         public string Nombre { get; set; }
         public string Identicacion { get; set; }
         public string Direccion { get; set; }
@@ -18,6 +19,7 @@ namespace Negocios
     }
 
 
+    // Xml padre
     public class xmlPadre
     {
         public List<Padre> padreXml;

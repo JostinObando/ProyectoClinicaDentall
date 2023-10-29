@@ -8,6 +8,7 @@ namespace Negocios
 {
     public class ServicioNinio
     {
+        //get y set dde servicioNinio
         public int Id { get; set; }
         public int NiñoId { get; set; }
         public string Nombre { get; set; }

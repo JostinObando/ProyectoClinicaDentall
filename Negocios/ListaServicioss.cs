@@ -8,6 +8,7 @@ namespace Negocios
 {
     public class ListaServicioss
     {
+        //Get y set ListaServicioss
         public string Nombre { get; set; }
         public double Costo { get; set; }
         public ListaServicioss(string nombre, double costo)

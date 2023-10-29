@@ -78,18 +78,7 @@ namespace FrontEnd
 
 
         }
-        //private string RegistroPadre(string nombre, string identificacionPadre, string direccion, string correoPadre, string tel)
-        //{
-        //    // Verificar si la identificación ya ha sido registrada
-        //    if (identificaciones.Contains(identificacionPadre))
-        //    {
-        //        return "identificacion existente";
-        //    }
-            
        
-
-        //}
-
 
         private bool identificacionExistente(string identificacion)
         {
@@ -99,7 +88,6 @@ namespace FrontEnd
                 if (padre.Identicacion == identificacion)
                 {
 
-                    //MessageBox.Show("ID existente");
                     return true;
 
                 }

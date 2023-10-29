@@ -8,16 +8,10 @@ namespace Negocios
 {
     public class Servicio
     {
+        //Servicio de get y set
         public string servicioNombre { get; set; }
         public string ServicioCostonSinIva { get; set; }
 
-        //public Servicio(string nombre, double costosSinIva)
-        //{
-
-        //    Nombre = nombre;
-        //    CostonSinIva = costosSinIva;
-
-
-        //}
+        
     }
 }
